@@ -1,7 +1,16 @@
 #tool "nuget:?package=GitVersion.CommandLine"
-#addin nuget:?package=Newtonsoft.Json & version = 12.0.2
+#addin nuget:? package = Cake.Json
+#addin nuget:? package = Newtonsoft.Json & version = 11.0.2
 
 using Newtonsoft.Json;
+
+Task("UpdateAssemblyInfo")
+    .Does(() =>
+{
+    GitVersion(new GitVersionSettings {
+        UpdateAssemblyInfo = true
+    });
+});
 
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
