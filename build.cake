@@ -1,3 +1,8 @@
+#tool nuget:?package=Cake.Foo
+#tool nuget:?package=Cake.Foo&version=1.2.3
+#tool nuget:?package=Cake.Foo&prerelease
+#tool nuget:https://myget.org/f/Cake/?package=Cake.Foo&prerelease
+#tool nuget:?package=Cake.Foo&include=path/to/foo.cmd
 #addin nuget:? package = Newtonsoft.Json & version = 11.0.2
 
 using Newtonsoft.Json;
