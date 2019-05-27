@@ -1,0 +1,7 @@
+language: csharp
+solution: MAGVA.sln
+
+matrix:
+  include:
+    - dotnet: 2.2
+    - mono: latest
