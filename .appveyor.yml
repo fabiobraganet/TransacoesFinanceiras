@@ -1,4 +1,7 @@
 version: '1.0.{build}' 
+environment:
+  my_variable:
+    secure: oy2jdpkezfppf7ruivcaiwizphebtpkuhpk7bb5kmwpopu
 image: ubuntu 
 services: 
 - docker 
