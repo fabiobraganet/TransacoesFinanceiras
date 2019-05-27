@@ -1,7 +1,7 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Domain.AggregatesModel.ConsumidorAggregate
 {
-    using SendWork;
+    using Seedwork;
     using System.Threading.Tasks;
 
     public interface IConsumidorRepository : IRepository<Consumidor>

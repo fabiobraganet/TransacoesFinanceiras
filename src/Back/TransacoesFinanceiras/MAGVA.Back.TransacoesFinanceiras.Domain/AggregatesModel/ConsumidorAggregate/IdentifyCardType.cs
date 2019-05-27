@@ -1,7 +1,7 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Domain.AggregatesModel.ConsumidorAggregate
 {
-    using SendWork;
+    using Seedwork;
 
     public class IdentifyCardType
         : Enumeration

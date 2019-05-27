@@ -1,6 +1,6 @@
 ﻿
 
-namespace MAGVA.Back.TransacoesFinanceiras.Domain.SendWork
+namespace MAGVA.Back.TransacoesFinanceiras.Domain.Seedwork
 {
     public interface IRepository<T> where T : IAggregateRoot
     {

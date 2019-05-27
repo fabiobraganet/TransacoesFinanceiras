@@ -1,5 +1,5 @@
 ﻿
-namespace MAGVA.Back.TransacoesFinanceiras.Domain.SendWork
+namespace MAGVA.Back.TransacoesFinanceiras.Domain.Seedwork
 {
     using System;
     using MediatR;
