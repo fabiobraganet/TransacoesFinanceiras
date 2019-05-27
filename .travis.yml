@@ -1,8 +1,12 @@
-language: csharp
-mono: none
-sudo: required
-dist: bionice
-dotnet: 2.2.105
-script:
-    - dotnet restore
-    - dotnet build
+dist: xenial 
+sudo: required 
+language: csharp 
+mono: none 
+dotnet: 2.2.101 
+solution: MAGVA.sln 
+services: 
+- docker 
+script: 
+- dotnet tool install -g Cake.Tool  
+- export PATH=$HOME/.dotnet/tools:$PATH 
+- dotnet cake build.cake 
