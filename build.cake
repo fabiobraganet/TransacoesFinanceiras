@@ -1,5 +1,5 @@
 #tool "nuget:?package=GitVersion.CommandLine"
-#addin nuget:?package=Newtonsoft.Json
+#addin nuget:?package=Newtonsoft.Json & version = 12.0.2
 
 using Newtonsoft.Json;
 
