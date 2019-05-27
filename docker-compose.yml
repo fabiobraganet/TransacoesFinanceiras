@@ -1,0 +1,85 @@
+version: '3.4'
+
+services:
+
+  sql.data:
+    image: microsoft/mssql-server-linux:2017-latest
+    container_name: magvasqlserver2017
+    hostname: magvasqlserver2017
+
+  redis.data:
+    image: redis:alpine
+    container_name: magvaredis
+    hostname: magvaredis
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: magvarabbitmq
+    hostname: magvarabbitmq
+
+  elasticsearch:
+    container_name: magvaelasticsearch
+    hostname: magvaelasticsearch
+    build:
+      context: elk/elasticsearch/
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+
+  logstash:
+    container_name: magvalogstash
+    hostname: magvalogstash
+    build:
+      context: elk/logstash/
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    depends_on:
+      - elasticsearch
+
+  kibana:
+    container_name: magvakibana
+    hostname: magvakibana
+    build:
+      context: elk/kibana/
+    depends_on:
+      - elasticsearch
+
+  magva.back.transacoesfinanceiras:
+    image: ${DOCKER_REGISTRY-}magvabacktransacoesfinanceiras
+    container_name: magvabacktransacoesfinanceiras
+    hostname: magvabacktransacoesfinanceiras
+    build:
+      context: .
+      dockerfile: src/Back/TransacoesFinanceiras/MAGVA.Back.TransacoesFinanceiras/Dockerfile
+    depends_on:
+      - sql.data
+      - redis.data
+      - rabbitmq
+
+  magva.back.watchdog:
+    image: ${DOCKER_REGISTRY-}magvabackwatchdog
+    container_name: magvabackwatchdog
+    hostname: magvabackwatchdog
+    build:
+      context: .
+      dockerfile: src/Back/WatchDog/MAGVA.Back.WatchDog/Dockerfile
+
+  magva.middle.security.admin:
+    container_name: magvamiddlesecurityadmin
+    hostname: magvamiddlesecurityadmin
+    image: ${DOCKER_REGISTRY-}magvamiddlesecurityadmin
+    build:
+      context: .
+      dockerfile: src/Middle/Security/src/MAGVA.Middle.Security.Admin/Dockerfile
+    depends_on:
+      - sql.data
+
+  magva.middle.security.aspnetidentity:
+    container_name: magvamiddlesecurityaspnetidentity
+    hostname: magvamiddlesecurityaspnetidentity
+    image: ${DOCKER_REGISTRY-}magvamiddlesecurityaspnetidentity
+    build:
+      context: .
+      dockerfile: src/Middle/Security/src/MAGVA.Middle.Security.AspNetIdentity/Dockerfile
+    depends_on:
+      - sql.data
+

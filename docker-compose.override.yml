@@ -1,0 +1,132 @@
+version: '3.4'
+
+services:
+
+  sql.data:
+    environment:
+      - SA_PASSWORD=1Pass@word
+      - ACCEPT_EULA=Y
+    networks:
+      - magva-network
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql.data:/var/opt/mssql/data
+
+  redis.data:
+    networks:
+      - magva-network
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=magvarabbitmq
+      - RABBITMQ_DEFAULT_VHOST=/
+    networks:
+      - magva-network
+    ports:
+      - "5671:5671"
+      - "5672:5672"
+      - "15672:15672"
+
+  elasticsearch:
+    networks:
+      - magva-network
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - ./elk/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+
+  logstash:
+    networks:
+      - magva-network
+    ports:
+      - "5044:5044"
+    volumes:
+      - ./elk/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ./elk/logstash/pipeline:/usr/share/logstash/pipeline:ro
+
+  kibana:
+    networks:
+      - magva-network
+    ports:
+      - "5601:5601"
+    volumes:
+      - ./elk/kibana/config/:/usr/share/kibana/config:ro
+
+  magva.back.transacoesfinanceiras:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:15001
+      - ConnectionString=${MAGVA_REDIS_DB:-redis.data}
+      - identityUrl=http://magvamiddlesecurityaspnetidentity:14000
+      - IdentityUrlExternal=http://magvamiddlesecurityaspnetidentity:14000
+      - EventBusConnection=${MAGVA_SERVICE_BUS:-rabbitmq}
+    networks:
+      - magva-network
+    ports:
+      - "15001:15001"
+      - "15002:15002"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  magva.back.watchdog:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:15098
+    networks:
+      - magva-network
+    ports:
+      - "15098:15098"
+      - "15099:15099"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  magva.middle.security.aspnetidentity:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:14000
+    networks:
+      - magva-network
+    ports:
+      - "14000:14000"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+  
+  magva.middle.security.admin:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:14001
+    networks:
+      - magva-network
+    ports:
+      - "14001:14001"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+
+networks:
+  magva-network:
+    driver: bridge
+
+volumes:
+  sql.data:
+    driver: local
+  magva.back.transacoesfinanceiras:
+    driver: local
+  magva.back.watchdog:
+    driver: local
+  magva.middle.security.aspnetidentity:
+    driver: local
+  magva.middle.security.admin:
+    driver: local
+  elasticsearch:
+    driver: local
+  logstash:
+    driver: local
+  kibana:
+    driver: local

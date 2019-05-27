@@ -1,2 +1,100 @@
-# TransacoesFinanceiras
-Este projeto visa prover soluÃ§Ãµes para transaÃ§Ãµes financeiras.
+
+Desafio MAGVA - Transações Financeiras
+
+Uma documentação mais rica será fornecida no final do desafio.
+Os teste ainda serão montatos, contudo seu escopo será limitado as especificações do desafio e incluirão testes unitários e testes de interface.
+
+No meu desafio decidi implementar com a arquitetura de microserviços e mantendo as recomendações da Microsoft, documentada e com um projeto de exemplo nos links abaixo.
+
+	* A decisão pela recomendação da Microsoft é a ampla documentação e abrangencia de soluções integradas.
+	
+	Documentação: http://
+	Projeto Modelo: http://
+	
+	- Para atender o design da solução, decidi por um ecossistema mais complexo, contudo a abrangencia permitirá ter o controle sobre a infraestrutura e as atividades dos serviços.
+	
+Requisitos mínimos
+
+	- Visual Studio 2019 (recomendado)
+	- Docker (se no windows, mínimo de 4GB de memória na VM do Docker-Linux no Hyper-V)
+	- Memória 8GB ou mais
+	- Disco para Docker igual ou superior a 10GB
+	- Recomendo 4 núcleos de processamento mínimos para melhor desempenho de trabalho
+
+Primeiros passos (preparando a depuração inicial do projeto)
+
+1) Configure seu arquivo hosts para novos nomes de apelido para seu localhost. Isso é necessário para o desenvolvimento até a implementação do NGINX.
+ 
+	#Copie e cole
+	127.0.0.1	magvasqlserver2017
+	127.0.0.1	magvaredis
+	127.0.0.1	magvarabbitmq
+	127.0.0.1	magvaelasticsearch
+	127.0.0.1	magvalogstash
+	127.0.0.1	magvakibana
+	127.0.0.1	magvabacktransacoesfinanceiras
+	127.0.0.1	magvabackwatchdog
+	127.0.0.1	magvamiddlesecurityadmin
+	127.0.0.1	magvamiddlesecurityaspnetidentity
+	
+	*Estou pensando em incluir o WebMin ao Stack.
+
+2) Agora clone o projeto
+
+	Git Clone ...
+
+	Abra o Visual Studio e a solução MAGVA e execute o debug com o Docker Compose	
+	Verifique os Containers ativos conforme a lista abaixo:
+	
+	#[Imagens internas]
+	magvabacktransacoesfinanceiras		magvabacktransacoesfinanceiras:dev			15001:15001 15002:15002
+	magvabackwatchdog 					magvabackwatchdog:dev 						15098:15098 15099:15099
+	magvamiddlesecurityadmin			magvamiddlesecurityadmin:dev				14001:14001 	
+	magvamiddlesecurityaspnetidentity 	magvamiddlesecurityaspnetidentity:dev		14000:14000
+	#[Imagens externas personalizadas]
+	magvaelasticsearch 					dockercompose*_elasticsearch 				9200:9200 9300:9300
+	magvakibana							dockercompose*_kibana 						5601:5601 	
+	magvalogstash 						dockercompose*_logstash						5044:5044 	
+	#[Imagens externas intactas]
+	magvarabbitmq 						rabbitmq:3-management-alpine				15672:15672 5671:5671 5672:5672
+	magvasqlserver2017 					microsoft/mssql-server-linux:2017-latest 	1433:1433
+	magvaredis 							redis:alpine 								6379:6379 
+
+3) Ao carregar toda a solução e montar corretamente os Containers, execute no Browser o seguinte URL:
+
+	3.1) Acesse: http://magvamiddlesecurityadmin:14001/home/seed
+
+	Caso o retorno seja (true). Verifique se ele criou em magvasqlserver2017 (SQL Server 2017 for Linux) a base de dados (IdentityServer4Admin)
+	Para acessar o SQL Server, use o SSMS 2016 ou superior com a seguinte conta:
+	
+	Servidor: magvasqlserver2017
+	Usuário: SA
+	Senha: 1Pass@word
+	
+	Este processo é importante para habilitar o IdentityServer4 e o Web Admin UI.
+	Mais informações em: https://github.com/skoruba/IdentityServer4.Admin
+	
+	Agora vá para http://magvamiddlesecurityadmin:14001
+	
+	Faça o login com a conta de usuário administrador:
+	Usuário: admin
+	Senha: Pa$$word123
+	
+	#************
+	#** Após efetuar o login, poderá haver um problema de correlação referente ao redirect uri. 
+	#** Se ocorrer, ignore e vá para http://magvamiddlesecurityadmin:14001. 
+	#** Trata-se de um bug no projeto e não tratei de corrigir.
+	#************
+	
+4) Verificar a saúde dos serviços, acesse: 
+	
+	http://magvabackwatchdog:15098/healthcheckui
+	
+	Verifique se todos os serviços e recursos listados estão ativos.
+	
+	
+	
+
+
+
+
