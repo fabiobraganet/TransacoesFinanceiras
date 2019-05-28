@@ -55,7 +55,6 @@ namespace MAGVA.Back.TransacoesFinanceiras
                     options.Filters.Add(typeof(ValidateModelStateFilter));
 
                 })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddControllersAsServices();
 
             ConfigureAuthService(services);

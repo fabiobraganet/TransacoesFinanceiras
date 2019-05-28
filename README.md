@@ -10,8 +10,17 @@ No meu desafio decidi implementar com a arquitetura de microserviços e mantendo 
 
 A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de soluções integradas.
 	
-	Documentação: http://
-	Projeto Modelo: http://
+	https://dotnet.microsoft.com/learn/web/microservices-architecture
+
+	Documentação: 
+		https://dotnet.microsoft.com/learn/web/aspnet-microservice-tutorial/intro
+		https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/
+
+	Video
+		https://myignite.techcommunity.microsoft.com/sessions/65003?source=sessions#ignite-html-anchor
+
+	Projeto Modelo: 
+		https://github.com/dotnet-architecture/eShopOnContainers
 	
 
 > Para atender o design da solução, decidi por um ecossistema mais
@@ -88,7 +97,13 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 	> 	Usuário: admin 	
 	> Senha: Pa$$word123
 
-	
+	Para gerar uma migração, use:
+
+	>   dotnet ef migrations add Initial -s ..\MAGVA.Back.TransacoesFinanceiras -c MAGVA.Back.TransacoesFinanceiras.Infrastructure.TransacoesFinanceirasContext -o ./DataBase/_Migrations
+    > dotnet ef migrations remove -s ..\MAGVA.Back.TransacoesFinanceiras
+	>
+	> [..]\TransacoesFinanceiras\src\Back\TransacoesFinanceiras (master)
+	>
 
 	Após efetuar o login, poderá haver um problema de correlação referente ao redirect uri. 
 	Se ocorrer, ignore e vá para http://magvamiddlesecurityadmin:14001. 
