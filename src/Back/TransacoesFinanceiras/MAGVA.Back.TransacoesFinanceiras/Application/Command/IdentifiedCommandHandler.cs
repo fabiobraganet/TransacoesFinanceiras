@@ -27,7 +27,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
 
         protected virtual R CreateResultForDuplicateRequest()
         {
-            return default(R);
+            return default;
         }
 
         public async Task<R> Handle(IdentifiedCommand<T, R> message, CancellationToken cancellationToken)
@@ -81,7 +81,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
                 }
                 catch
                 {
-                    return default(R);
+                    return default;
                 }
             }
         }

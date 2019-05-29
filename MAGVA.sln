@@ -55,11 +55,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAGVA.Middle.Security.Admin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAGVA.Middle.Security.AspNetIdentity", "src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\MAGVA.Middle.Security.AspNetIdentity.csproj", "{9FEA2C3F-6184-4704-8235-06D8BA7606D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAGVA.GlobalBase.IntegrationEventLogEF", "src\GlobalBase\EventBus\MAGVA.GlobalBase.IntegrationEventLogEF\MAGVA.GlobalBase.IntegrationEventLogEF.csproj", "{0E989348-4B6A-41B2-AF44-7A01F8E67464}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAGVA.GlobalBase.IntegrationEventLogEF", "src\GlobalBase\EventBus\MAGVA.GlobalBase.IntegrationEventLogEF\MAGVA.GlobalBase.IntegrationEventLogEF.csproj", "{0E989348-4B6A-41B2-AF44-7A01F8E67464}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAGVA.Back.TransacoesFinanceiras.Domain", "src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Domain\MAGVA.Back.TransacoesFinanceiras.Domain.csproj", "{170811C1-6FEB-4C9C-80DA-193A6D8DD905}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAGVA.Back.TransacoesFinanceiras.Domain", "src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Domain\MAGVA.Back.TransacoesFinanceiras.Domain.csproj", "{170811C1-6FEB-4C9C-80DA-193A6D8DD905}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAGVA.Back.TransacoesFinanceiras.Infrastructure", "src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\MAGVA.Back.TransacoesFinanceiras.Infrastructure.csproj", "{AD19ACCA-70FF-44BB-837E-937AB420C544}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAGVA.Back.TransacoesFinanceiras.Infrastructure", "src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\MAGVA.Back.TransacoesFinanceiras.Infrastructure.csproj", "{AD19ACCA-70FF-44BB-837E-937AB420C544}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
