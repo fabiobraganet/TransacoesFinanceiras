@@ -87,8 +87,8 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 
 	Caso esteja usando o Mozilla Firefox e ele trave alguma porta. Execute os comandos abaixo:
 
-	> 	netstat -a -n -o | findstr <porta>
-	> tasklist | findstr <porta>
+	> 	netstat -a -n -o | findstr {porta}
+	> tasklist | findstr {porta}
 	> taskkill /PID <pid> /F
 
 3) Ao carregar toda a solução e montar corretamente os Containers, execute no Browser o seguinte URL:
