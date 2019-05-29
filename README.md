@@ -126,3 +126,19 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 	http://magvabackwatchdog:15098/healthcheckui
 	
 	Verifique se todos os serviços e recursos listados estão ativos.
+
+5) Verificar os EndPoints do serviço da API de Transações Financeiras
+
+	Verifique os metodos via Swagger em:
+	http://magvabacktransacoesfinanceiras:15001/swagger/index.html
+
+	Mais informações em:
+	https://docs.microsoft.com/pt-br/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-2.2&tabs=visual-studio
+
+6) Verificar as atividades do sistema via Kibana
+
+	http://magvakibana:5601/app/kibana#/home?_g=()
+
+	> Filtro requirido [ logstash-* ]
+
+7) Acesse 

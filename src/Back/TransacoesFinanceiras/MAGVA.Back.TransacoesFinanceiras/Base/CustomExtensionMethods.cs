@@ -73,29 +73,23 @@ namespace MAGVA.Back.TransacoesFinanceiras.Base
                     name: "redis-check",
                     tags: new string[] { "redis" });
 
-            hcBuilder
-                .AddRabbitMQ(
-                    $"amqp://{configuration["EventBusConnection"]}",
-                    name: "rabbitmqbus-check",
-                    tags: new string[] { "rabbitmqbus" });
-
 
             //if (configuration.GetValue<bool>("AzureServiceBusEnabled"))
             //{
             //    hcBuilder
             //        .AddAzureServiceBusTopic(
             //            configuration["EventBusConnection"],
-            //            topicName: "eshop_event_bus",
-            //            name: "ordering-servicebus-check",
+            //            topicName: "magva_event_bus",
+            //            name: "transacoesfinanceiras-servicebus-check",
             //            tags: new string[] { "servicebus" });
             //}
             //else
             //{
-            //    hcBuilder
-            //        .AddRabbitMQ(
-            //            $"amqp://{configuration["EventBusConnection"]}",
-            //            name: "ordering-rabbitmqbus-check",
-            //            tags: new string[] { "rabbitmqbus" });
+            hcBuilder
+                .AddRabbitMQ(
+                    $"amqp://{configuration["EventBusConnection"]}",
+                    name: "rabbitmqbus-check",
+                    tags: new string[] { "rabbitmqbus" });
             //}
 
             return services;
