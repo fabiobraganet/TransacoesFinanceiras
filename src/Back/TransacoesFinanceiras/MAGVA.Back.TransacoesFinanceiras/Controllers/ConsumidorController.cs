@@ -1,15 +1,17 @@
-﻿using System;
-
+﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Controllers
 {
     using Application.Queries;
     using MediatR;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
+    using System;
     using System.Net;
     using System.Threading.Tasks;
 
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
+    [Authorize]
     [ApiController]
     public class ConsumidorController : ControllerBase
     {
@@ -30,6 +32,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
+        [AllowAnonymous]
         [Route("{id:int}")]
         [HttpGet]
         [ProducesResponseType(typeof(Consumidor), (int)HttpStatusCode.OK)]
