@@ -66,7 +66,7 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 
 2) Agora clone o projeto
 
-	Git Clone ...
+	> Git Clone https://github.com/fabiobraganet/TransacoesFinanceiras.git
 
 	Abra o Visual Studio e a solução MAGVA e execute o debug com o Docker Compose	
 	Verifique os Containers ativos conforme a lista abaixo:
