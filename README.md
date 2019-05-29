@@ -104,8 +104,10 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 
 	Para acessar o SQL Server, use o SSMS 2016 ou superior com a seguinte conta:
 
-	> 	Servidor: magvasqlserver2017 	
+	> 	Servidor: magvasqlserver2017 
+	
 	> Usuário: SA 	
+	
 	> Senha: 1Pass@word
 
 	
@@ -117,6 +119,7 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 	Faça o login com a conta de usuário administrador:
 
 	> 	Usuário: admin 	
+
 	> Senha: Pa$$word123
 
 	Após efetuar o login, poderá haver um problema de correlação referente ao redirect uri. 
