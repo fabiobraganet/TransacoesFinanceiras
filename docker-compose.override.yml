@@ -60,10 +60,18 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://0.0.0.0:15001
-      - ConnectionString=${MAGVA_REDIS_DB:-redis.data}
+      - ConnectionStringRedis=${MAGVA_REDIS_DB:-redis.data}
+      - ConnectionString=Server=tcp:magvasqlserver2017;Database=TransferenciasFinanceirasDB;User Id=SA;Password=1Pass@word;MultipleActiveResultSets=true
       - identityUrl=http://magvamiddlesecurityaspnetidentity:14000
       - IdentityUrlExternal=http://magvamiddlesecurityaspnetidentity:14000
-      - EventBusConnection=${MAGVA_SERVICE_BUS:-rabbitmq}
+      - EventBusConnection=magvarabbitmq
+      - EventBusUserName=guest
+      - EventBusPassword=guest 
+      - AzureServiceBusEnabled=False
+      - ApplicationInsights__InstrumentationKey=${INSTRUMENTATION_KEY}
+      - OrchestratorType=${ORCHESTRATOR_TYPE}
+      - UseLoadTest=${USE_LOADTEST:-False}
+
     networks:
       - magva-network
     ports:

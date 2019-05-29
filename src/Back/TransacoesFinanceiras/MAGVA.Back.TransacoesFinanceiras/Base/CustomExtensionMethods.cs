@@ -1,10 +1,15 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Base
 {
+    using MAGVA.Back.TransacoesFinanceiras.Infrastructure;
+    using MAGVA.GlobalBase.IntegrationEventLogEF;
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Diagnostics.HealthChecks;
-    
+    using System;
+    using System.Reflection;
+
     public static class CustomExtensionMethods
     {
         public static IServiceCollection AddCustomHealthCheck(this IServiceCollection services, IConfiguration configuration)
@@ -16,12 +21,12 @@ namespace MAGVA.Back.TransacoesFinanceiras.Base
             hcBuilder
                 .AddSqlServer(
                     configuration["ConnectionString"],
-                    name: "OrderingDB-check",
-                    tags: new string[] { "orderingdb" });
+                    name: "TransferenciasFinanceirasDB-check",
+                    tags: new string[] { "TransferenciasFinanceirasDB" });
 
             hcBuilder
                 .AddRedis(
-                    configuration["ConnectionString"],
+                    configuration["ConnectionStringRedis"],
                     name: "redis-check",
                     tags: new string[] { "redis" });
 
@@ -30,6 +35,33 @@ namespace MAGVA.Back.TransacoesFinanceiras.Base
                         $"amqp://{configuration["EventBusConnection"]}",
                         name: "rabbitmqbus-check",
                         tags: new string[] { "rabbitmqbus" });
+
+            return services;
+        }
+
+        public static IServiceCollection AddCustomDbContext(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddEntityFrameworkSqlServer()
+                   .AddDbContext<TransacoesFinanceirasContext>(options =>
+                   {
+                       options.UseSqlServer(configuration["ConnectionString"],
+                           sqlServerOptionsAction: sqlOptions =>
+                           {
+                               sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
+                               sqlOptions.EnableRetryOnFailure(maxRetryCount: 10, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
+                           });
+                   },
+                   ServiceLifetime.Scoped);
+
+            services.AddDbContext<IntegrationEventLogContext>(options =>
+            {
+                options.UseSqlServer(configuration["ConnectionString"],
+                    sqlServerOptionsAction: sqlOptions =>
+                    {
+                        sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
+                        sqlOptions.EnableRetryOnFailure(maxRetryCount: 10, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
+                    });
+            });
 
             return services;
         }

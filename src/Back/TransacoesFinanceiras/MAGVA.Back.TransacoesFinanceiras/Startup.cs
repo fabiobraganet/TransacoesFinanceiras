@@ -2,17 +2,14 @@
 namespace MAGVA.Back.TransacoesFinanceiras
 {
     using Autofac;
-
+    using Autofac.Extensions.DependencyInjection;
     using Base;
-    using Infrastructure.Filters;
-    using Infrastructure.Middlewares;
-    
     using GlobalBase.EventBus;
     using GlobalBase.EventBus.Abstractions;
     using GlobalBase.EventBusRabbitMQ;
-    
-    using Autofac.Extensions.DependencyInjection;
-    using Microsoft.ApplicationInsights.Extensibility;
+    using HealthChecks.UI.Client;
+    using Infrastructure.Filters;
+    using Infrastructure.Middlewares;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -21,7 +18,6 @@ namespace MAGVA.Back.TransacoesFinanceiras
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Diagnostics.HealthChecks;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
     using RabbitMQ.Client;
@@ -30,11 +26,6 @@ namespace MAGVA.Back.TransacoesFinanceiras
     using System;
     using System.Collections.Generic;
     using System.IdentityModel.Tokens.Jwt;
-    using HealthChecks.UI.Client;
-    using Microsoft.EntityFrameworkCore;
-    using System.Reflection;
-    using MAGVA.GlobalBase.IntegrationEventLogEF;
-    using MAGVA.Back.TransacoesFinanceiras.Infrastructure;
 
     public class Startup
     {
@@ -55,12 +46,15 @@ namespace MAGVA.Back.TransacoesFinanceiras
                     options.Filters.Add(typeof(ValidateModelStateFilter));
 
                 })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddControllersAsServices();
 
             ConfigureAuthService(services);
 
             services.AddCustomHealthCheck(Configuration);
             services.Configure<TransacoesFinanceirasSettings>(Configuration);
+
+            services.AddCustomDbContext(Configuration);
 
             services.AddSingleton<ConnectionMultiplexer>(sp =>
             {
@@ -140,13 +134,14 @@ namespace MAGVA.Back.TransacoesFinanceiras
             });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            //services.AddTransient<IBasketRepository, RedisBasketRepository>();
-            //services.AddTransient<IIdentityService, IdentityService>();
 
             services.AddOptions();
 
             var container = new ContainerBuilder();
             container.Populate(services);
+
+            //container.RegisterModule(new MediatorModule());
+            //container.RegisterModule(new ApplicationModule(Configuration["ConnectionString"]));
 
             return new AutofacServiceProvider(container.Build());
         }
@@ -261,33 +256,4 @@ namespace MAGVA.Back.TransacoesFinanceiras
 
     }
 
-    static class CustomExtensionsMethods
-    {
-        public static IServiceCollection AddCustomDbContext(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddEntityFrameworkSqlServer()
-                   .AddDbContext<TransacoesFinanceirasContext>(options =>
-                   {
-                       options.UseSqlServer(configuration["ConnectionString"],
-                           sqlServerOptionsAction: sqlOptions =>
-                           {
-                               sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
-                               sqlOptions.EnableRetryOnFailure(maxRetryCount: 10, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
-                           });
-                   },
-                   ServiceLifetime.Scoped);
-
-            services.AddDbContext<IntegrationEventLogContext>(options =>
-            {
-                options.UseSqlServer(configuration["ConnectionString"],
-                    sqlServerOptionsAction: sqlOptions =>
-                    {
-                        sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
-                        sqlOptions.EnableRetryOnFailure(maxRetryCount: 10, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
-                    });
-            });
-
-            return services;
-        }
-    }
 }

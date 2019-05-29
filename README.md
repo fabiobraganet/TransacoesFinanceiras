@@ -21,6 +21,12 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 
 	Projeto Modelo: 
 		https://github.com/dotnet-architecture/eShopOnContainers
+
+	Leituras recomendadas (fontes usadas no aqui)
+		http://cqrs.nu/Faq
+		https://docs.spine3.org/motivation/immutability.html 
+		http://blog.gauffin.org/2012/06/griffin-container-introducing-command-support/
+		https://msdn.microsoft.com/en-us/library/bb383979.aspx
 	
 
 > Para atender o design da solução, decidi por um ecossistema mais
