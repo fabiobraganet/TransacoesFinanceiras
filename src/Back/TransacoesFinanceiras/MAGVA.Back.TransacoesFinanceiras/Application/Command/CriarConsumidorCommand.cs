@@ -2,15 +2,14 @@
 namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
 {
     using MediatR;
-    using System;
     using System.Runtime.Serialization;
-    
 
     [DataContract]
     public class CriarConsumidorCommand
          : IRequest<bool>
     {
-
+        [DataMember]
+        public int Id { get; private set; }
         [DataMember]
         public string Nome { get; private set; }
         [DataMember]
@@ -23,10 +22,12 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
         }
 
         public CriarConsumidorCommand(
+            int id, 
             string nome,
             string email,
             bool ativo = true)
         {
+            Id = id;
             Nome = nome;
             Email = email;
             Ativo = ativo;
