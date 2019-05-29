@@ -2,7 +2,7 @@
 ![enter image description here](https://ci.appveyor.com/api/projects/status/github/fabiobraganet/TransacoesFinanceiras?branch=master&svg=true) ![enter image description here](https://travis-ci.org/fabiobraganet/TransacoesFinanceiras.svg?branch=master)
 
 > Uma documentação mais rica será fornecida no final do desafio. Os
-> teste ainda serão montatos, contudo seu escopo será limitado as
+> teste ainda serão montados, contudo seu escopo será limitado as
 > especificações do desafio e incluirão testes unitários e testes de
 > interface.
 
@@ -27,6 +27,7 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 		https://docs.spine3.org/motivation/immutability.html 
 		http://blog.gauffin.org/2012/06/griffin-container-introducing-command-support/
 		https://msdn.microsoft.com/en-us/library/bb383979.aspx
+		http://docs.autofac.org/en/latest/integration/aspnetcore.html#controllers-as-services
 	
 
 > Para atender o design da solução, decidi por um ecossistema mais
@@ -83,11 +84,22 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 	| magvasqlserver2017 | microsoft/mssql-server-linux:2017-latest | 1433:1433 |
 	| magvaredis | redis:alpine | 6379:6379 |
 
+
+	Caso esteja usando o Mozilla Firefox e ele trave alguma porta. Execute os comandos abaixo:
+
+	> 	netstat -a -n -o | findstr <porta>
+	> tasklist | findstr <porta>
+	> taskkill /PID <pid> /F
+
 3) Ao carregar toda a solução e montar corretamente os Containers, execute no Browser o seguinte URL:
 
 	3.1) Acesse: http://magvamiddlesecurityadmin:14001/home/seed
 
 	Caso o retorno seja (true). Verifique se ele criou em magvasqlserver2017 (SQL Server 2017 for Linux) a base de dados (IdentityServer4Admin)
+	As demais migrações dos contextos de dados serão realizados na inicialização do programa.
+
+	![alt text](https://github.com/fabiobraganet/TransacoesFinanceiras/blob/master/docs/img/processodeiniciacao.png)
+
 	Para acessar o SQL Server, use o SSMS 2016 ou superior com a seguinte conta:
 
 	> 	Servidor: magvasqlserver2017 	
@@ -98,9 +110,6 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 	Este processo é importante para habilitar o IdentityServer4 e o Web Admin UI.
 	Mais informações em: https://github.com/skoruba/IdentityServer4.Admin
 
-	As demais migrações dos contextos de dados serão realizados na inicialização do programa.
-	![alt text](https://github.com/fabiobraganet/TransacoesFinanceiras/blob/master/docs/img/processodeiniciacao.png)
-	
 	Agora vá para http://magvamiddlesecurityadmin:14001
 	
 	Faça o login com a conta de usuário administrador:

@@ -10,6 +10,7 @@ namespace MAGVA.Back.TransacoesFinanceiras
     using HealthChecks.UI.Client;
     using Infrastructure.Filters;
     using Infrastructure.Middlewares;
+    using Infrastructure.AutofacModules;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -53,6 +54,8 @@ namespace MAGVA.Back.TransacoesFinanceiras
 
             services.AddCustomHealthCheck(Configuration);
             services.Configure<TransacoesFinanceirasSettings>(Configuration);
+
+            services.AddCustomConfiguration(Configuration);
 
             services.AddCustomDbContext(Configuration);
 
@@ -140,8 +143,8 @@ namespace MAGVA.Back.TransacoesFinanceiras
             var container = new ContainerBuilder();
             container.Populate(services);
 
-            //container.RegisterModule(new MediatorModule());
-            //container.RegisterModule(new ApplicationModule(Configuration["ConnectionString"]));
+            container.RegisterModule(new MediatorModule());
+            container.RegisterModule(new ApplicationModule(Configuration["ConnectionString"]));
 
             return new AutofacServiceProvider(container.Build());
         }

@@ -22,6 +22,8 @@ services:
     hostname: magvaelasticsearch
     build:
       context: elk/elasticsearch/
+      args:
+        ELK_VERSION: ${ELK_VERSION}
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
 
@@ -30,6 +32,8 @@ services:
     hostname: magvalogstash
     build:
       context: elk/logstash/
+      args:
+        ELK_VERSION: ${ELK_VERSION}
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     depends_on:
@@ -40,6 +44,8 @@ services:
     hostname: magvakibana
     build:
       context: elk/kibana/
+      args:
+        ELK_VERSION: ${ELK_VERSION}
     depends_on:
       - elasticsearch
 
