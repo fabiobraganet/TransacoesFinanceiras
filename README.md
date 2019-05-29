@@ -42,6 +42,8 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 	- Disco para Docker igual ou superior a 10GB
 	- Recomendo 4 núcleos de processamento mínimos para melhor desempenho de trabalho
 
+	![alt text](https://github.com/fabiobraganet/TransacoesFinanceiras/blob/master/docs/img/consumodeinfraestrutura.png)
+
 **Primeiros passos (preparando a depuração inicial do projeto)**
 
 1) Configure seu arquivo hosts para novos nomes de apelido para seu localhost. Isso é necessário para o desenvolvimento até a implementação do NGINX.
@@ -95,6 +97,9 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 	
 	Este processo é importante para habilitar o IdentityServer4 e o Web Admin UI.
 	Mais informações em: https://github.com/skoruba/IdentityServer4.Admin
+
+	As demais migrações dos contextos de dados serão realizados na inicialização do programa.
+	![alt text](https://github.com/fabiobraganet/TransacoesFinanceiras/blob/master/docs/img/processodeiniciacao.png)
 	
 	Agora vá para http://magvamiddlesecurityadmin:14001
 	
@@ -102,14 +107,6 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 
 	> 	Usuário: admin 	
 	> Senha: Pa$$word123
-
-	Para gerar uma migração, use:
-
-	>   dotnet ef migrations add Initial -s ..\MAGVA.Back.TransacoesFinanceiras -c MAGVA.Back.TransacoesFinanceiras.Infrastructure.TransacoesFinanceirasContext -o ./DataBase/_Migrations
-    > dotnet ef migrations remove -s ..\MAGVA.Back.TransacoesFinanceiras
-	>
-	> [..]\TransacoesFinanceiras\src\Back\TransacoesFinanceiras (master)
-	>
 
 	Após efetuar o login, poderá haver um problema de correlação referente ao redirect uri. 
 	Se ocorrer, ignore e vá para http://magvamiddlesecurityadmin:14001. 
