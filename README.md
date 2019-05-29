@@ -141,4 +141,11 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 
 	> Filtro requirido [ logstash-* ]
 
-7) Acesse 
+7) Uma visão sobre o ecosistema 
+
+	![alt text](https://github.com/fabiobraganet/TransacoesFinanceiras/blob/master/docs/img/ecosistema.png)
+
+	- Plataformas
+	- Arquiteturas
+	- Ferramentas
+	- Soluções
