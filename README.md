@@ -42,7 +42,7 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 	- Disco para Docker igual ou superior a 10GB
 	- Recomendo 4 núcleos de processamento mínimos para melhor desempenho de trabalho
 
-	![alt text](https://github.com/fabiobraganet/TransacoesFinanceiras/blob/master/docs/img/consumodeinfraestrutura.png)
+![alt text](https://github.com/fabiobraganet/TransacoesFinanceiras/blob/master/docs/img/consumodeinfraestrutura.png)
 
 **Primeiros passos (preparando a depuração inicial do projeto)**
 
