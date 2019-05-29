@@ -1,10 +1,10 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure
 {
+    using MediatR;
     using Domain.AggregatesModel.ConsumidorAggregate;
     using Domain.Seedwork;
     using EntityConfigurations;
-    using MediatR;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Design;
     using Microsoft.EntityFrameworkCore.Storage;
@@ -23,6 +23,8 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure
         private IDbContextTransaction _currentTransaction;
 
         public IDbContextTransaction GetCurrentTransaction() => _currentTransaction;
+
+        public TransacoesFinanceirasContext(DbContextOptions<TransacoesFinanceirasContext> options) : base(options) { }
 
         public bool HasActiveTransaction => _currentTransaction != null;
 
@@ -98,7 +100,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure
         }
     }
 
-    public class OrderingContextDesignFactory : IDesignTimeDbContextFactory<TransacoesFinanceirasContext>
+    public class TransacoesFinanceirasContextDesignFactory : IDesignTimeDbContextFactory<TransacoesFinanceirasContext>
     {
         public TransacoesFinanceirasContext CreateDbContext(string[] args)
         {

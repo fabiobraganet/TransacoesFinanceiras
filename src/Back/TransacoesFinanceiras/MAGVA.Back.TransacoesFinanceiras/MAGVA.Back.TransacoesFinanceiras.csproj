@@ -22,6 +22,7 @@
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />
     <PackageReference Include="Dapper" Version="1.50.7" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="7.5.0" />
+	  <PackageReference Include="MediatR" Version="5.1.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.1" />
     <PackageReference Include="Microsoft.ApplicationInsights.DependencyCollector" Version="2.9.1" />
     <PackageReference Include="Microsoft.ApplicationInsights.Kubernetes" Version="1.0.2" />
@@ -46,6 +47,7 @@
     <ProjectReference Include="..\..\..\GlobalBase\EventBus\MAGVA.GlobalBase.EventBusRabbitMQ\MAGVA.GlobalBase.EventBusRabbitMQ.csproj" />
     <ProjectReference Include="..\..\..\GlobalBase\EventBus\MAGVA.GlobalBase.EventBus\MAGVA.GlobalBase.EventBus.csproj" />
     <ProjectReference Include="..\..\..\GlobalBase\EventBus\MAGVA.GlobalBase.IntegrationEventLogEF\MAGVA.GlobalBase.IntegrationEventLogEF.csproj" />
+    <ProjectReference Include="..\..\..\GlobalBase\WebHost\MAGVA.GlobalBase.WebHost.Customization\MAGVA.GlobalBase.WebHost.Customization.csproj" />
     <ProjectReference Include="..\MAGVA.Back.TransacoesFinanceiras.Infrastructure\MAGVA.Back.TransacoesFinanceiras.Infrastructure.csproj" />
   </ItemGroup>
 

@@ -2,20 +2,23 @@
 namespace MAGVA.Back.TransacoesFinanceiras
 {
     using Infrastructure.Middlewares;
+    using Infrastructure;
     using Microsoft.AspNetCore;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Server.Kestrel.Core;
     using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
     using Serilog;
     using System;
     using System.IO;
-    using System.Net;
+    using GlobalBase.IntegrationEventLogEF;
+    using Microsoft.Extensions.Options;
+    using Microsoft.Extensions.Logging;
 
     public class Program
     {
         public static readonly string Namespace = typeof(Program).Namespace;
         public static readonly string AppName = Namespace.Substring(Namespace.LastIndexOf('.', Namespace.LastIndexOf('.') - 1) + 1);
-        public static IWebHost Host;
 
         public static int Main(string[] args)
         {
@@ -26,10 +29,24 @@ namespace MAGVA.Back.TransacoesFinanceiras
             try
             {
                 Log.Information("Configuring web host ({ApplicationContext})...", AppName);
-                Host = BuildWebHost(configuration, args);
+                var host = BuildWebHost(configuration, args);
+
+                Log.Information("Applying migrations ({ApplicationContext})...", AppName);
+                _ = host.MigrateDbContext<TransacoesFinanceirasContext>((context, services) =>
+                  {
+                      var env = services.GetService<IHostingEnvironment>();
+                      var settings = services.GetService<IOptions<ProgramSettings>>();
+                      var logger = services.GetService<ILogger<TransacoesFinanceirasContextSeed>>();
+
+                      new TransacoesFinanceirasContextSeed()
+                          .SeedAsync(context, env, settings, logger)
+                          .Wait();
+                  })
+                .MigrateDbContext<IntegrationEventLogContext>((_, __) => { });
+
 
                 Log.Information("Starting web host ({ApplicationContext})...", AppName);
-                Host.Run();
+                host.Run();
 
                 return 0;
             }
@@ -55,7 +72,7 @@ namespace MAGVA.Back.TransacoesFinanceiras
                         .UseSerilog()
                         .Build();
 
-        private static ILogger CreateSerilogLogger(IConfiguration configuration)
+        private static Serilog.ILogger CreateSerilogLogger(IConfiguration configuration)
         {
             var seqServerUrl = configuration["Serilog:SeqServerUrl"];
             var logstashUrl = configuration["Serilog:LogstashgUrl"];
