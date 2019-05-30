@@ -154,28 +154,25 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 		- Docker
 			- Visual Studio Docker Compose
 		- Kubernates
-			Não implementados
+			- Não implementados
 	- Arquiteturas
 		- Microsserviços
-			Veja mais em:
 		- Orquestradores
-			Não implementados
+			- Não implementados
 		- Serviços de Descoberta
-			Não implementados
+			- Não implementados
 		- Gateways
-			Não implementados
+			- Não implementados
 		- DDD e CQRS
-			Veja mais em:
-			https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/
-			https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/ddd-oriented-microservice
-			https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/net-core-microservice-domain-model
-			https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/cqrs-microservice-reads
-			https://www.eduardopires.net.br/2016/07/cqrs-o-que-e-onde-aplicar/
-			https://www.elemarjr.com/pt/2019/03/rant-criando-complexidades-no-coracao-do-software/
+			- https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/
+			- https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/ddd-oriented-microservice
+			- https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/net-core-microservice-domain-model
+			- https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/cqrs-microservice-reads
+			- https://www.eduardopires.net.br/2016/07/cqrs-o-que-e-onde-aplicar/
+			- https://www.elemarjr.com/pt/2019/03/rant-criando-complexidades-no-coracao-do-software/
 		- EventBus
-			Veja mais em:
-			https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/multi-container-microservice-net-applications/rabbitmq-event-bus-development-test-environment
-			https://www.elemarjr.com/pt/2018/02/implementando-um-eventbus-simples-com-rabbitmq/
+			- https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/multi-container-microservice-net-applications/rabbitmq-event-bus-development-test-environment
+			- https://www.elemarjr.com/pt/2018/02/implementando-um-eventbus-simples-com-rabbitmq/
 		- OAUTH2
 		- OpenID
 		- Escalabilidade Horizontal
@@ -188,12 +185,16 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 		- Skoruba (Admin: IdS4 + Identity Framework)
 		- Swagger
 		- health Check e Beath Pulse
-			https://docs.microsoft.com/pt-br/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-2.2
-			https://imasters.com.br/back-end/utilizando-o-health-check-asp-net-core-2-2-com-kubernetes
-			https://andrewlock.net/running-async-tasks-on-app-startup-in-asp-net-core-part-4-using-health-checks/
+			- https://docs.microsoft.com/pt-br/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-2.2
+			- https://imasters.com.br/back-end/utilizando-o-health-check-asp-net-core-2-2-com-kubernetes
+			- https://andrewlock.net/running-async-tasks-on-app-startup-in-asp-net-core-part-4-using-health-checks/
 	- Soluções
 		- SQL Server 2017 Linux
 		- RabbitMQ
+			- https://www.rabbitmq.com/tutorials/tutorial-one-dotnet.html
+			- https://www.concrete.com.br/2012/01/26/rabbitmq-conceitos-basicos/
+			- Protocolos AMQP, MQTT e STOMP
+				- https://dnunes.blog/2018/07/06/protocolos-de-menssageria-amqp-mqtt-e-stomp/
 		- Redis
 		- Elastic
 		- Logstash
