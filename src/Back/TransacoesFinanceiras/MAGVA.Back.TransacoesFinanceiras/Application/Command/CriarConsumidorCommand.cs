@@ -8,12 +8,13 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
     public class CriarConsumidorCommand
          : IRequest<bool>
     {
-        [DataMember]
-        public int Id { get; private set; }
+
         [DataMember]
         public string Nome { get; private set; }
         [DataMember]
         public string Email { get; set; }
+        [DataMember]
+        public int LoginId { get; set; }
         [DataMember]
         public bool Ativo { get; set; }
 
@@ -22,14 +23,14 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
         }
 
         public CriarConsumidorCommand(
-            int id, 
             string nome,
             string email,
+            int loginId,
             bool ativo = true)
         {
-            Id = id;
             Nome = nome;
             Email = email;
+            LoginId = loginId;
             Ativo = ativo;
         }
     }

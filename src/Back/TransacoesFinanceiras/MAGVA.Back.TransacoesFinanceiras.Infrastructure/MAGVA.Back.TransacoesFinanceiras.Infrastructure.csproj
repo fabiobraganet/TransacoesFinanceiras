@@ -19,4 +19,8 @@
     <ProjectReference Include="..\MAGVA.Back.TransacoesFinanceiras.Domain\MAGVA.Back.TransacoesFinanceiras.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DataBase\Migrations\TransacoesFinanceiras\" />
+  </ItemGroup>
+
 </Project>

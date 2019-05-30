@@ -50,8 +50,8 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
                     switch (command)
                     {
                         case CriarConsumidorCommand criarConsumidorCommand:
-                            idProperty = nameof(criarConsumidorCommand.Id);
-                            commandId = criarConsumidorCommand.Id.ToString();
+                            idProperty = nameof(criarConsumidorCommand.LoginId);
+                            commandId = criarConsumidorCommand.LoginId.ToString();
                             break;
 
                         default:

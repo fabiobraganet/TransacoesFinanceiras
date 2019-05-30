@@ -16,6 +16,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.EntityConfigurations
 
             configuration.Ignore(b => b.DomainEvents);
 
+
             configuration.Property(b => b.Id)
                 .ForSqlServerUseSequenceHiLo("consumidorseq", TransacoesFinanceirasContext.DEFAULT_SCHEMA);
 

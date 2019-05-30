@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase._Migrations
+namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase.Migrations.TransacoesFinanceiras
 {
     public partial class Initial : Migration
     {
@@ -12,7 +12,9 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase._Migrations
             migrationBuilder.CreateSequence(
                 name: "consumidorseq",
                 schema: "TransacoesFinanceiras",
-                incrementBy: 10);
+                startValue: int.MinValue,
+                maxValue: int.MaxValue,
+                incrementBy: 1);
 
             migrationBuilder.CreateTable(
                 name: "Comsumidor",
@@ -20,9 +22,9 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase._Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false),
-                    LoginId = table.Column<int>(nullable: false),
                     Nome = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
+                    LoginId = table.Column<int>(nullable: false),
                     Ativo = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>

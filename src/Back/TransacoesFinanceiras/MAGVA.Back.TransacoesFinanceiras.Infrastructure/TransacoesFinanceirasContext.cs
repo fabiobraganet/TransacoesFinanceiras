@@ -38,7 +38,6 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ConsumidorEntityTypeConfiguration());
-
         }
 
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken))

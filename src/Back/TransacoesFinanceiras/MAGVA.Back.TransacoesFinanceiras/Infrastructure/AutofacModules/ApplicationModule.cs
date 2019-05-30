@@ -1,8 +1,13 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.AutofacModules
 {
-    using Autofac;
+    using Application.Command;
     using Application.Queries;
+    using Autofac;
+    using Domain.AggregatesModel.ConsumidorAggregate;
+    using GlobalBase.EventBus.Abstractions;
+    using Infrastructure.Idempotency;
+    using Infrastructure.Repositories;
     using System.Reflection;
 
     public class ApplicationModule
@@ -14,7 +19,6 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.AutofacModules
         public ApplicationModule(string qconstr)
         {
             QueriesConnectionString = qconstr;
-
         }
 
         protected override void Load(ContainerBuilder builder)
@@ -24,20 +28,17 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.AutofacModules
                 .As<IConsumidorQueries>()
                 .InstancePerLifetimeScope();
 
-            //builder.RegisterType<BuyerRepository>()
-            //    .As<IBuyerRepository>()
-            //    .InstancePerLifetimeScope();
+            builder.RegisterType<ConsumidorRepository>()
+                .As<IConsumidorRepository>()
+                .InstancePerLifetimeScope();
 
-            //builder.RegisterType<OrderRepository>()
-            //    .As<IOrderRepository>()
-            //    .InstancePerLifetimeScope();
 
-            //builder.RegisterType<RequestManager>()
-            //   .As<IRequestManager>()
-            //   .InstancePerLifetimeScope();
+            builder.RegisterType<RequestManager>()
+               .As<IRequestManager>()
+               .InstancePerLifetimeScope();
 
-            //builder.RegisterAssemblyTypes(typeof(CreateOrderCommandHandler).GetTypeInfo().Assembly)
-            //    .AsClosedTypesOf(typeof(IIntegrationEventHandler<>));
+            builder.RegisterAssemblyTypes(typeof(CriarConsumidorCommandHandler).GetTypeInfo().Assembly)
+                .AsClosedTypesOf(typeof(IIntegrationEventHandler<>));
 
         }
     }

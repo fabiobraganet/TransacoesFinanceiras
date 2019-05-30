@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase._Migrations
+namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase.Migrations.TransacoesFinanceiras
 {
     [DbContext(typeof(TransacoesFinanceirasContext))]
-    [Migration("20190528022913_Initial")]
+    [Migration("20190530084452_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,7 +18,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase._Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("Relational:Sequence:TransacoesFinanceiras.consumidorseq", "'consumidorseq', 'TransacoesFinanceiras', '1', '10', '', '', 'Int64', 'False'")
+                .HasAnnotation("Relational:Sequence:TransacoesFinanceiras.consumidorseq", $"'consumidorseq', 'TransacoesFinanceiras', '{int.MinValue}', '1', '{int.MaxValue}', '{int.MinValue}', 'Int64', 'False'")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("MAGVA.Back.TransacoesFinanceiras.Domain.AggregatesModel.ConsumidorAggregate.Consumidor", b =>

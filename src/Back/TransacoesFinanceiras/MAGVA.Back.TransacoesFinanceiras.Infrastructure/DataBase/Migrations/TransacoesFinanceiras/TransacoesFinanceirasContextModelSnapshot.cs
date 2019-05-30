@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase._Migrations
+namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase.Migrations.TransacoesFinanceiras
 {
     [DbContext(typeof(TransacoesFinanceirasContext))]
     partial class TransacoesFinanceirasContextModelSnapshot : ModelSnapshot

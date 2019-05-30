@@ -1,7 +1,9 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Controllers
 {
+    using Application.Command;
     using Application.Queries;
+    using GlobalBase.EventBus.Extensions;
     using Infrastructure.Services;
     using MediatR;
     using Microsoft.AspNetCore.Authorization;
@@ -49,6 +51,21 @@ namespace MAGVA.Back.TransacoesFinanceiras.Controllers
             {
                 return NotFound();
             }
+        }
+
+
+        [Route("")]
+        [HttpPost]
+        public async Task<ActionResult<bool>> CreateOrderDraftFromBasketDataAsync([FromBody] CriarConsumidorCommand criarConsumidorCommand)
+        {
+            _logger.LogInformation(
+                "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",
+                criarConsumidorCommand.GetGenericTypeName(),
+                nameof(criarConsumidorCommand.LoginId),
+                criarConsumidorCommand.LoginId,
+                criarConsumidorCommand);
+
+            return await _mediator.Send(criarConsumidorCommand);
         }
 
     }
