@@ -151,6 +151,52 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 	![alt text](https://github.com/fabiobraganet/TransacoesFinanceiras/blob/master/docs/img/ecosistema.png)
 
 	- Plataformas
+		- Docker
+			- Visual Studio Docker Compose
+		- Kubernates
+			Não implementados
 	- Arquiteturas
+		- Microsserviços
+			Veja mais em:
+		- Orquestradores
+			Não implementados
+		- Serviços de Descoberta
+			Não implementados
+		- Gateways
+			Não implementados
+		- DDD e CQRS
+			Veja mais em:
+			https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/
+			https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/ddd-oriented-microservice
+			https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/net-core-microservice-domain-model
+			https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/cqrs-microservice-reads
+			https://www.eduardopires.net.br/2016/07/cqrs-o-que-e-onde-aplicar/
+			https://www.elemarjr.com/pt/2019/03/rant-criando-complexidades-no-coracao-do-software/
+		- EventBus
+			Veja mais em:
+			https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/multi-container-microservice-net-applications/rabbitmq-event-bus-development-test-environment
+			https://www.elemarjr.com/pt/2018/02/implementando-um-eventbus-simples-com-rabbitmq/
+		- OAUTH2
+		- OpenID
+		- Escalabilidade Horizontal
+	- Frameworks
+		- .Net Core {json:api}
+		- ASP.Net Core
+		- Entity Framework Core
 	- Ferramentas
+		- IdentityServer4
+		- Skoruba (Admin: IdS4 + Identity Framework)
+		- Swagger
+		- health Check e Beath Pulse
+			https://docs.microsoft.com/pt-br/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-2.2
+			https://imasters.com.br/back-end/utilizando-o-health-check-asp-net-core-2-2-com-kubernetes
+			https://andrewlock.net/running-async-tasks-on-app-startup-in-asp-net-core-part-4-using-health-checks/
 	- Soluções
+		- SQL Server 2017 Linux
+		- RabbitMQ
+		- Redis
+		- Elastic
+		- Logstash
+		- Kibana
+	- Devops
+		Não implementados

@@ -41,6 +41,11 @@ namespace MAGVA.Middle.Security.Admin.Configuration
                         "roles"
                     }
                 },
+
+
+                ///////////////////////////////////////////
+	            // MAGVA Client Transação Financeira Swagger UI
+	            //////////////////////////////////////////
                 new Client
                 {
                     ClientId = "transacoesfinanceirasswaggerui",
@@ -49,13 +54,14 @@ namespace MAGVA.Middle.Security.Admin.Configuration
                     AllowAccessTokensViaBrowser = true,
 
                     RedirectUris = { $"{AuthorizationConsts.ApiTansacoesFinanceirashttpuri}/swagger/oauth2-redirect.html", $"{AuthorizationConsts.ApiTansacoesFinanceirashttpsuri}/swagger/oauth2-redirect.html" },
-                    PostLogoutRedirectUris = { $"{AuthorizationConsts.ApiTansacoesFinanceirashttpuri}/swagger/", $"{AuthorizationConsts.ApiTansacoesFinanceirashttpsuri}/swagger/" },
+                    PostLogoutRedirectUris = { $"{AuthorizationConsts.ApiTansacoesFinanceirashttpuri}/swagger/index.html", $"{AuthorizationConsts.ApiTansacoesFinanceirashttpsuri}/swagger/index.html" },
 
                     AllowedScopes =
                     {
-                        "magvabacktransacoesfinanceiras"
+                        "transacoesfinanceiras", "consumidores"
                     }
                 },
+
             };
 
         }

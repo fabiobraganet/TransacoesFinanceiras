@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using IdentityModel;
-using IdentityServer4.Models;
-
+﻿
 namespace MAGVA.Middle.Security.Admin.Configuration
 {
+    using System.Collections.Generic;
+    using IdentityModel;
+    using IdentityServer4.Models;
+
     public class ClientResources
     {
         public static IEnumerable<IdentityResource> GetIdentityResources()
@@ -12,8 +13,8 @@ namespace MAGVA.Middle.Security.Admin.Configuration
             {
                 // some standard scopes from the OIDC spec
                 new IdentityResources.OpenId(),
-                                new IdentityResources.Profile(),
-                                new IdentityResources.Email(),
+                new IdentityResources.Profile(),
+                new IdentityResources.Email(),
 
                 // custom identity resource with some consolidated claims
                 new IdentityResource("custom.profile", new[] { JwtClaimTypes.Name, JwtClaimTypes.Email, "location" }),
@@ -65,7 +66,20 @@ namespace MAGVA.Middle.Security.Admin.Configuration
                         }
                 },
 
-                new ApiResource("magvabacktransacoesfinanceiras", "API Transações Financeiras") { ApiSecrets = { new Secret("secret".Sha256()) } }
+                new ApiResource("magvabacktransacoesfinanceiras", "Recurso de acesso da API Transações Financeiras")
+                {
+                    ApiSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    Enabled = true,
+                    Scopes = new List<Scope>()
+                    {
+                        new Scope() { Name = "transacoesfinanceiras", DisplayName = "Transações Financeiras", Required = true, ShowInDiscoveryDocument = true, Description = "Permissão para gerenciar e realizar operações financeiras." },
+                        new Scope() { Name = "consumidores", DisplayName = "Consumidores", Required = false, ShowInDiscoveryDocument = true, Description = "Permissão para gerenciar o cadastro de consumidores." },
+                    },
+                    UserClaims = { "Read", "Write" }
+                }
 
             };
         }

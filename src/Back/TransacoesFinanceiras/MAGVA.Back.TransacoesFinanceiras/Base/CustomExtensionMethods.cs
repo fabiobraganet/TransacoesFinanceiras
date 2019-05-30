@@ -161,7 +161,9 @@ namespace MAGVA.Back.TransacoesFinanceiras.Base
                     TokenUrl = $"{configuration.GetValue<string>("IdentityUrlExternal")}/connect/token",
                     Scopes = new Dictionary<string, string>()
                     {
-                        { "transacoesfinanceirasapi", "API de Transação Financeira" }
+                        
+                        { "transacoesfinanceiras", "Transações Financeiras" },
+                        { "consumidores", "Operações com dados de Consumidores" }
                     }
                 });
 
