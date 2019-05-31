@@ -3,11 +3,11 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.IntegrationEvents.Events
 {
     using GlobalBase.EventBus.Events;
     
-    public class ConsumidorStartedIntegrationEvent : IntegrationEvent
+    public class ConsumidorCriadoEvent : IntegrationEvent
     {
         public int LoginId { get; set; }
 
-        public ConsumidorStartedIntegrationEvent(int loginId)
+        public ConsumidorCriadoEvent(int loginId)
             => LoginId = loginId;
     }
 }

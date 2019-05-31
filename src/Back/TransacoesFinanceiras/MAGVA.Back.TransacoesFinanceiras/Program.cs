@@ -24,12 +24,13 @@ namespace MAGVA.Back.TransacoesFinanceiras
         {
             var configuration = GetConfiguration();
 
-            Log.Logger = CreateSerilogLogger(configuration);
+            Serilog.ILogger log = CreateSerilogLogger(configuration);
+            Log.Logger = log;
 
             try
             {
                 Log.Information("Configuring web host ({ApplicationContext})...", AppName);
-                var host = BuildWebHost(configuration, args);
+                var host = BuildWebHost(configuration, log, args);
 
                 Log.Information("Applying migrations ({ApplicationContext})...", AppName);
                 _ = host.MigrateDbContext<TransacoesFinanceirasContext>((context, services) =>
@@ -61,7 +62,7 @@ namespace MAGVA.Back.TransacoesFinanceiras
             }
         }
         
-        private static IWebHost BuildWebHost(IConfiguration configuration, string[] args) =>
+        private static IWebHost BuildWebHost(IConfiguration configuration, Serilog.ILogger logger, string[] args) =>
                     WebHost.CreateDefaultBuilder(args)
                         .CaptureStartupErrors(false)
                         .UseFailing(options => options.ConfigPath = "/Failing")
@@ -69,19 +70,19 @@ namespace MAGVA.Back.TransacoesFinanceiras
                         .UseApplicationInsights()
                         .UseContentRoot(Directory.GetCurrentDirectory())
                         .UseConfiguration(configuration)
-                        .UseSerilog()
+                        .UseSerilog(logger)
                         .Build();
 
         private static Serilog.ILogger CreateSerilogLogger(IConfiguration configuration)
         {
-            var seqServerUrl = configuration["Serilog:SeqServerUrl"];
+            //var seqServerUrl = configuration["Serilog:SeqServerUrl"];
             var logstashUrl = configuration["Serilog:LogstashgUrl"];
             return new LoggerConfiguration()
-                .MinimumLevel.Verbose()
+                .MinimumLevel.Debug()
                 .Enrich.WithProperty("ApplicationContext", AppName)
                 .Enrich.FromLogContext()
                 .WriteTo.Console()
-                .WriteTo.Seq(string.IsNullOrWhiteSpace(seqServerUrl) ? "http://seq" : seqServerUrl)
+                //.WriteTo.Seq(string.IsNullOrWhiteSpace(seqServerUrl) ? "http://seq" : seqServerUrl)
                 .WriteTo.Http(string.IsNullOrWhiteSpace(logstashUrl) ? "http://magvalogstash:5044" : logstashUrl)
                 .ReadFrom.Configuration(configuration)
                 .CreateLogger();

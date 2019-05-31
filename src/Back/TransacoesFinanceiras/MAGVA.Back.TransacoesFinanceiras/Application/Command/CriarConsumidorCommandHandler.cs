@@ -35,15 +35,20 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
         }
 
         public async Task<bool> Handle(CriarConsumidorCommand message, CancellationToken cancellationToken)
-        {
-            var consumidorStartedIntegrationEvent = new ConsumidorStartedIntegrationEvent(message.LoginId);
+        {            
             var consumidor = new Consumidor(message.Nome, message.Email, message.LoginId);
 
-            await _transacoesFinanceirasIntegrationEventService.AddAndSaveEventAsync(consumidorStartedIntegrationEvent);
+            var user = _identityService.GetUserIdentityServer();
+            var loginid = user.SUB;
+            var loginname = user.Client_Id;
 
-            _logger.LogInformation("----- Creating Consumidor - Consumidor: {@Consumidor}", consumidor);
+            _logger.LogInformation("----- Creating Consumidor by loginid:{@loginid} name:{@loginname} - Consumidor: {@Consumidor}", loginid, loginname, consumidor);
 
             _consumidorRepository.Add(consumidor);
+
+            var ConsumidorCriadoEvent = new ConsumidorCriadoEvent(message.LoginId);
+            _logger.LogInformation("----- Created Consumidor by loginid:{@loginid} name:{@loginname} - Consumidor: {@Consumidor}", loginid, loginname, consumidor);
+            await _transacoesFinanceirasIntegrationEventService.AddAndSaveEventAsync(ConsumidorCriadoEvent);
 
             return await Task.FromResult(true);
         }

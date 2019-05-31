@@ -10,6 +10,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Controllers
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using System;
+    using System.Collections.Generic;
     using System.Net;
     using System.Threading.Tasks;
 
@@ -34,7 +35,25 @@ namespace MAGVA.Back.TransacoesFinanceiras.Controllers
             _identityService = identityService ?? throw new ArgumentNullException(nameof(identityService));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
-        
+
+        [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<Consumidor>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        public async Task<ActionResult> GetConsumidoresAsync()
+        {
+            try
+            {
+                var userid = _identityService.GetUserIdentity();
+                var consumidores = await _consumidorQueries.GetConsumidoresAsync();
+
+                return Ok(consumidores);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
         [Route("{id:int}")]
         [HttpGet]
         [ProducesResponseType(typeof(Consumidor), (int)HttpStatusCode.OK)]
@@ -52,11 +71,9 @@ namespace MAGVA.Back.TransacoesFinanceiras.Controllers
                 return NotFound();
             }
         }
-
-
-        [Route("")]
+        
         [HttpPost]
-        public async Task<ActionResult<bool>> CreateOrderDraftFromBasketDataAsync([FromBody] CriarConsumidorCommand criarConsumidorCommand)
+        public async Task<ActionResult<bool>> CriarConsumidorAsync([FromBody] CriarConsumidorCommand criarConsumidorCommand)
         {
             _logger.LogInformation(
                 "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",
@@ -66,6 +83,35 @@ namespace MAGVA.Back.TransacoesFinanceiras.Controllers
                 criarConsumidorCommand);
 
             return await _mediator.Send(criarConsumidorCommand);
+        }
+        
+        [HttpPut]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> EditarConsumidorAsync([FromBody]EditarConsumidorCommand command, [FromHeader(Name = "x-requestid")] string requestId)
+        {
+            bool commandResult = false;
+
+            if (Guid.TryParse(requestId, out Guid guid) && guid != Guid.Empty)
+            {
+                var requestEditarConsumidor = new IdentifiedCommand<EditarConsumidorCommand, bool>(command, guid);
+
+                _logger.LogInformation(
+                    "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",
+                    requestEditarConsumidor.GetGenericTypeName(),
+                    nameof(requestEditarConsumidor.Command.Id),
+                    requestEditarConsumidor.Command.Id,
+                    requestEditarConsumidor);
+
+                commandResult = await _mediator.Send(requestEditarConsumidor);
+            }
+
+            if (!commandResult)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
         }
 
     }
