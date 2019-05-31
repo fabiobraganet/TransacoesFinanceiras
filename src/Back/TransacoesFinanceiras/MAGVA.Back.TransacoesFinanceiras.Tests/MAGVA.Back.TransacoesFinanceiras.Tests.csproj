@@ -17,4 +17,10 @@
     <PackageReference Include="Moq" Version="4.10.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MAGVA.Back.TransacoesFinanceiras.Domain\MAGVA.Back.TransacoesFinanceiras.Domain.csproj" />
+    <ProjectReference Include="..\MAGVA.Back.TransacoesFinanceiras.Infrastructure\MAGVA.Back.TransacoesFinanceiras.Infrastructure.csproj" />
+    <ProjectReference Include="..\MAGVA.Back.TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.csproj" />
+  </ItemGroup>
+
 </Project>
