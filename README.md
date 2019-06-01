@@ -1,6 +1,6 @@
 # Desafio MAGVA - Transações Financeiras
 ![enter image description here](https://ci.appveyor.com/api/projects/status/github/fabiobraganet/TransacoesFinanceiras?branch=master&svg=true) ![enter image description here](https://travis-ci.org/fabiobraganet/TransacoesFinanceiras.svg?branch=master)
-![enter image description here](https://webhooks.gitter.im/e/b4763b2261b92ce7df65)
+[![Gitter](https://badges.gitter.im/fabiobraganet/community.svg)](https://gitter.im/fabiobraganet/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 > Uma documentação mais rica será fornecida no final do desafio. Os
 > teste ainda serão montados, contudo seu escopo será limitado as
