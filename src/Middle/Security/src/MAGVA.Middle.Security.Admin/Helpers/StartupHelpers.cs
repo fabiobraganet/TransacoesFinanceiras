@@ -1,41 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Reflection;
-using System.Threading.Tasks;
-using IdentityModel;
-using IdentityServer4.EntityFramework.Options;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Razor;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using Serilog;
-using Serilog.Events;
-using Serilog.Sinks.MSSqlServer;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Repositories;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Resources;
-using MAGVA.Middle.Security.Admin.Constants;
-using MAGVA.Middle.Security.Admin.EntityFramework.Constants;
-using MAGVA.Middle.Security.Admin.EntityFramework.DbContexts;
-using MAGVA.Middle.Security.Admin.EntityFramework.Entities.Identity;
-using MAGVA.Middle.Security.Admin.ExceptionHandling;
-using MAGVA.Middle.Security.Admin.Middlewares;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Services;
-
+﻿
 namespace MAGVA.Middle.Security.Admin.Helpers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Reflection;
+    using System.Threading.Tasks;
+    using IdentityModel;
+    using IdentityServer4.EntityFramework.Options;
+    using Microsoft.AspNetCore.Authentication.Cookies;
+    using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.HttpOverrides;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Localization;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Razor;
+    using Microsoft.AspNetCore.Mvc.ViewFeatures;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Options;
+    using Microsoft.IdentityModel.Tokens;
+    using Serilog;
+    using Serilog.Events;
+    using Serilog.Sinks.MSSqlServer;
+    using BusinessLogic.Repositories;
+    using BusinessLogic.Resources;
+    using Constants;
+    using EntityFramework.Constants;
+    using EntityFramework.DbContexts;
+    using EntityFramework.Entities.Identity;
+    using ExceptionHandling;
+    using Middlewares;
+    using BusinessLogic.Services;
+
     public static class StartupHelpers
     {
         public static void RegisterDbContexts(this IServiceCollection services, IConfigurationRoot configuration)
@@ -124,8 +125,12 @@ namespace MAGVA.Middle.Security.Admin.Helpers
 
         public static void AddLogging(this IApplicationBuilder app, ILoggerFactory loggerFactory, IConfigurationRoot configuration)
         {
+#pragma warning disable CS0618 // O tipo ou membro é obsoleto
             loggerFactory.AddConsole(configuration.GetSection(ConfigurationConsts.LoggingSectionKey));
+#pragma warning restore CS0618 // O tipo ou membro é obsoleto
+#pragma warning disable CS0618 // O tipo ou membro é obsoleto
             loggerFactory.AddDebug();
+#pragma warning restore CS0618 // O tipo ou membro é obsoleto
 
             var columnOptions = new ColumnOptions();
 

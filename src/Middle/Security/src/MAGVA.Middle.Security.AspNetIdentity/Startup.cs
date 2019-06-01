@@ -27,7 +27,7 @@ namespace MAGVA.Middle.Security.AspNetIdentity
 
             if (environment.IsDevelopment())
             {
-                builder.AddUserSecrets<Startup>();
+                //builder.AddUserSecrets<Startup>();
             }
 
             Configuration = builder.Build();

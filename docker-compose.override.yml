@@ -59,7 +59,7 @@ services:
   magva.back.transacoesfinanceiras:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://0.0.0.0:15001
+      - ASPNETCORE_URLS=http://+:15001
       - ConnectionStringRedis=${MAGVA_REDIS_DB:-redis.data}
       - ConnectionString=Server=tcp:magvasqlserver2017;Database=TransferenciasFinanceirasDB;User Id=SA;Password=1Pass@word;MultipleActiveResultSets=true
       - identityUrl=http://magvamiddlesecurityaspnetidentity:14000
@@ -71,12 +71,23 @@ services:
       - ApplicationInsights__InstrumentationKey=${INSTRUMENTATION_KEY}
       - OrchestratorType=${ORCHESTRATOR_TYPE}
       - UseLoadTest=${USE_LOADTEST:-False}
-
     networks:
       - magva-network
     ports:
       - "15001:15001"
       - "15002:15002"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  magva.front.transacoesfinanceiras:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:15000
+    networks:
+      - magva-network
+    ports:
+      - "80:80"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
@@ -97,7 +108,7 @@ services:
   magva.middle.security.aspnetidentity:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://0.0.0.0:14000
+      - ASPNETCORE_URLS=http://+:14000
     networks:
       - magva-network
     ports:
@@ -108,7 +119,7 @@ services:
   magva.middle.security.admin:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://0.0.0.0:14001
+      - ASPNETCORE_URLS=http://+:14001
     networks:
       - magva-network
     ports:
@@ -125,6 +136,8 @@ volumes:
   sql.data:
     driver: local
   magva.back.transacoesfinanceiras:
+    driver: local
+  magva.front.transacoesfinanceiras:
     driver: local
   magva.back.watchdog:
     driver: local

@@ -29,7 +29,6 @@ namespace MAGVA.Back.TransacoesFinanceiras.Base
     using System.Collections.Generic;
     using System.Data.Common;
     using System.IdentityModel.Tokens.Jwt;
-    using System.Reflection;
 
     public static class CustomExtensionMethods
     {

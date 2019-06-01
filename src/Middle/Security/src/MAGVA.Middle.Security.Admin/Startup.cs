@@ -20,11 +20,6 @@ namespace MAGVA.Middle.Security.Admin
                     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
                     .AddEnvironmentVariables();
 
-            if (env.IsDevelopment())
-            {
-                builder.AddUserSecrets<Startup>();
-            }
-
             Configuration = builder.Build();
 
             HostingEnvironment = env;
@@ -50,7 +45,6 @@ namespace MAGVA.Middle.Security.Admin
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
             }
             else
             {

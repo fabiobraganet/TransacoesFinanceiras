@@ -44,14 +44,5 @@ namespace MAGVA.Middle.Security.Admin.Controllers
 
             return View();
         }
-
-        [AllowAnonymous]
-        public async Task<bool> Seed()
-        {
-            await DbMigrationHelpers.EnsureSeedData(Program.host);
-
-
-            return true;
-        }
     }
 }
