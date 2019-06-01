@@ -1,18 +1,19 @@
-# Desafio MAGVA - Transações Financeiras
+# Desafio MAGVA - TransaÃ§Ãµes Financeiras
 ![enter image description here](https://ci.appveyor.com/api/projects/status/github/fabiobraganet/TransacoesFinanceiras?branch=master&svg=true) ![enter image description here](https://travis-ci.org/fabiobraganet/TransacoesFinanceiras.svg?branch=master)
+[![Gitter](https://badges.gitter.im/fabiobraganet/community.svg)](https://gitter.im/fabiobraganet/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-> Uma documentação mais rica será fornecida no final do desafio. Os
-> teste ainda serão montados, contudo seu escopo será limitado as
-> especificações do desafio e incluirão testes unitários e testes de
+> Uma documentaÃ§Ã£o mais rica serÃ¡ fornecida no final do desafio. Os
+> teste ainda serÃ£o montados, contudo seu escopo serÃ¡ limitado as
+> especificaÃ§Ãµes do desafio e incluirÃ£o testes unitÃ¡rios e testes de
 > interface.
 
-No meu desafio decidi implementar com a arquitetura de microserviços e mantendo as recomendações da Microsoft, documentada e com um projeto de exemplo nos links abaixo.
+No meu desafio decidi implementar com a arquitetura de microserviÃ§os e mantendo as recomendaÃ§Ãµes da Microsoft, documentada e com um projeto de exemplo nos links abaixo.
 
-A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de soluções integradas.
+A decisÃ£o pela recomendaÃ§Ã£o da Microsoft Ã© a ampla documentaÃ§Ã£o e abrangÃªncia de soluÃ§Ãµes integradas.
 	
 	https://dotnet.microsoft.com/learn/web/microservices-architecture
 
-	Documentação: 
+	DocumentaÃ§Ã£o: 
 		https://dotnet.microsoft.com/learn/web/aspnet-microservice-tutorial/intro
 		https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/
 
@@ -30,24 +31,24 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 		http://docs.autofac.org/en/latest/integration/aspnetcore.html#controllers-as-services
 	
 
-> Para atender o design da solução, decidi por um ecossistema mais
-> complexo, contudo a abrangência permitirá ter o controle sobre a
-> infraestrutura e as atividades dos serviços.
+> Para atender o design da soluÃ§Ã£o, decidi por um ecossistema mais
+> complexo, contudo a abrangÃªncia permitirÃ¡ ter o controle sobre a
+> infraestrutura e as atividades dos serviÃ§os.
 
 	
-**Requisitos mínimos**
+**Requisitos mÃ­nimos**
 
 	- Visual Studio 2019 (recomendado)
-	- Docker (se no windows, mínimo de 4GB de memória na VM do Docker-Linux no Hyper-V)
-	- Memória 8GB ou mais
+	- Docker (se no windows, mÃ­nimo de 4GB de memÃ³ria na VM do Docker-Linux no Hyper-V)
+	- MemÃ³ria 8GB ou mais
 	- Disco para Docker igual ou superior a 10GB
-	- Recomendo 4 núcleos de processamento mínimos para melhor desempenho de trabalho
+	- Recomendo 4 nÃºcleos de processamento mÃ­nimos para melhor desempenho de trabalho
 
 ![alt text](https://github.com/fabiobraganet/TransacoesFinanceiras/blob/master/docs/img/consumodeinfraestrutura.png)
 
-**Primeiros passos (preparando a depuração inicial do projeto)**
+**Primeiros passos (preparando a depuraÃ§Ã£o inicial do projeto)**
 
-1) Configure seu arquivo hosts para novos nomes de apelido para seu localhost. Isso é necessário para o desenvolvimento até a implementação do NGINX.
+1) Configure seu arquivo hosts para novos nomes de apelido para seu localhost. Isso Ã© necessÃ¡rio para o desenvolvimento atÃ© a implementaÃ§Ã£o do NGINX.
  
 	Copie e cole
 	
@@ -68,7 +69,7 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 
 	> Git Clone https://github.com/fabiobraganet/TransacoesFinanceiras.git
 
-	Abra o Visual Studio e a solução MAGVA e execute o debug com o Docker Compose	
+	Abra o Visual Studio e a soluÃ§Ã£o MAGVA e execute o debug com o Docker Compose	
 	Verifique os Containers ativos conforme a lista abaixo:
 		
 	| Container | Image | Ports |
@@ -93,12 +94,12 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 
 	> taskkill /PID <pid> /F
 
-3) Ao carregar toda a solução e montar corretamente os Containers, execute no Browser o seguinte URL:
+3) Ao carregar toda a soluÃ§Ã£o e montar corretamente os Containers, execute no Browser o seguinte URL:
 
 	3.1) Acesse: http://magvamiddlesecurityadmin:14001/home/seed
 
 	Caso o retorno seja (true). Verifique se ele criou em magvasqlserver2017 (SQL Server 2017 for Linux) a base de dados (IdentityServer4Admin)
-	As demais migrações dos contextos de dados serão realizados na inicialização do programa.
+	As demais migraÃ§Ãµes dos contextos de dados serÃ£o realizados na inicializaÃ§Ã£o do programa.
 
 	![alt text](https://github.com/fabiobraganet/TransacoesFinanceiras/blob/master/docs/img/processodeiniciacao.png)
 
@@ -106,38 +107,38 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 
 	> 	Servidor: magvasqlserver2017 
 	
-	> Usuário: SA 	
+	> UsuÃ¡rio: SA 	
 	
 	> Senha: 1Pass@word
 
 	
-	Este processo é importante para habilitar o IdentityServer4 e o Web Admin UI.
-	Mais informações em: https://github.com/skoruba/IdentityServer4.Admin
+	Este processo Ã© importante para habilitar o IdentityServer4 e o Web Admin UI.
+	Mais informaÃ§Ãµes em: https://github.com/skoruba/IdentityServer4.Admin
 
-	Agora vá para http://magvamiddlesecurityadmin:14001
+	Agora vÃ¡ para http://magvamiddlesecurityadmin:14001
 	
-	Faça o login com a conta de usuário administrador:
+	FaÃ§a o login com a conta de usuÃ¡rio administrador:
 
-	> 	Usuário: admin 	
+	> 	UsuÃ¡rio: admin 	
 
 	> Senha: Pa$$word123
 
-	Após efetuar o login, poderá haver um problema de correlação referente ao redirect uri. 
-	Se ocorrer, ignore e vá para http://magvamiddlesecurityadmin:14001. 
-	Trata-se de um bug no projeto e não tratei de corrigir.
+	ApÃ³s efetuar o login, poderÃ¡ haver um problema de correlaÃ§Ã£o referente ao redirect uri. 
+	Se ocorrer, ignore e vÃ¡ para http://magvamiddlesecurityadmin:14001. 
+	Trata-se de um bug no projeto e nÃ£o tratei de corrigir.
 	
-4) Verificar a saúde dos serviços, acesse: 
+4) Verificar a saÃºde dos serviÃ§os, acesse: 
 	
 	http://magvabackwatchdog:15098/healthcheckui
 	
-	Verifique se todos os serviços e recursos listados estão ativos.
+	Verifique se todos os serviÃ§os e recursos listados estÃ£o ativos.
 
-5) Verificar os EndPoints do serviço da API de Transações Financeiras
+5) Verificar os EndPoints do serviÃ§o da API de TransaÃ§Ãµes Financeiras
 
 	Verifique os metodos via Swagger em:
 	http://magvabacktransacoesfinanceiras:15001/swagger/index.html
 
-	Mais informações em:
+	Mais informaÃ§Ãµes em:
 	https://docs.microsoft.com/pt-br/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-2.2&tabs=visual-studio
 
 6) Verificar as atividades do sistema via Kibana
@@ -146,7 +147,7 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 
 	> Filtro requirido [ logstash-* ]
 
-7) Uma visão sobre o ecosistema 
+7) Uma visÃ£o sobre o ecosistema 
 
 	![alt text](https://github.com/fabiobraganet/TransacoesFinanceiras/blob/master/docs/img/ecosistema.png)
 
@@ -154,15 +155,15 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 		- Docker
 			- Visual Studio Docker Compose
 		- Kubernates
-			- Não implementados
+			- NÃ£o implementados
 	- Arquiteturas
-		- Microsserviços
+		- MicrosserviÃ§os
 		- Orquestradores
-			- Não implementados
-		- Serviços de Descoberta
-			- Não implementados
+			- NÃ£o implementados
+		- ServiÃ§os de Descoberta
+			- NÃ£o implementados
 		- Gateways
-			- Não implementados
+			- NÃ£o implementados
 		- DDD e CQRS
 			- https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/
 			- https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/ddd-oriented-microservice
@@ -188,7 +189,7 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 			- https://docs.microsoft.com/pt-br/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-2.2
 			- https://imasters.com.br/back-end/utilizando-o-health-check-asp-net-core-2-2-com-kubernetes
 			- https://andrewlock.net/running-async-tasks-on-app-startup-in-asp-net-core-part-4-using-health-checks/
-	- Soluções
+	- SoluÃ§Ãµes
 		- SQL Server 2017 Linux
 		- RabbitMQ
 			- https://www.rabbitmq.com/tutorials/tutorial-one-dotnet.html
@@ -200,4 +201,4 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de
 		- Logstash
 		- Kibana
 	- Devops
-		Não implementados
+		NÃ£o implementados
