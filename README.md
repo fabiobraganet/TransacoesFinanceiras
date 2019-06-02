@@ -94,23 +94,9 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangê
 
 	> taskkill /PID <pid> /F
 
-3) Ao carregar toda a solução e montar corretamente os Containers, execute no Browser o seguinte URL:
+3) Este processo caducou e foi substituido por uma automação que cria automaticamente as estruturas necessárias. 
 
-	3.1) Acesse: http://magvamiddlesecurityadmin:14001/home/seed
-
-	Caso o retorno seja (true). Verifique se ele criou em magvasqlserver2017 (SQL Server 2017 for Linux) a base de dados (IdentityServer4Admin)
-	As demais migrações dos contextos de dados serão realizados na inicialização do programa.
-
-	![alt text](https://github.com/fabiobraganet/TransacoesFinanceiras/blob/master/docs/img/processodeiniciacao.png)
-
-	Para acessar o SQL Server, use o SSMS 2016 ou superior com a seguinte conta:
-
-	> 	Servidor: magvasqlserver2017 
-	
-	> Usuário: SA 	
-	
-	> Senha: 1Pass@word
-
+	*******Não requer mais a migração e seed - Continue o checkup
 	
 	Este processo é importante para habilitar o IdentityServer4 e o Web Admin UI.
 	Mais informações em: https://github.com/skoruba/IdentityServer4.Admin
@@ -123,9 +109,6 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangê
 
 	> Senha: Pa$$word123
 
-	Após efetuar o login, poderá haver um problema de correlação referente ao redirect uri. 
-	Se ocorrer, ignore e vá para http://magvamiddlesecurityadmin:14001. 
-	Trata-se de um bug no projeto e não tratei de corrigir.
 	
 4) Verificar a saúde dos serviços, acesse: 
 	
