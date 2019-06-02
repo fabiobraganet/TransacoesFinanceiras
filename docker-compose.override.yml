@@ -68,8 +68,6 @@ services:
       - EventBusUserName=guest
       - EventBusPassword=guest 
       - AzureServiceBusEnabled=False
-      - ApplicationInsights__InstrumentationKey=${INSTRUMENTATION_KEY}
-      - OrchestratorType=${ORCHESTRATOR_TYPE}
       - UseLoadTest=${USE_LOADTEST:-False}
     networks:
       - magva-network
@@ -120,6 +118,9 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:14001
+      - ConnectionString=Server=tcp:magvasqlserver2017;Database=IdentityServer4Admin;User Id=SA;Password=1Pass@word;MultipleActiveResultSets=true
+      - identityUrl=http://magvamiddlesecurityaspnetidentity:14000
+      - IdentityUrlExternal=http://magvamiddlesecurityaspnetidentity:14000
     networks:
       - magva-network
     ports:

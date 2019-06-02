@@ -12,6 +12,10 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Base\CustomExtensionMethods.cs~RF7e8f6a.TMP" />
+  </ItemGroup>
+
 	<ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="AutoMapper" Version="7.0.1" />
@@ -40,6 +44,13 @@
 	  <ProjectReference Include="..\..\..\..\GlobalBase\WebHost\MAGVA.GlobalBase.WebHost.Customization\MAGVA.GlobalBase.WebHost.Customization.csproj" />
 	  <ProjectReference Include="..\MAGVA.Middle.Security.Admin.BusinessLogic\MAGVA.Middle.Security.Admin.BusinessLogic.csproj" />
 	  <ProjectReference Include="..\MAGVA.Middle.Security.Admin.EntityFramework\MAGVA.Middle.Security.Admin.EntityFramework.csproj" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <Content Update="appsettings.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 
 </Project>

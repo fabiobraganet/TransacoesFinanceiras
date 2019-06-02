@@ -1,13 +1,18 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using MAGVA.Middle.Security.Admin.Helpers;
-
+﻿
 namespace MAGVA.Middle.Security.Admin
 {
+    using Helpers;
+    using Base;
+    using System.IdentityModel.Tokens.Jwt;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
+
+    using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+    using HealthChecks.UI.Client;
+
     public class Startup
     {
         public Startup(IHostingEnvironment env)
@@ -25,13 +30,19 @@ namespace MAGVA.Middle.Security.Admin
             HostingEnvironment = env;
         }
 
-        public IConfigurationRoot Configuration { get; }
+        public IConfiguration Configuration { get; }
+        //public IConfigurationRoot ConfigurationRoot { get; }
 
         public IHostingEnvironment HostingEnvironment { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContexts(HostingEnvironment, Configuration);
+            services
+                .AddCustomDbContext(Configuration)
+                .AddHealthChecks(Configuration)
+                .AddCustomConfiguration(Configuration);
+
+            //services.AddDbContexts(HostingEnvironment, ConfigurationRoot);
             services.AddAuthentication(HostingEnvironment);
             services.AddServices();
             services.AddMvcLocalization();
@@ -42,15 +53,19 @@ namespace MAGVA.Middle.Security.Admin
         {
             app.AddLogging(loggerFactory, Configuration);
 
-            if (env.IsDevelopment())
+            app.UseCors("CorsPolicy");
+
+            app.UseHealthChecks("/liveness", new HealthCheckOptions
             {
-                app.UseDeveloperExceptionPage();
-            }
-            else
+                Predicate = r => r.Name.Contains("self")
+            });
+
+            app.UseHealthChecks("/hc", new HealthCheckOptions()
             {
-                app.UseExceptionHandler("/Home/Error");
-            }
-                        
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            });
+
             app.UseSecurityHeaders();
             app.UseStaticFiles();
             app.ConfigureAuthentification(env);

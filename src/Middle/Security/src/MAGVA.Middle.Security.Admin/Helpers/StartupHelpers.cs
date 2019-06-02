@@ -123,29 +123,29 @@ namespace MAGVA.Middle.Security.Admin.Helpers
             app.UseRequestLocalization(options.Value);
         }
 
-        public static void AddLogging(this IApplicationBuilder app, ILoggerFactory loggerFactory, IConfigurationRoot configuration)
+        public static void AddLogging(this IApplicationBuilder app, ILoggerFactory loggerFactory, IConfiguration configuration)
         {
-#pragma warning disable CS0618 // O tipo ou membro é obsoleto
-            loggerFactory.AddConsole(configuration.GetSection(ConfigurationConsts.LoggingSectionKey));
-#pragma warning restore CS0618 // O tipo ou membro é obsoleto
-#pragma warning disable CS0618 // O tipo ou membro é obsoleto
-            loggerFactory.AddDebug();
-#pragma warning restore CS0618 // O tipo ou membro é obsoleto
+//#pragma warning disable CS0618 // O tipo ou membro é obsoleto
+//            loggerFactory.AddConsole(configuration.GetSection(ConfigurationConsts.LoggingSectionKey));
+//#pragma warning restore CS0618 // O tipo ou membro é obsoleto
+//#pragma warning disable CS0618 // O tipo ou membro é obsoleto
+//            loggerFactory.AddDebug();
+//#pragma warning restore CS0618 // O tipo ou membro é obsoleto
 
-            var columnOptions = new ColumnOptions();
+//            var columnOptions = new ColumnOptions();
 
-            // Don't include the Properties XML column.
-            columnOptions.Store.Remove(StandardColumn.Properties);
+//            // Don't include the Properties XML column.
+//            columnOptions.Store.Remove(StandardColumn.Properties);
 
-            // Do include the log event data as JSON.
-            columnOptions.Store.Add(StandardColumn.LogEvent);
+//            // Do include the log event data as JSON.
+//            columnOptions.Store.Add(StandardColumn.LogEvent);
 
-            Log.Logger = new LoggerConfiguration()
-                .WriteTo.MSSqlServer(configuration.GetConnectionString(ConfigurationConsts.AdminConnectionStringKey),
-                    TableConsts.Logging,
-                    columnOptions: columnOptions,
-                    restrictedToMinimumLevel: LogEventLevel.Error)
-                .CreateLogger();
+//            Log.Logger = new LoggerConfiguration()
+//                .WriteTo.MSSqlServer(configuration.GetConnectionString(ConfigurationConsts.AdminConnectionStringKey),
+//                    TableConsts.Logging,
+//                    columnOptions: columnOptions,
+//                    restrictedToMinimumLevel: LogEventLevel.Error)
+//                .CreateLogger();
         }
 
         public static void AddDbContexts(this IServiceCollection services, IHostingEnvironment hostingEnvironment, IConfigurationRoot configuration)

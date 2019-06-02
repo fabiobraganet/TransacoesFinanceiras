@@ -4,6 +4,7 @@ namespace MAGVA.Middle.Security.Admin
     using EntityFramework.DbContexts;
     using Infrastructure;
     using Infrastructure.Middlewares;
+    using Helpers;
     using Microsoft.AspNetCore;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
