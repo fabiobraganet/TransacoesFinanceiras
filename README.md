@@ -2,11 +2,6 @@
 ![enter image description here](https://ci.appveyor.com/api/projects/status/github/fabiobraganet/TransacoesFinanceiras?branch=master&svg=true) ![enter image description here](https://travis-ci.org/fabiobraganet/TransacoesFinanceiras.svg?branch=master)
 [![Gitter](https://badges.gitter.im/fabiobraganet/community.svg)](https://gitter.im/fabiobraganet/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-> Uma documentação mais rica será fornecida no final do desafio. Os
-> teste ainda serão montados, contudo seu escopo será limitado as
-> especificações do desafio e incluirão testes unitários e testes de
-> interface.
-
 No meu desafio decidi implementar com a arquitetura de microserviços e mantendo as recomendações da Microsoft, documentada e com um projeto de exemplo nos links abaixo.
 
 A decisão pela recomendação da Microsoft é a ampla documentação e abrangência de soluções integradas.
@@ -48,7 +43,7 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangê
 
 **Primeiros passos (preparando a depuração inicial do projeto)**
 
-1) Configure seu arquivo hosts para novos nomes de apelido para seu localhost. Isso é necessário para o desenvolvimento até a implementação do NGINX.
+1) Configure seu arquivo hosts para novos nomes de apelido para seu localhost. 
  
 	Copie e cole
 	
@@ -63,7 +58,13 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangê
 		127.0.0.1	magvamiddlesecurityadmin
 		127.0.0.1	magvamiddlesecurityaspnetidentity
 	
-	*Estou pensando em incluir o WebMin ao Stack.
+	*para Linux use 
+
+	> sudo nano /etc/hosts
+
+	*para Windows abra como administrador em um bloco de notas
+
+	> C:\Windows\System32\Drivers\etc\hosts
 
 2) Agora clone o projeto
 
