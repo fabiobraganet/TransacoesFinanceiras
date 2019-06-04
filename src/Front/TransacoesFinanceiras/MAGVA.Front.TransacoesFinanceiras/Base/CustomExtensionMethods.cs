@@ -1,43 +1,39 @@
 ﻿
-
 namespace MAGVA.Front.TransacoesFinanceiras.Base
 {
-    using HealthChecks.UI.Client;
-    using Infrastructure.Middlewares;
+    using IdentityModel;
     using Infrastructure;
+    using Infrastructure.Middlewares;
+    using MAGVA.Front.TransacoesFinanceiras.Constants;
     using Microsoft.AspNetCore.Authentication.Cookies;
     using Microsoft.AspNetCore.Authentication.OpenIdConnect;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.DataProtection;
-    using Microsoft.AspNetCore.Diagnostics.HealthChecks;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.HttpOverrides;
+    using Microsoft.AspNetCore.Localization;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Razor;
+    using Microsoft.AspNetCore.Mvc.ViewFeatures;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Diagnostics.HealthChecks;
+    using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Options;
+    using Microsoft.IdentityModel.Tokens;
+    using Middlewares;
     using Polly;
     using Polly.Extensions.Http;
+    using Services;
     using StackExchange.Redis;
     using System;
-    using System.IdentityModel.Tokens.Jwt;
+    using System.Collections.Generic;
+    using System.Globalization;
     using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
-    using Infrastructure.Services;
     using ViewModels;
-    using Microsoft.Extensions.Logging;
-    using System.Collections.Generic;
-    using Middlewares;
-    using Microsoft.AspNetCore.HttpOverrides;
-    using Microsoft.Extensions.Options;
-    using Microsoft.AspNetCore.Mvc.Razor;
-    using Microsoft.AspNetCore.Mvc.ViewFeatures;
-    using MAGVA.Front.TransacoesFinanceiras.Constants;
-    using System.Globalization;
-    using Microsoft.AspNetCore.Localization;
-    using Microsoft.IdentityModel.Tokens;
-    using IdentityModel;
 
     public static class WebHostBuildertExtensions
     {
@@ -125,25 +121,17 @@ namespace MAGVA.Front.TransacoesFinanceiras.Base
         public static IServiceCollection AddHttpClientServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-            //register delegating handlers
             services.AddTransient<HttpClientAuthorizationDelegatingHandler>();
             services.AddTransient<HttpClientRequestIdDelegatingHandler>();
-
-            //set 5 min as the lifetime for each HttpMessageHandler int the pool
             services.AddHttpClient("extendedhandlerlifetime").SetHandlerLifetime(TimeSpan.FromMinutes(5)).AddDevspacesSupport();
 
-            //add http client services
-            //services.AddHttpClient<IBasketService, BasketService>()
-            //       .SetHandlerLifetime(TimeSpan.FromMinutes(5))  //Sample. Default lifetime is 2 minutes
-            //       .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>()
-            //       .AddPolicyHandler(GetRetryPolicy())
-            //       .AddPolicyHandler(GetCircuitBreakerPolicy())
-            //       .AddDevspacesSupport();
+            services.AddHttpClient<IConsumidorService, ConsumidorService>()
+                   .SetHandlerLifetime(TimeSpan.FromMinutes(5))
+                   .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>()
+                   .AddPolicyHandler(GetRetryPolicy())
+                   .AddPolicyHandler(GetCircuitBreakerPolicy())
+                   .AddDevspacesSupport();
 
-
-
-            //add custom application services
             services.AddTransient<IIdentityParser<ApplicationUser>, IdentityParser>();
 
             return services;
@@ -200,6 +188,8 @@ namespace MAGVA.Front.TransacoesFinanceiras.Base
                 options.Scope.Add(AuthorizationConsts.ScopeProfile);
                 options.Scope.Add(AuthorizationConsts.ScopeEmail);
                 options.Scope.Add(AuthorizationConsts.ScopeRoles);
+                options.Scope.Add("transacoesfinanceiras");
+                options.Scope.Add("consumidores");
 
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
@@ -326,8 +316,8 @@ namespace MAGVA.Front.TransacoesFinanceiras.Base
 
             return Task.FromResult(0);
         }
-    }
 
+    }
 
     public static class ServiceCollectionDevspacesExtensions
     {

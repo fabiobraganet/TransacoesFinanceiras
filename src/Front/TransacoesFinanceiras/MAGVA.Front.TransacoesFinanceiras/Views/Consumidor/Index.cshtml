@@ -1,5 +1,9 @@
-﻿@{
+﻿@model MAGVA.Front.TransacoesFinanceiras.ViewModels.Consumidor
+@{
     ViewData["Title"] = "Home Page";
 }
 
-
+@if (Model != null)
+{
+    @Html.Raw($"{Model.Nome} - {Model.Email}")
+}

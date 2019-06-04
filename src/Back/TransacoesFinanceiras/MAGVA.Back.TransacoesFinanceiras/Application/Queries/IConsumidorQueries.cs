@@ -6,7 +6,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Queries
 
     public interface IConsumidorQueries
     {
-        Task<Consumidor> GetConsumidorAsync(int id);
+        Task<Consumidor> GetConsumidorAsync(int loginid);
         Task<List<Consumidor>> GetConsumidoresAsync();
     }
 }

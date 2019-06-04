@@ -1,5 +1,5 @@
 ﻿
-namespace MAGVA.Front.TransacoesFinanceiras.Infrastructure.Services
+namespace MAGVA.Front.TransacoesFinanceiras.Services
 {
     using System;
     using System.Linq;

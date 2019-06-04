@@ -7,6 +7,8 @@ namespace MAGVA.Front.TransacoesFinanceiras
         public bool ActivateCampaignDetailFunction { get; set; }
         public Logging Logging { get; set; }
         public bool UseCustomizationData { get; set; }
+
+        public string TransacoesFinanceirasUrl {get; set;}
     }
 
     public class Connectionstrings

@@ -42,7 +42,7 @@ namespace MAGVA.Front.TransacoesFinanceiras
                     .AddCustomMvc(Configuration)
                     .AddDevspaces()
                     .AddHttpClientServices(Configuration)
-                    //.AddHttpClientLogging(Configuration)  
+                    .AddHttpClientLogging(Configuration)  
                     .AddCustomAuthentication(Configuration)
                     .AddAuthorizationPolicies();
 

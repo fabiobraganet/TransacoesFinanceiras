@@ -54,15 +54,15 @@ namespace MAGVA.Back.TransacoesFinanceiras.Controllers
             }
         }
 
-        [Route("{id:int}")]
+        [Route("{loginid:int}")]
         [HttpGet]
         [ProducesResponseType(typeof(Consumidor), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<ActionResult> GetConsumidorAsync(int id)
+        public async Task<ActionResult> GetConsumidorAsync(int loginid)
         {
             try
             {
-                var consumidor = await _consumidorQueries.GetConsumidorAsync(id);
+                var consumidor = await _consumidorQueries.GetConsumidorAsync(loginid);
 
                 return Ok(consumidor);
             }

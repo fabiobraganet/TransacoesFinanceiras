@@ -18,7 +18,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Queries
             _connectionString = !string.IsNullOrWhiteSpace(constr) ? constr : throw new ArgumentNullException(nameof(constr));
         }
 
-        public async Task<Consumidor> GetConsumidorAsync(int id)
+        public async Task<Consumidor> GetConsumidorAsync(int loginid)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -28,9 +28,10 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Queries
                    @"Select Consumidor.Id as Id
                            ,Consumidor.Nome as Nome
                            ,Consumidor.Email as Email
+                           ,Consumidor.LoginId as LoginId
                            ,Consumidor.Ativo as Ativo
                        From [TransacoesFinanceiras].[Comsumidor] as Consumidor
-                      Where Consumidor.Id = @id ", new { id }
+                      Where Consumidor.LoginId = @loginid ", new { loginid }
                    );
 
                 if (result.AsList().Count == 0)
@@ -50,6 +51,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Queries
                    @"Select Consumidor.Id as Id
                            ,Consumidor.Nome as Nome
                            ,Consumidor.Email as Email
+                           ,Consumidor.LoginId as LoginId
                            ,Consumidor.Ativo as Ativo
                        From [TransacoesFinanceiras].[Comsumidor] as Consumidor "
                    );
@@ -68,6 +70,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Queries
                 Id = item[0].Id,
                 Nome = item[0].Nome,
                 Email = item[0].Email,
+                LoginId = item[0].LoginId,
                 Ativo = item[0].Ativo
             };
         }
@@ -83,6 +86,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Queries
                     Id = item.Id,
                     Nome = item.Nome,
                     Email = item.Email,
+                    LoginId = item[0].LoginId,
                     Ativo = item.Ativo
                 });
             }
