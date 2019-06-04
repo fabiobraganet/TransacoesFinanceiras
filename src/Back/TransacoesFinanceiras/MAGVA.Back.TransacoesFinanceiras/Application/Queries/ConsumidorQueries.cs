@@ -30,12 +30,13 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Queries
                            ,Consumidor.Email as Email
                            ,Consumidor.LoginId as LoginId
                            ,Consumidor.Ativo as Ativo
-                       From [TransacoesFinanceiras].[Comsumidor] as Consumidor
+                       From [TransacoesFinanceiras].[Consumidor] as Consumidor
                       Where Consumidor.LoginId = @loginid ", new { loginid }
                    );
 
                 if (result.AsList().Count == 0)
-                    throw new KeyNotFoundException();
+                    return null; // new Consumidor();
+                    //throw new KeyNotFoundException();
 
                 return MapConsumidor(result);
             }
@@ -53,11 +54,12 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Queries
                            ,Consumidor.Email as Email
                            ,Consumidor.LoginId as LoginId
                            ,Consumidor.Ativo as Ativo
-                       From [TransacoesFinanceiras].[Comsumidor] as Consumidor "
+                       From [TransacoesFinanceiras].[Consumidor] as Consumidor "
                    );
 
                 if (result.AsList().Count == 0)
-                    throw new KeyNotFoundException();
+                    return new List<Consumidor>();
+                    //throw new KeyNotFoundException();
 
                 return MapConsumidores(result);
             }

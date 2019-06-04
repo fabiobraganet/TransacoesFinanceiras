@@ -10,7 +10,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Consumidor> configuration)
         {
-            configuration.ToTable("Comsumidor", TransacoesFinanceirasContext.DEFAULT_SCHEMA);
+            configuration.ToTable("Consumidor", TransacoesFinanceirasContext.DEFAULT_SCHEMA);
 
             configuration.HasKey(b => b.Id);
 

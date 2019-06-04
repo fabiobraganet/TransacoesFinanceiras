@@ -40,7 +40,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase.Migrations.Tr
                     b.HasIndex("LoginId")
                         .IsUnique();
 
-                    b.ToTable("Comsumidor","TransacoesFinanceiras");
+                    b.ToTable("Consumidor","TransacoesFinanceiras");
                 });
 #pragma warning restore 612, 618
         }

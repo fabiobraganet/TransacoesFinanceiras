@@ -17,7 +17,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase.Migrations.Tr
                 incrementBy: 1);
 
             migrationBuilder.CreateTable(
-                name: "Comsumidor",
+                name: "Consumidor",
                 schema: "TransacoesFinanceiras",
                 columns: table => new
                 {
@@ -29,13 +29,13 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase.Migrations.Tr
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Comsumidor", x => x.Id);
+                    table.PrimaryKey("PK_Consumidor", x => x.Id);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comsumidor_LoginId",
+                name: "IX_Consumidor_LoginId",
                 schema: "TransacoesFinanceiras",
-                table: "Comsumidor",
+                table: "Consumidor",
                 column: "LoginId",
                 unique: true);
         }
@@ -43,7 +43,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase.Migrations.Tr
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Comsumidor",
+                name: "Consumidor",
                 schema: "TransacoesFinanceiras");
 
             migrationBuilder.DropSequence(

@@ -187,7 +187,7 @@ namespace MAGVA.Front.TransacoesFinanceiras.Base
                 options.Scope.Add(AuthorizationConsts.ScopeOpenId);
                 options.Scope.Add(AuthorizationConsts.ScopeProfile);
                 options.Scope.Add(AuthorizationConsts.ScopeEmail);
-                options.Scope.Add(AuthorizationConsts.ScopeRoles);
+                //options.Scope.Add(AuthorizationConsts.ScopeRoles);
                 options.Scope.Add("transacoesfinanceiras");
                 options.Scope.Add("consumidores");
 
