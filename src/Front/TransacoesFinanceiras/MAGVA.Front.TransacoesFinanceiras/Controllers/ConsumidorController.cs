@@ -27,10 +27,47 @@ namespace MAGVA.Front.TransacoesFinanceiras.Controllers
                 var user = _appUserParser.Parse(HttpContext.User);
                 var vm = await _consumidorService.GetConsumidor(user);
 
+                if (string.IsNullOrEmpty(vm.Nome))
+                    vm = null;
+
                 return View(vm);
             }
             catch (BrokenCircuitException)
             {             
+                HandleBrokenCircuitException();
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Nome,Email")] Consumidor consumidor)
+        {
+            try
+            {
+                string result = null;
+
+                if (ModelState.IsValid)
+                {
+                    var user = _appUserParser.Parse(HttpContext.User);
+
+                    consumidor.LoginId = user.Id;
+                    consumidor.Ativo = true;
+
+                    result = await _consumidorService.PostConsumidor(consumidor);
+
+                    consumidor = null;
+                    if (result.Contains("OK"))
+                    {
+                        consumidor = await _consumidorService.GetConsumidor(user);
+                    }
+                }
+
+                return View(consumidor);
+            }
+            catch (BrokenCircuitException)
+            {
                 HandleBrokenCircuitException();
             }
 

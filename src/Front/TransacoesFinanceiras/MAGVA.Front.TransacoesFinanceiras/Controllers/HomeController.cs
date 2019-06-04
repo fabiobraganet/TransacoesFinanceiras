@@ -24,17 +24,20 @@ namespace MAGVA.Front.TransacoesFinanceiras.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //try
-            //{
-            //    var user = _appUserParser.Parse(HttpContext.User);
-            //    var vm = await _consumidorService.GetConsumidor(user);
+            try
+            {
+                var user = _appUserParser.Parse(HttpContext.User);
+                var vm = await _consumidorService.GetConsumidor(user);
 
-            //    return View(vm);
-            //}
-            //catch (BrokenCircuitException)
-            //{
-            //    HandleBrokenCircuitException();
-            //}
+                if (string.IsNullOrEmpty(vm.Nome))
+                    vm = null;
+
+                return View(vm);
+            }
+            catch (BrokenCircuitException)
+            {
+                HandleBrokenCircuitException();
+            }
 
             return View();
         }

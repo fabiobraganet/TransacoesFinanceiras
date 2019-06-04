@@ -6,6 +6,7 @@ namespace MAGVA.Front.TransacoesFinanceiras.Infrastructure
         public static class Consumidor
         {
             public static string GetConsumidor(string baseUri, string LoginId) => $"{baseUri}/{LoginId}";
+            public static string PostConsumidor(string baseUri) => $"{baseUri}";
         }
 
     }
