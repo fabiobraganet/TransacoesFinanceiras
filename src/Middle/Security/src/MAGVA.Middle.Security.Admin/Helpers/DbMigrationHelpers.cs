@@ -44,13 +44,11 @@ namespace MAGVA.Middle.Security.Admin.Helpers
             }
         }
 
-        /// <summary>
-        /// Generate default admin user / role
-        /// </summary>
         private static async Task EnsureSeedIdentityData(UserManager<UserIdentity> userManager,
             RoleManager<UserIdentityRole> roleManager)
         {
-            // Create admin role
+            #region Perfil Admin
+
             if (!await roleManager.RoleExistsAsync(AuthorizationConsts.AdministrationRole))
             {
                 var role = new UserIdentityRole { Name = AuthorizationConsts.AdministrationRole };
@@ -58,27 +56,61 @@ namespace MAGVA.Middle.Security.Admin.Helpers
                 await roleManager.CreateAsync(role);
             }
 
-            // Create admin user
-            if (await userManager.FindByNameAsync(Users.AdminUserName) != null) return;
-
-            var user = new UserIdentity
+            if (await userManager.FindByNameAsync(Users.AdminUserName) == null)
             {
-                UserName = Users.AdminUserName,
-                Email = Users.AdminEmail,
-                EmailConfirmed = true
-            };
+                var user = new UserIdentity
+                {
+                    UserName = Users.AdminUserName,
+                    Email = Users.AdminEmail,
+                    EmailConfirmed = true
+                };
 
-            var result = await userManager.CreateAsync(user, Users.AdminPassword);
+                var result = await userManager.CreateAsync(user, Users.AdminPassword);
 
-            if (result.Succeeded)
-            {
-                await userManager.AddToRoleAsync(user, AuthorizationConsts.AdministrationRole);
+                if (result.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(user, AuthorizationConsts.AdministrationRole);
+                }
             }
+
+            #endregion
+
+            string consumidorRole = "consumidorrole";
+            if (!await roleManager.RoleExistsAsync(consumidorRole))
+            {
+                var role = new UserIdentityRole { Name = consumidorRole };
+
+                await roleManager.CreateAsync(role);
+            }
+
+            #region Perfis de Usuarios para os casos
+
+            for (int i = 0; i < 10; i++)
+            {
+                string consumidor = $"consumidor{i+1}";
+                string email = $"{consumidor}@email.com";
+
+                if (await userManager.FindByNameAsync(consumidor) == null)
+                {
+                    var user = new UserIdentity
+                    {
+                        UserName = consumidor,
+                        Email = email,
+                        EmailConfirmed = true
+                    };
+
+                    var result = await userManager.CreateAsync(user, "Pa$$word123");
+
+                    if (result.Succeeded)
+                    {
+                        await userManager.AddToRoleAsync(user, consumidorRole);
+                    }
+                }
+            }
+
+            #endregion
         }
 
-        /// <summary>
-        /// Generate default clients, identity and api resources
-        /// </summary>
         private static async Task EnsureSeedIdentityServerData(AdminDbContext context)
         {
             if (!context.Clients.Any())

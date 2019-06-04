@@ -93,6 +93,7 @@ namespace MAGVA.Middle.Security.Admin.Configuration
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.OfflineAccess,
+                        "roles",
                         "transacoesfinanceiras",
                         "consumidores"
 

@@ -3,6 +3,8 @@ namespace MAGVA.Front.TransacoesFinanceiras.Controllers
 {
     using MAGVA.Front.TransacoesFinanceiras.Constants;
     using Microsoft.AspNetCore.Authentication;
+    using Microsoft.AspNetCore.Authentication.Cookies;
+    using Microsoft.AspNetCore.Authentication.OpenIdConnect;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
@@ -23,9 +25,8 @@ namespace MAGVA.Front.TransacoesFinanceiras.Controllers
 
         public IActionResult Logout()
         {
-            //return new SignOutResult(new List<string> { AuthorizationConsts.SignInScheme, AuthorizationConsts.OidcAuthenticationScheme },
-            //    new AuthenticationProperties { RedirectUri = "/" });
-            return new SignOutResult(new[] { "oidc", "Cookies" });
+            return new SignOutResult(new List<string> { OpenIdConnectDefaults.AuthenticationScheme, CookieAuthenticationDefaults.AuthenticationScheme },
+                new AuthenticationProperties { RedirectUri = "/" });
         }
     }
 }

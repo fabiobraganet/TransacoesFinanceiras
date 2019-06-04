@@ -43,7 +43,8 @@ namespace MAGVA.Front.TransacoesFinanceiras
                     .AddDevspaces()
                     .AddHttpClientServices(Configuration)
                     //.AddHttpClientLogging(Configuration)  
-                    .AddCustomAuthentication(Configuration);
+                    .AddCustomAuthentication(Configuration)
+                    .AddAuthorizationPolicies();
 
             //services.AddAuthentication(HostingEnvironment);
             //services.AddMvcLocalization();
@@ -92,9 +93,9 @@ namespace MAGVA.Front.TransacoesFinanceiras
                 app.UseMiddleware<ByPassAuthMiddleware>();
             }
 
-            //app.UseSecurityHeaders();
+            app.UseSecurityHeaders();
             app.ConfigureAuthentification(env);
-            //app.ConfigureLocalization();
+            app.ConfigureLocalization();
 
             app.UseAuthentication();
 
