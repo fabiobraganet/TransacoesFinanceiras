@@ -31,7 +31,6 @@ namespace MAGVA.Middle.Security.Admin
         }
 
         public IConfiguration Configuration { get; }
-        //public IConfigurationRoot ConfigurationRoot { get; }
 
         public IHostingEnvironment HostingEnvironment { get; }
 
@@ -42,7 +41,6 @@ namespace MAGVA.Middle.Security.Admin
                 .AddHealthChecks(Configuration)
                 .AddCustomConfiguration(Configuration);
 
-            //services.AddDbContexts(HostingEnvironment, ConfigurationRoot);
             services.AddAuthentication(HostingEnvironment);
             services.AddServices();
             services.AddMvcLocalization();
@@ -51,7 +49,12 @@ namespace MAGVA.Middle.Security.Admin
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            app.AddLogging(loggerFactory, Configuration);
+            var pathBase = Configuration["PATH_BASE"];
+            if (!string.IsNullOrEmpty(pathBase))
+            {
+                loggerFactory.CreateLogger<Startup>().LogDebug("Using PATH BASE '{pathBase}'", pathBase);
+                app.UsePathBase(pathBase);
+            }
 
             app.UseCors("CorsPolicy");
 

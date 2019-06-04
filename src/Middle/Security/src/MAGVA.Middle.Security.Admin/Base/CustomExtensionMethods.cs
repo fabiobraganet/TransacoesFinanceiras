@@ -22,7 +22,7 @@ namespace MAGVA.Middle.Security.Admin.Base
             hcBuilder
                 .AddSqlServer(
                     configuration["ConnectionString"],
-                    name: "SecurityAdminDB-check",
+                    name: "sqlserver-check",
                     tags: new string[] { "IdentityServer4Admin" });
 
             return services;

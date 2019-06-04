@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using MAGVA.Front.TransacoesFinanceiras.Models;
-
+﻿
 namespace MAGVA.Front.TransacoesFinanceiras.Controllers
 {
+    using MAGVA.Front.TransacoesFinanceiras.Models;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+    using System.Diagnostics;
+
+    [Authorize()]
     public class HomeController : Controller
     {
+        [AllowAnonymous()]
         public IActionResult Index()
         {
             return View();

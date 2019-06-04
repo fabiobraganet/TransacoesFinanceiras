@@ -182,6 +182,7 @@ A decisão pela recomendação da Microsoft é a ampla documentação e abrangê
 		- Redis
 		- Elastic
 		- Logstash
+			- https://www.elastic.co/pt/webinars/getting-started-logstash?ultron=pt-logstash-getting-started-webinar
 		- Kibana
 	- Devops
 		Não implementados

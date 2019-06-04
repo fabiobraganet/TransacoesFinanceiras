@@ -1,17 +1,23 @@
-﻿using System;
-using System.Reflection;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using MAGVA.Middle.Security.Admin.EntityFramework.DbContexts;
-using MAGVA.Middle.Security.Admin.EntityFramework.Entities.Identity;
-using Microsoft.AspNetCore.HttpOverrides;
+﻿
 
 namespace MAGVA.Middle.Security.AspNetIdentity
 {
+    using Base;
+    using System;
+    using System.Reflection;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using MAGVA.Middle.Security.Admin.EntityFramework.DbContexts;
+    using MAGVA.Middle.Security.Admin.EntityFramework.Entities.Identity;
+    using Microsoft.AspNetCore.HttpOverrides;
+    using Microsoft.Extensions.Logging;
+    using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+    using HealthChecks.UI.Client;
+
     public class Startup
     {
         public IConfiguration Configuration { get; }
@@ -38,6 +44,9 @@ namespace MAGVA.Middle.Security.AspNetIdentity
         {
             string connectionString = Configuration.GetConnectionString("AdminConnection");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+
+            services.AddHealthChecks(Configuration)
+                .AddCustomConfiguration(Configuration);
 
             services.AddDbContext<AdminDbContext>(options =>
                 options.UseSqlServer(connectionString));
@@ -96,12 +105,30 @@ namespace MAGVA.Middle.Security.AspNetIdentity
             }
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            var pathBase = Configuration["PATH_BASE"];
+            if (!string.IsNullOrEmpty(pathBase))
+            {
+                loggerFactory.CreateLogger<Startup>().LogDebug("Using PATH BASE '{pathBase}'", pathBase);
+                app.UsePathBase(pathBase);
+            }
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseHealthChecks("/liveness", new HealthCheckOptions
+            {
+                Predicate = r => r.Name.Contains("self")
+            });
+
+            app.UseHealthChecks("/hc", new HealthCheckOptions()
+            {
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            });
 
             app.UseStaticFiles();
             app.UseIdentityServer();

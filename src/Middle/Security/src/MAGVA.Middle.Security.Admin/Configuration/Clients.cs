@@ -62,11 +62,51 @@ namespace MAGVA.Middle.Security.Admin.Configuration
                     }
                 },
 
+                ///////////////////////////////////////////
+	            // MAGVA Client Transação Financeira UI
+	            //////////////////////////////////////////
+                new Client
+                {
+                    ClientId = "transacoesfinanceiras",
+                    ClientName = "Transações Financeiras",
+                    ClientSecrets = new List<Secret>
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    ClientUri = $"http://magvafronttransacoesfinanceiras:15000/",
+                    AllowedGrantTypes = GrantTypes.Hybrid,
+                    AllowAccessTokensViaBrowser = false,
+                    RequireConsent = false,
+                    AllowOfflineAccess = true,
+                    AlwaysIncludeUserClaimsInIdToken = true,
+                    RedirectUris = new List<string>
+                    {
+                        $"http://magvafronttransacoesfinanceiras:15000/signin-oidc"
+                    },
+                    PostLogoutRedirectUris = new List<string>
+                    {
+                        $"http://magvafronttransacoesfinanceiras:15000//signout-callback-oidc"
+                    },
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.StandardScopes.OfflineAccess,
+                        "transacoesfinanceiras",
+                        "consumidores"
+
+                    },
+                    // 2 horas
+                    AccessTokenLifetime = 60*60*2, 
+                    IdentityTokenLifetime= 60*60*2 
+                },
+
             };
 
         }
 
-
+        //Não operacional
         public static IEnumerable<Client> Get()
         {
             return new List<Client>

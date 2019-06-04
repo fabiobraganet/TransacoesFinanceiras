@@ -63,7 +63,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Base
             hcBuilder
                 .AddSqlServer(
                     configuration["ConnectionString"],
-                    name: "TransferenciasFinanceirasDB-check",
+                    name: "sqlserver-check",
                     tags: new string[] { "TransferenciasFinanceirasDB" });
 
             hcBuilder
@@ -311,7 +311,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Base
             {
                 options.Authority = identityUrl;
                 options.RequireHttpsMetadata = false;
-                options.Audience = apiresourcename; ;
+                options.Audience = apiresourcename;
             });
 
             return services;

@@ -82,10 +82,12 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:15000
+      - identityUrl=http://magvamiddlesecurityaspnetidentity:14000
+      - IdentityUrlExternal=http://magvamiddlesecurityaspnetidentity:14000
     networks:
       - magva-network
     ports:
-      - "80:80"
+      - "15000:15000"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
@@ -107,6 +109,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:14000
+      - ConnectionString=Server=tcp:magvasqlserver2017;Database=IdentityServer4Admin;User Id=SA;Password=1Pass@word;MultipleActiveResultSets=true
     networks:
       - magva-network
     ports:
