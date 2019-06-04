@@ -35,8 +35,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Queries
                    );
 
                 if (result.AsList().Count == 0)
-                    return null; // new Consumidor();
-                    //throw new KeyNotFoundException();
+                    return null; 
 
                 return MapConsumidor(result);
             }
@@ -59,7 +58,6 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Queries
 
                 if (result.AsList().Count == 0)
                     return new List<Consumidor>();
-                    //throw new KeyNotFoundException();
 
                 return MapConsumidores(result);
             }

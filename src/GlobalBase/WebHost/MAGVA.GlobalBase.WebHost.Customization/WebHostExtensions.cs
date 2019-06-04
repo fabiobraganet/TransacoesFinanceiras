@@ -6,9 +6,9 @@ namespace Microsoft.AspNetCore.Hosting
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
     using Polly;
-    using Polly.Retry;
     using System;
     using System.Data.SqlClient;
+    using System.Threading;
 
     public static class IWebHostExtensions
     {
@@ -70,8 +70,17 @@ namespace Microsoft.AspNetCore.Hosting
         private static void InvokeSeeder<TContext>(Action<TContext, IServiceProvider> seeder, TContext context, IServiceProvider services)
             where TContext : DbContext
         {
-            context.Database.Migrate();
-            seeder(context, services);
+            try
+            {
+                context.Database.Migrate();
+                seeder(context, services);
+            }
+            catch
+            {
+                Thread.Sleep(60000);
+                context.Database.Migrate();
+                seeder(context, services);
+            }
         }
     }
 }
