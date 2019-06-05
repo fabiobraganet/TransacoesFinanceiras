@@ -16,11 +16,33 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.AutofacModules
             builder.RegisterAssemblyTypes(typeof(IMediator).GetTypeInfo().Assembly)
                 .AsImplementedInterfaces();
 
+            //---
+
             builder.RegisterAssemblyTypes(typeof(CriarConsumidorCommand).GetTypeInfo().Assembly)
                 .AsClosedTypesOf(typeof(IRequestHandler<,>));
 
             builder
                 .RegisterAssemblyTypes(typeof(CriarConsumidorCommandValidator).GetTypeInfo().Assembly)
+                .Where(t => t.IsClosedTypeOf(typeof(IValidator<>)))
+                .AsImplementedInterfaces();
+
+            //---
+
+            builder.RegisterAssemblyTypes(typeof(EditarConsumidorCommand).GetTypeInfo().Assembly)
+                .AsClosedTypesOf(typeof(IRequestHandler<,>));
+
+            builder
+                .RegisterAssemblyTypes(typeof(EditarConsumidorCommandValidator).GetTypeInfo().Assembly)
+                .Where(t => t.IsClosedTypeOf(typeof(IValidator<>)))
+                .AsImplementedInterfaces();
+
+            //---
+
+            builder.RegisterAssemblyTypes(typeof(ExcluirConsumidorCommand).GetTypeInfo().Assembly)
+                .AsClosedTypesOf(typeof(IRequestHandler<,>));
+
+            builder
+                .RegisterAssemblyTypes(typeof(ExcluirConsumidorCommandValidator).GetTypeInfo().Assembly)
                 .Where(t => t.IsClosedTypeOf(typeof(IValidator<>)))
                 .AsImplementedInterfaces();
 

@@ -8,6 +8,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Domain.AggregatesModel.ConsumidorAggr
     {
         Consumidor Add(Consumidor consumidor);
         Consumidor Update(Consumidor consumidor);
+        Consumidor Remove(Consumidor consumidor);
         Task<Consumidor> FindAsync(int loginid);
         Task<Consumidor> FindByIdAsync(int id);
     }

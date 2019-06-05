@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase.Migrations.TransacoesFinanceiras
 {
@@ -8,6 +9,9 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase.Migrations.Tr
         {
             migrationBuilder.EnsureSchema(
                 name: "TransacoesFinanceiras");
+
+            migrationBuilder.EnsureSchema(
+                name: "Sistema");
 
             migrationBuilder.CreateSequence(
                 name: "consumidorseq",
@@ -38,6 +42,20 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase.Migrations.Tr
                 table: "Consumidor",
                 column: "LoginId",
                 unique: true);
+
+            migrationBuilder.CreateTable(
+                name: "Requests",
+                schema: "Sistema",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
+                    Time = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Requests", x => x.Id);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -45,6 +63,10 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase.Migrations.Tr
             migrationBuilder.DropTable(
                 name: "Consumidor",
                 schema: "TransacoesFinanceiras");
+
+            migrationBuilder.DropTable(
+                name: "Requests",
+                schema: "Sistema");
 
             migrationBuilder.DropSequence(
                 name: "consumidorseq",

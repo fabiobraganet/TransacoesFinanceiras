@@ -88,13 +88,13 @@ namespace MAGVA.Back.TransacoesFinanceiras.Controllers
         [HttpPut]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> EditarConsumidorAsync([FromBody]EditarConsumidorCommand command, [FromHeader(Name = "x-requestid")] string requestId)
+        public async Task<IActionResult> EditarConsumidorAsync([FromBody]EditarConsumidorCommand editarConsumidorCommand, [FromHeader(Name = "x-requestid")] string requestId)
         {
             bool commandResult = false;
 
             if (Guid.TryParse(requestId, out Guid guid) && guid != Guid.Empty)
             {
-                var requestEditarConsumidor = new IdentifiedCommand<EditarConsumidorCommand, bool>(command, guid);
+                var requestEditarConsumidor = new IdentifiedCommand<EditarConsumidorCommand, bool>(editarConsumidorCommand, guid);
 
                 _logger.LogInformation(
                     "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",
@@ -104,6 +104,35 @@ namespace MAGVA.Back.TransacoesFinanceiras.Controllers
                     requestEditarConsumidor);
 
                 commandResult = await _mediator.Send(requestEditarConsumidor);
+            }
+
+            if (!commandResult)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> DeleteConsumidorAsync([FromBody]ExcluirConsumidorCommand excluirConsumidorCommand, [FromHeader(Name = "x-requestid")] string requestId)
+        {
+            bool commandResult = false;
+
+            if (Guid.TryParse(requestId, out Guid guid) && guid != Guid.Empty)
+            {
+                var requestExcluirConsumidor = new IdentifiedCommand<ExcluirConsumidorCommand, bool>(excluirConsumidorCommand, guid);
+
+                _logger.LogInformation(
+                    "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",
+                    requestExcluirConsumidor.GetGenericTypeName(),
+                    nameof(requestExcluirConsumidor.Command.Id),
+                    requestExcluirConsumidor.Command.Id,
+                    requestExcluirConsumidor);
+
+                commandResult = await _mediator.Send(requestExcluirConsumidor);
             }
 
             if (!commandResult)

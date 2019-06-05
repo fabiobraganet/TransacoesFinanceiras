@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using System;
 
 namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase.Migrations.TransacoesFinanceiras
 {
@@ -42,6 +43,21 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.DataBase.Migrations.Tr
 
                     b.ToTable("Consumidor","TransacoesFinanceiras");
                 });
+
+            modelBuilder.Entity("MAGVA.Back.TransacoesFinanceiras.Infrastructure.Idempotency.ClientRequest", b =>
+            {
+                b.Property<Guid>("Id")
+                    .ValueGeneratedOnAdd();
+
+                b.Property<string>("Name")
+                    .IsRequired();
+
+                b.Property<DateTime>("Time");
+
+                b.HasKey("Id");
+
+                b.ToTable("Requests", "Sistema");
+            });
 #pragma warning restore 612, 618
         }
     }

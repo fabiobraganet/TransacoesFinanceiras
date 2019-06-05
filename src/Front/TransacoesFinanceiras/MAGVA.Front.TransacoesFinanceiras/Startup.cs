@@ -1,18 +1,16 @@
 ﻿
 namespace MAGVA.Front.TransacoesFinanceiras
 {
-    using Helpers;
     using Base;
-    using System.IdentityModel.Tokens.Jwt;
+    using HealthChecks.UI.Client;
+    using Infrastructure.Middlewares;
     using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Diagnostics.HealthChecks;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
-
-    using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-    using HealthChecks.UI.Client;
-    using MAGVA.Front.TransacoesFinanceiras.Infrastructure.Middlewares;
+    using System.IdentityModel.Tokens.Jwt;
 
     public class Startup
     {
@@ -45,10 +43,6 @@ namespace MAGVA.Front.TransacoesFinanceiras
                     .AddHttpClientLogging(Configuration)  
                     .AddCustomAuthentication(Configuration)
                     .AddAuthorizationPolicies();
-
-            //services.AddAuthentication(HostingEnvironment);
-            //services.AddMvcLocalization();
-            //services.AddAuthorizationPolicies();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

@@ -1,5 +1,4 @@
 ﻿
-
 namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.Idempotency
 {
     using Domain.Exceptions;

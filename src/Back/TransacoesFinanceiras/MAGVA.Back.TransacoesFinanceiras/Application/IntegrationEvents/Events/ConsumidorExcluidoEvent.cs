@@ -1,13 +1,15 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+
 namespace MAGVA.Back.TransacoesFinanceiras.Application.IntegrationEvents.Events
 {
     using GlobalBase.EventBus.Events;
 
-    public class ConsumidorEditadoEvent : IntegrationEvent
+    public class ConsumidorExcluidoEvent : IntegrationEvent
     {
         public int ConsumidorId { get; set; }
 
-        public ConsumidorEditadoEvent(int id)
+        public ConsumidorExcluidoEvent(int id)
             => ConsumidorId = id;
     }
 }

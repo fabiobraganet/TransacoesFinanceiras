@@ -12,13 +12,14 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure
     using System.Data;
     using System.Threading;
     using System.Threading.Tasks;
+    using Idempotency;
 
     public class TransacoesFinanceirasContext : DbContext, IUnitOfWork
     {
         public const string DEFAULT_SCHEMA = "TransacoesFinanceiras";
-
+        
         public DbSet<Consumidor> Consumidores { get; set; }
-
+        
         private readonly IMediator _mediator;
         private IDbContextTransaction _currentTransaction;
 
@@ -37,6 +38,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new ClientRequestEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new ConsumidorEntityTypeConfiguration());
         }
 

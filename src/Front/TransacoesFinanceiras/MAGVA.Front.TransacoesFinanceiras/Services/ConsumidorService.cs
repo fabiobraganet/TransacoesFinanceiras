@@ -8,6 +8,11 @@ namespace MAGVA.Front.TransacoesFinanceiras.Services
     using System.Threading.Tasks;
     using Newtonsoft.Json;
     using System.Text;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+    using Microsoft.AspNetCore.Authentication.Cookies;
+    using System.Collections.Generic;
+    using Microsoft.AspNetCore.Authentication;
 
     public class ConsumidorService : IConsumidorService
     {
@@ -27,11 +32,27 @@ namespace MAGVA.Front.TransacoesFinanceiras.Services
         {
             var uri = API.Consumidor.GetConsumidor(_transacoesFinanceirasUrl, user.Id);
 
-            var responseString = await _apiClient.GetStringAsync(uri);
+            try
+            {
+                var responseString = await _apiClient.GetStringAsync(uri);
 
-            return string.IsNullOrEmpty(responseString) ?
-                new Consumidor() { LoginId = user.Id } :
-                JsonConvert.DeserializeObject<Consumidor>(responseString);
+                return string.IsNullOrEmpty(responseString) ?
+                    new Consumidor() { LoginId = user.Id } :
+                    JsonConvert.DeserializeObject<Consumidor>(responseString);
+            }
+            catch (HttpRequestException ex)
+            {
+                if (ex.Message.Contains("401"))
+                {
+                    new SignOutResult(new List<string>
+                        {
+                            OpenIdConnectDefaults.AuthenticationScheme, CookieAuthenticationDefaults.AuthenticationScheme
+                        },
+                        new AuthenticationProperties { RedirectUri = "/" });
+                }
+            }
+
+            return null;
         }
 
         public async Task<string> PostConsumidor(Consumidor consumidor)
@@ -48,6 +69,54 @@ namespace MAGVA.Front.TransacoesFinanceiras.Services
             };
 
             HttpResponseMessage result = await _apiClient.PostAsync(uri, content);
+
+            var response = string.Empty;
+            if (result.IsSuccessStatusCode)
+            {
+                response = result.StatusCode.ToString();
+            }
+
+            return response;
+        }
+
+        public async Task<string> PutConsumidor(Consumidor consumidor)
+        {
+            var uri = API.Consumidor.PutConsumidor(_transacoesFinanceirasUrl);
+
+            HttpContent content = new StringContent(JsonConvert.SerializeObject(consumidor), Encoding.UTF8, "application/json");
+
+            HttpRequestMessage request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Put,
+                RequestUri = new System.Uri(uri),
+                Content = content
+            };
+
+            HttpResponseMessage result = await _apiClient.PutAsync(uri, content);
+
+            var response = string.Empty;
+            if (result.IsSuccessStatusCode)
+            {
+                response = result.StatusCode.ToString();
+            }
+
+            return response;
+        }
+
+        public async Task<string> DeleteConsumidor(Consumidor consumidor)
+        {
+            var uri = API.Consumidor.DeleteConsumidor(_transacoesFinanceirasUrl, consumidor.Id.ToString());
+
+            HttpContent content = new StringContent(JsonConvert.SerializeObject(consumidor), Encoding.UTF8, "application/json");
+
+            HttpRequestMessage request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Delete,
+                RequestUri = new System.Uri(uri),
+                Content = content
+            };
+
+            HttpResponseMessage result = await _apiClient.DeleteAsync(uri);
 
             var response = string.Empty;
             if (result.IsSuccessStatusCode)

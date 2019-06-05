@@ -10,7 +10,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
     {
 
         [DataMember]
-        public string Nome { get; private set; }
+        public string Nome { get; set; }
         [DataMember]
         public string Email { get; set; }
         [DataMember]

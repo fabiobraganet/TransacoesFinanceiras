@@ -86,7 +86,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Queries
                     Id = item.Id,
                     Nome = item.Nome,
                     Email = item.Email,
-                    LoginId = item[0].LoginId,
+                    LoginId = item.LoginId,
                     Ativo = item.Ativo
                 });
             }

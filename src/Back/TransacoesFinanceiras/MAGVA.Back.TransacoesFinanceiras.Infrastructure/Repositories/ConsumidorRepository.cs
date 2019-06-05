@@ -46,6 +46,13 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.Repositories
                     .Entity;
         }
 
+        public Consumidor Remove(Consumidor consumidor)
+        {
+            return _ = _context.Consumidores
+                    .Remove(consumidor)
+                    .Entity;
+        }
+
         public async Task<Consumidor> FindAsync(int loginid)
         {
             var consumidor = await _context.Consumidores

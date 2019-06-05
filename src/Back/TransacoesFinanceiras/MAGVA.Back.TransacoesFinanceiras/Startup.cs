@@ -1,6 +1,7 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras
 {
+    using Application.IntegrationEvents.Events;
     using Autofac;
     using Autofac.Extensions.DependencyInjection;
     using Base;
@@ -89,7 +90,7 @@ namespace MAGVA.Back.TransacoesFinanceiras
         {
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
 
-            //eventBus.Subscribe<.., IIntegrationEventHandler<..>>();
+            eventBus.Subscribe<ConsumidorCriadoEvent, IIntegrationEventHandler<ConsumidorCriadoEvent>>();
 
         }
 

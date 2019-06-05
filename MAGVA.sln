@@ -63,11 +63,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebHost", "WebHost", "{E858
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAGVA.GlobalBase.WebHost.Customization", "src\GlobalBase\WebHost\MAGVA.GlobalBase.WebHost.Customization\MAGVA.GlobalBase.WebHost.Customization.csproj", "{9E6FEA27-8A24-404B-9A87-0D8D06A1C656}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAGVA.GlobalBase.EventBus.EventBusServiceBus", "src\GlobalBase\EventBus\MAGVA.GlobalBase.EventBus.EventBusServiceBus\MAGVA.GlobalBase.EventBus.EventBusServiceBus.csproj", "{A09986DD-D808-4F0A-94B1-893F9AB3F348}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAGVA.GlobalBase.EventBus.EventBusServiceBus", "src\GlobalBase\EventBus\MAGVA.GlobalBase.EventBus.EventBusServiceBus\MAGVA.GlobalBase.EventBus.EventBusServiceBus.csproj", "{A09986DD-D808-4F0A-94B1-893F9AB3F348}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAGVA.Back.TransacoesFinanceiras.Tests", "src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Tests\MAGVA.Back.TransacoesFinanceiras.Tests.csproj", "{58074A20-071F-4A35-9B86-7DFF9726D368}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAGVA.Back.TransacoesFinanceiras.Tests", "src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Tests\MAGVA.Back.TransacoesFinanceiras.Tests.csproj", "{58074A20-071F-4A35-9B86-7DFF9726D368}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAGVA.Front.TransacoesFinanceiras", "src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras.csproj", "{5A36880B-7C6C-4C6F-8739-D7B2A62A67A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAGVA.Front.TransacoesFinanceiras", "src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras.csproj", "{5A36880B-7C6C-4C6F-8739-D7B2A62A67A7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Simulator", "Simulator", "{E221E401-2CCC-451B-8C71-B66A37DFA259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CredNet.Payments", "Simulator\CredNet.Payments\CredNet.Payments.csproj", "{CA021977-2C9E-40DF-84A9-8A4BF4814B6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -139,6 +143,10 @@ Global
 		{5A36880B-7C6C-4C6F-8739-D7B2A62A67A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A36880B-7C6C-4C6F-8739-D7B2A62A67A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A36880B-7C6C-4C6F-8739-D7B2A62A67A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA021977-2C9E-40DF-84A9-8A4BF4814B6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA021977-2C9E-40DF-84A9-8A4BF4814B6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA021977-2C9E-40DF-84A9-8A4BF4814B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA021977-2C9E-40DF-84A9-8A4BF4814B6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -169,6 +177,7 @@ Global
 		{A09986DD-D808-4F0A-94B1-893F9AB3F348} = {0299021D-0A49-44D5-86F2-AA8259B013B7}
 		{58074A20-071F-4A35-9B86-7DFF9726D368} = {3247861D-DEE5-4730-9AAA-3FC7A9216526}
 		{5A36880B-7C6C-4C6F-8739-D7B2A62A67A7} = {D53CA599-2D67-4E85-9608-51F86272847B}
+		{CA021977-2C9E-40DF-84A9-8A4BF4814B6E} = {E221E401-2CCC-451B-8C71-B66A37DFA259}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0BE9B91B-E91E-42E6-93E6-8E86F6032A50}
