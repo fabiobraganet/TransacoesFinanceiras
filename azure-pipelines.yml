@@ -1,41 +1,27 @@
-# ASP.NET Core
-# Build and test ASP.NET Core projects targeting .NET Core.
-# Add steps that run tests, create a NuGet package, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
-trigger:
-- master
-
 pool:
-  vmImage: 'ubuntu-latest'
-
+  vmImage: 'ubuntu-16.04'
 variables:
-  buildConfiguration: 'Release'
-
+    registryEndpoint: magva-registry
 steps:
-- task: DotNetCoreInstaller@0
+- task: DockerCompose@0
+  displayName: Compose build back_transacoesfinanceiras
   inputs:
-    version: '2.2.300'
-
-- task: DotNetCoreInstaller@1
-- script: dotnet restore
-
-- task: DotNetCoreCLI@2
-  displayName: Build
+    dockerComposeCommand: 'build magva.back.transacoesfinanceiras'
+    containerregistrytype: Container Registry
+    dockerRegistryEndpoint: $(registryEndpoint)
+    dockerComposeFile: docker-compose.yml
+    qualifyImageNames: true
+    projectName: ""
+    dockerComposeFileArgs: |
+      TAG=$(Build.SourceBranchName)
+- task: DockerCompose@0
+  displayName: Compose push back_transacoesfinanceiras
   inputs:
-    command: build
-    projects: '**/*.csproj'
-    arguments: '--configuration Release'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: test
-    projects: '**/*Tests/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: publish
-    publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
+    dockerComposeCommand: 'push magva.back.transacoesfinanceiras'
+    containerregistrytype: Container Registry
+    dockerRegistryEndpoint: $(registryEndpoint)
+    dockerComposeFile: docker-compose.yml
+    qualifyImageNames: true
+    projectName: ""
+    dockerComposeFileArgs: |
+      TAG=$(Build.SourceBranchName)
