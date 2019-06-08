@@ -2,7 +2,8 @@ pool:
   vmImage: 'ubuntu-16.04'
 variables:
     registryEndpoint: 
-steps:
+steps: 
+- script: docker login -u $(dockerId) -p $(pswd) <docker-registry-url>
 - task: DockerCompose@0
   displayName: Compose build back_transacoesfinanceiras
   inputs:
