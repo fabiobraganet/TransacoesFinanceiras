@@ -1,7 +1,7 @@
 pool:
   vmImage: 'ubuntu-16.04'
 variables:
-    registryEndpoint: fabiobraganet
+    registryEndpoint: 
 steps:
 - task: DockerCompose@0
   displayName: Compose build back_transacoesfinanceiras
