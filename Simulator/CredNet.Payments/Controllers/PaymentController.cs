@@ -1,45 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-
+﻿
 namespace CredNet.Payments.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+    using Models;
+
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class PaymentController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
 
-        // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<Transaction> Get(int id)
         {
-            return "value";
+            return new Transaction("C", 1, 1, new Card(
+                cardholdername: "Eike Batista", 
+                number: "4012001037141112", 
+                expirationdate: "11/22",
+                cardbrand: "VISA", 
+                password: "xxxxxxxxxxx", 
+                type: "Chip", 
+                haspassword: false));
         }
-
-        // POST api/values
+        
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Transaction transaction)
         {
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

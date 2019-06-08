@@ -44,14 +44,14 @@ namespace CredNet.Payments.Models
         /// </summary>
         public bool HasPassword { get; set; }
 
-        public Card(string cardholdername, string number, string expirationdate, string cardbrand, string password, string type, bool haspassword )
+        public Card(string cardholdername, string number, string expirationdate, string cardbrand, string password, string type, bool haspassword)
         {
             CardholderName = cardholdername;
             Number = number;
             ExpirationDate = expirationdate;
             CardBrand = cardbrand;
             Password = password;
-            Type = Type;
+            Type = type;
             HasPassword = haspassword;
 
             _ = _ExpirationDate;

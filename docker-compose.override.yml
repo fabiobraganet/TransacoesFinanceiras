@@ -6,6 +6,7 @@ services:
     environment:
       - SA_PASSWORD=1Pass@word
       - ACCEPT_EULA=Y
+      - MSSQL_DATABASE_COLLATE=SQL_Latin1_General_CP1_CS_AS
     networks:
       - magva-network
     ports:
@@ -100,7 +101,6 @@ services:
       - magva-network
     ports:
       - "15098:15098"
-      - "15099:15099"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
@@ -116,6 +116,7 @@ services:
       - "14000:14000"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
   
   magva.middle.security.admin:
     environment:
@@ -130,7 +131,20 @@ services:
       - "14001:14001"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    
+  crednet.payments:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_HTTPS_PORT=44337
+    ports:
+      - "20000:20000"
+    networks:
+      - magva-network
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
 
 networks:
   magva-network:
