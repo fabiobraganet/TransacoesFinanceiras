@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Referências:&#xD;&#xA;&#xD;&#xA;https://www.c-sharpcorner.com/article/command-mediator-pattern-in-asp-net-core-using-mediatr2/&#xD;&#xA;&#xD;&#xA; https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/microservice-application-layer-implementation-web-api&#xD;&#xA;&#xD;&#xA;https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/&#xD;&#xA;">
+    <Position X="8.5" Y="0.5" Height="2.135" Width="4.596" />
+  </Comment>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Command.CriarConsumidorCommand" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="6" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAEAAQAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Application\Command\CriarConsumidorCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Command.CriarConsumidorCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="4" Y="6" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAIAAAgAIBAAAAAAABAAA=</HashCode>
+      <FileName>Application\Command\CriarConsumidorCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Command.CriarConsumidorIdentifiedCommandHandler">
+    <Position X="8.25" Y="3.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Application\Command\CriarConsumidorCommandHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Command.EditarConsumidorCommand" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="9" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAAAAEAAQAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Application\Command\EditarConsumidorCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Command.EditarConsumidorCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="4" Y="9" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAIAAAgAIBAAAAAAABAAA=</HashCode>
+      <FileName>Application\Command\EditarConsumidorCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Command.EditarConsumidorIdentifiedCommandHandler">
+    <Position X="4" Y="3.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Application\Command\EditarConsumidorCommandHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Command.ExcluirConsumidorCommand" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="12" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Application\Command\ExcluirConsumidorCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Command.ExcluirConsumidorCommandHandler" BaseTypeListCollapsed="true">
+    <Position X="4" Y="12" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAIAAAgAIBAAAAAAABAAA=</HashCode>
+      <FileName>Application\Command\ExcluirConsumidorCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Command.ExcluirConsumidorIdentifiedCommandHandler">
+    <Position X="0.5" Y="3.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Application\Command\ExcluirConsumidorCommandHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Command.IdentifiedCommand&lt;T, R&gt;" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Application\Command\IdentifiedCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Command.IdentifiedCommandHandler&lt;T, R&gt;">
+    <Position X="4.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAgAAAAAAAAAAAAAAIAAAAAIAAAAAAAgAAAA=</HashCode>
+      <FileName>Application\Command\IdentifiedCommandHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

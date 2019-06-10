@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Behaviors.LoggingBehavior&lt;TRequest, TResponse&gt;" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Application\Behaviors\LoggingBehavior.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Behaviors.TransactionBehaviour&lt;TRequest, TResponse&gt;" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAIAAAgAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Application\Behaviors\TransactionBehaviour.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Behaviors.ValidatorBehavior&lt;TRequest, TResponse&gt;" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="2.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAIAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Application\Behaviors\ValidatorBehavior.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Infrastructure.AutofacModules.ApplicationModule">
+    <Position X="6" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\AutofacModules\ApplicationModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Infrastructure.AutofacModules.MediatorModule">
+    <Position X="6" Y="2.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\AutofacModules\MediatorModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

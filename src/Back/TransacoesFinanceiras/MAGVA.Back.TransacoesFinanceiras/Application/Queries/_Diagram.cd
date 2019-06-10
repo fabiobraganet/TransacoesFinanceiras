@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Referências:&#xD;&#xA;&#xD;&#xA;https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/&#xD;&#xA;&#xD;&#xA;https://docs.microsoft.com/pt-br/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/cqrs-microservice-reads&#xD;&#xA;&#xD;&#xA;https://www.dotnetcurry.com/patterns-practices/1461/command-query-separation-cqs&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;">
+    <Position X="8.552" Y="1.073" Height="2.052" Width="5.304" />
+  </Comment>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Queries.ConsumidorQueries" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAABAAAAACAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Application\Queries\ConsumidorQueries.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MAGVA.Back.TransacoesFinanceiras.Application.Queries.Consumidor">
+    <Position X="0.5" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAAAAEAAQAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Application\Queries\ConsumidorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="MAGVA.Back.TransacoesFinanceiras.Application.Queries.IConsumidorQueries">
+    <Position X="6" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Application\Queries\IConsumidorQueries.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

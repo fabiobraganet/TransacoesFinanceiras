@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
+﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Application.IntegrationEvents.EventHandling
 {
-    using MediatR;
-    using GlobalBase.EventBus.Abstractions;
-    using GlobalBase.EventBus.Extensions;
-    using Domain.AggregatesModel.ConsumidorAggregate;
-    using Microsoft.Extensions.Logging;
-    using Application.Behaviors;
-    using Application.Command;
     using Application.IntegrationEvents.Events;
+    using GlobalBase.EventBus.Abstractions;
+    using MediatR;
+    using Microsoft.Extensions.Logging;
     using Serilog.Context;
     using System.Threading.Tasks;
 
