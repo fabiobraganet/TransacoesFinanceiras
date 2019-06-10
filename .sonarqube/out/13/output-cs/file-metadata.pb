@@ -1,0 +1,13 @@
+Å
+C:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Constants\TableConsts.csÜ
+ÉC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\DbContexts\AdminDbContext.csã
+àC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Identity\UserIdentity.csê
+çC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Identity\UserIdentityClaim.csè
+åC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Identity\UserIdentityRole.csî
+ëC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Identity\UserIdentityRoleClaim.csî
+ëC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Identity\UserIdentityUserLogin.csì
+êC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Identity\UserIdentityUserRole.csî
+ëC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Identity\UserIdentityUserToken.csx
+vC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Log.cså
+âC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\PersistedGrantDataView.csU
+QC:\Users\fabio\AppData\Local\Temp\.NETStandard,Version=v2.0.AssemblyAttributes.cs

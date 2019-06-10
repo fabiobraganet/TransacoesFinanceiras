@@ -1,0 +1,13 @@
+∏
+µC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\DataBase\Migrations\TransacoesFinanceiras\20190530084452_Initial.cs√
+æC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\DataBase\Migrations\TransacoesFinanceiras\20190530084452_Initial.Designer.csÕ
+»C:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\DataBase\Migrations\TransacoesFinanceiras\TransacoesFinanceirasContextModelSnapshot.cs±
+ÆC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\EntityConfigurations\ClientRequestEntityTypeConfiguration.csÆ
+´C:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\EntityConfigurations\ConsumidorEntityTypeConfiguration.csë
+éC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\Idempotency\ClientRequest.csì
+êC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\Idempotency\IRequestManager.csí
+èC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\Idempotency\RequestManager.csâ
+ÜC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\MediatorExtension.csô
+ñC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\Repositories\ConsumidorRepository.csî
+ëC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\TransacoesFinanceirasContext.csU
+QC:\Users\fabio\AppData\Local\Temp\.NETStandard,Version=v2.0.AssemblyAttributes.cs

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>MAGVA.Back.WatchDog</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Product</ProjectType>
+  <ProjectGuid>770a3654-7380-46f4-93f0-e61acb805182</ProjectGuid>
+  <FullPath>C:\DEV\MAGVA\TransacoesFinanceiras\src\Back\WatchDog\MAGVA.Back.WatchDog\MAGVA.Back.WatchDog.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResults>
+    <AnalysisResult Id="FilesToAnalyze" Location="C:\DEV\MAGVA\TransacoesFinanceiras\.sonarqube\out\3\FilesToAnalyze.txt" />
+  </AnalysisResults>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePath">C:\DEV\MAGVA\TransacoesFinanceiras\src\Back\WatchDog\MAGVA.Back.WatchDog\bin\Debug\netcoreapp2.2\MAGVA.Back.WatchDog.dll.RoslynCA.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPath">C:\DEV\MAGVA\TransacoesFinanceiras\.sonarqube\out\3</Property>
+  </AnalysisSettings>
+  <Configuration>Debug</Configuration>
+  <Platform>AnyCPU</Platform>
+  <TargetFramework>netcoreapp2.2</TargetFramework>
+</ProjectInfo>

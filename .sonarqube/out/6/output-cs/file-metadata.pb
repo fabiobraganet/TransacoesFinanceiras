@@ -1,0 +1,12 @@
+û
+õC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Domain\AggregatesModel\ConsumidorAggregate\Consumidor.cs©
+¶C:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Domain\AggregatesModel\ConsumidorAggregate\IConsumidorRepository.csõ
+òC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Domain\Events\ConsumidorRequerAuditoriaDomainEvent.csü
+úC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Domain\Exceptions\TransacoesFinanceirasDomainException.cs~
+|C:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Domain\SeedWork\Entity.csÑ
+ÅC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Domain\SeedWork\Enumeration.csá
+ÑC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Domain\SeedWork\IAggregateRoot.csÑ
+ÅC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Domain\SeedWork\IRepository.csÑ
+ÅC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Domain\SeedWork\IUnitOfWork.csÑ
+ÅC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Domain\SeedWork\ValueObject.csU
+QC:\Users\fabio\AppData\Local\Temp\.NETStandard,Version=v2.0.AssemblyAttributes.cs

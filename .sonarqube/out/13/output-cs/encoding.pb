@@ -1,0 +1,12 @@
+à
+C:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Constants\TableConsts.csutf-8ç
+ÉC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\DbContexts\AdminDbContext.csutf-8í
+àC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Identity\UserIdentity.csutf-8ó
+çC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Identity\UserIdentityClaim.csutf-8ñ
+åC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Identity\UserIdentityRole.csutf-8õ
+ëC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Identity\UserIdentityRoleClaim.csutf-8õ
+ëC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Identity\UserIdentityUserLogin.csutf-8ö
+êC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Identity\UserIdentityUserRole.csutf-8õ
+ëC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Identity\UserIdentityUserToken.csutf-8
+vC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\Log.csutf-8ì
+âC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.Admin.EntityFramework\Entities\PersistedGrantDataView.csutf-8

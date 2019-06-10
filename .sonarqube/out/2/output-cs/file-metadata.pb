@@ -1,0 +1,12 @@
+«
+¦C:\DEV\MAGVA\TransacoesFinanceiras\src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\obj\Debug\netcoreapp2.2\Razor\Views\Consumidor\Create.g.cshtml.csª
+¥C:\DEV\MAGVA\TransacoesFinanceiras\src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\obj\Debug\netcoreapp2.2\Razor\Views\Consumidor\Index.g.cshtml.cs¤
+ŸC:\DEV\MAGVA\TransacoesFinanceiras\src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs¦
+¡C:\DEV\MAGVA\TransacoesFinanceiras\src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs¦
+¡C:\DEV\MAGVA\TransacoesFinanceiras\src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs¶
+±C:\DEV\MAGVA\TransacoesFinanceiras\src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs¨
+£C:\DEV\MAGVA\TransacoesFinanceiras\src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.csº
+µC:\DEV\MAGVA\TransacoesFinanceiras\src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs¦
+¡C:\DEV\MAGVA\TransacoesFinanceiras\src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs¤
+ŸC:\DEV\MAGVA\TransacoesFinanceiras\src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs¾
+¹C:\DEV\MAGVA\TransacoesFinanceiras\src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\obj\Debug\netcoreapp2.2\MAGVA.Front.TransacoesFinanceiras.RazorTargetAssemblyInfo.cs

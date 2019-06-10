@@ -1,0 +1,7 @@
+ğ
+ƒC:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.EventBusRabbitMQ\DefaultRabbitMQPersistentConnection.cs' (08@HR 0=0;5=0;10=1;20=0;30=0;60=0;90=0Z1=0;2=8;4=0;6=0;8=0;10=0;12=0rn	
+ !"#$%&()*+,-/0234689:;<=>?@BCDFGHIJKLMNPQRSTVWXYZ\^_`abdefgijkmoprstvxy{|}‚ƒ„x	‚$$*,/46:>DFHJLPRVXYZ\^bdkmotvx}ê
+pC:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.EventBusRabbitMQ\EventBusRabbitMQ.csb (08@HR 0=0;5=0;10=0;20=0;30=1;60=0;90=0Z1=4;2=7;4=1;6=1;8=0;10=0;12=0jer	
+!"$%&'()*+,-./12345689:;<>?@ABCDFGHIJKMNOPQRTVXY[]_`bcdegijklmnopqstuvxyz{}~€‚„†‡ˆŠ‹Œ‘’”•–—˜™š›Ÿ ¡£¥¦¨©ª«¬®¯°±²³µ¶¸¹º¼½¾ÀÂÃÄÅÆÇÈÉÊËÍÎÏĞÒÓÔÕÖ×ÙÚÛÜİŞàáãäåæçèêìîïñòóôõ÷øùûüış€ƒ„…‡ˆ‰Š‹Œ‘’“”•–—˜™š›œŸ ¡¢£¤¥¦§x‚š'()*+,-.358:>@AHJMOQTVX[]_`bdegivxyz‚„†‡Œ‘”–¡£¥«°²µº¼ÀÂÉÏĞÔÖÙİàåçêìîñ÷ùûüı€…‡‰‹Œ‘’“—˜™š›œ£Ø
+}C:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.EventBusRabbitMQ\IRabbitMQPersistentConnection.cs(08@R 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0r	
+

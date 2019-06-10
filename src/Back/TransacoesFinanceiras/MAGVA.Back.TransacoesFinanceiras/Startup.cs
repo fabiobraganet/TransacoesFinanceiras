@@ -19,6 +19,11 @@ namespace MAGVA.Back.TransacoesFinanceiras
 
     public class Startup
     {
+        private const string PATHLIVENESS = "/liveness";
+        private const string PATHHC = "/hc";
+        private const string KEYCONNECTIONSTRING = "ConnectionString";
+        private const string KEYPATHBASE = "PATH_BASE";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -42,16 +47,14 @@ namespace MAGVA.Back.TransacoesFinanceiras
             container.Populate(services);
 
             container.RegisterModule(new MediatorModule());
-            container.RegisterModule(new ApplicationModule(Configuration["ConnectionString"]));
+            container.RegisterModule(new ApplicationModule(Configuration[KEYCONNECTIONSTRING]));
 
             return new AutofacServiceProvider(container.Build());
         }
 
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
-            //loggerFactory.AddApplicationInsights(app.ApplicationServices, LogLevel.Trace);
-
-            var pathBase = Configuration["PATH_BASE"];
+            var pathBase = Configuration[KEYPATHBASE];
             if (!string.IsNullOrEmpty(pathBase))
             {
                 loggerFactory.CreateLogger<Startup>().LogDebug("Using PATH BASE '{pathBase}'", pathBase);
@@ -60,12 +63,12 @@ namespace MAGVA.Back.TransacoesFinanceiras
 
             app.UseCors("CorsPolicy");
 
-            app.UseHealthChecks("/liveness", new HealthCheckOptions
+            app.UseHealthChecks(PATHLIVENESS, new HealthCheckOptions
             {
                 Predicate = r => r.Name.Contains("self")
             });
 
-            app.UseHealthChecks("/hc", new HealthCheckOptions()
+            app.UseHealthChecks(PATHHC, new HealthCheckOptions()
             {
                 Predicate = _ => true,
                 ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse

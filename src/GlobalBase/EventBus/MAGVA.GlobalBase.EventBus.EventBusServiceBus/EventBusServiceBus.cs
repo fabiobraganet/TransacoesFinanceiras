@@ -129,6 +129,7 @@ namespace MAGVA.GlobalBase.EventBus.EventBusServiceBus
         public void Dispose()
         {
             _subsManager.Clear();
+            GC.SuppressFinalize(this);
         }
 
         private void RegisterSubscriptionClientMessageHandler()

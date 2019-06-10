@@ -1,0 +1,11 @@
+¶
+£C:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.IntegrationEventLogEF\Database\Migrations\IntegrationEventLog\20190530084248_Initial.cs±
+¨C:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.IntegrationEventLogEF\Database\Migrations\IntegrationEventLog\20190530084248_Initial.Designer.csπ
+¥C:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.IntegrationEventLogEF\Database\Migrations\IntegrationEventLog\IntegrationEventLogContextModelSnapshot.csu
+sC:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.IntegrationEventLogEF\EventStateEnum.csÅ
+C:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.IntegrationEventLogEF\IntegrationEventLogContext.cs
+}C:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.IntegrationEventLogEF\IntegrationEventLogEntry.cså
+âC:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.IntegrationEventLogEF\Services\IIntegrationEventLogService.csã
+àC:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.IntegrationEventLogEF\Services\IntegrationEventLogService.csÜ
+ÉC:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.IntegrationEventLogEF\Utilities\ResilientTransaction.csU
+QC:\Users\fabio\AppData\Local\Temp\.NETStandard,Version=v2.0.AssemblyAttributes.cs

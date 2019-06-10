@@ -1,0 +1,10 @@
+ø
+µC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\DataBase\Migrations\TransacoesFinanceiras\20190530084452_Initial.csutf-8∏
+ÆC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\EntityConfigurations\ClientRequestEntityTypeConfiguration.csutf-8µ
+´C:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\EntityConfigurations\ConsumidorEntityTypeConfiguration.csutf-8ò
+éC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\Idempotency\ClientRequest.csutf-8ö
+êC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\Idempotency\IRequestManager.csutf-8ô
+èC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\Idempotency\RequestManager.csutf-8ê
+ÜC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\MediatorExtension.csutf-8†
+ñC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\Repositories\ConsumidorRepository.csutf-8õ
+ëC:\DEV\MAGVA\TransacoesFinanceiras\src\Back\TransacoesFinanceiras\MAGVA.Back.TransacoesFinanceiras.Infrastructure\TransacoesFinanceirasContext.csutf-8

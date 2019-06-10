@@ -73,7 +73,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Simulator", "Simulator", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CredNet.Payments", "Simulator\CredNet.Payments\CredNet.Payments.csproj", "{CA021977-2C9E-40DF-84A9-8A4BF4814B6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CredNet.Payments.Tests", "Simulator\CredNet.Payments.Tests\CredNet.Payments.Tests.csproj", "{AEF8FD4A-0D85-4B41-BE0D-EDB3C805B5A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CredNet.Payments.Tests", "Simulator\CredNet.Payments.Tests\CredNet.Payments.Tests.csproj", "{AEF8FD4A-0D85-4B41-BE0D-EDB3C805B5A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

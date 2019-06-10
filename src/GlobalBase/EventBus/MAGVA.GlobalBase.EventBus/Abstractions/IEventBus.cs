@@ -2,8 +2,9 @@
 namespace MAGVA.GlobalBase.EventBus.Abstractions
 {
     using Events;
+    using System;
 
-    public interface IEventBus
+    public interface IEventBus : IDisposable
     {
         void Publish(IntegrationEvent @event);
 
@@ -20,5 +21,6 @@ namespace MAGVA.GlobalBase.EventBus.Abstractions
         void Unsubscribe<T, TH>()
             where TH : IIntegrationEventHandler<T>
             where T : IntegrationEvent;
+
     }
 }

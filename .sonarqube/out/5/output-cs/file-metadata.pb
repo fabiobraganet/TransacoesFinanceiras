@@ -1,0 +1,10 @@
+`
+^C:\DEV\MAGVA\TransacoesFinanceiras\Simulator\CredNet.Payments\Controllers\PaymentController.csN
+LC:\DEV\MAGVA\TransacoesFinanceiras\Simulator\CredNet.Payments\Models\Card.csV
+TC:\DEV\MAGVA\TransacoesFinanceiras\Simulator\CredNet.Payments\Models\Notification.csU
+SC:\DEV\MAGVA\TransacoesFinanceiras\Simulator\CredNet.Payments\Models\Transaction.csJ
+HC:\DEV\MAGVA\TransacoesFinanceiras\Simulator\CredNet.Payments\Program.csJ
+HC:\DEV\MAGVA\TransacoesFinanceiras\Simulator\CredNet.Payments\Startup.csT
+PC:\Users\fabio\AppData\Local\Temp\.NETCoreApp,Version=v2.2.AssemblyAttributes.cs
+{C:\DEV\MAGVA\TransacoesFinanceiras\Simulator\CredNet.Payments\obj\Debug\netcoreapp2.2\CredNet.Payments.RazorAssemblyInfo.csz
+vC:\DEV\MAGVA\TransacoesFinanceiras\Simulator\CredNet.Payments\obj\Debug\netcoreapp2.2\CredNet.Payments.AssemblyInfo.cs

@@ -2,6 +2,16 @@ version: '3.4'
 
 services:
 
+  sonarqube:
+    image: sonarqube
+    container_name: sonarqube
+    hostname: sonarqube
+  
+  sonarqube.db:
+    image: postgres
+    container_name: sonarqubedb
+    hostname: sonarqubedb
+
   sql.data:
     image: microsoft/mssql-server-linux:2017-latest
     container_name: magvasqlserver2017

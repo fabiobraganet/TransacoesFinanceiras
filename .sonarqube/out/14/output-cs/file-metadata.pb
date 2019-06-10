@@ -1,0 +1,15 @@
+¶
+°C:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\obj\Debug\netcoreapp2.2\Razor\Views\Account\LoggedOut.g.cshtml.cs¢
+ùC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\obj\Debug\netcoreapp2.2\Razor\Views\Account\Login.g.cshtml.cs£
+ûC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\obj\Debug\netcoreapp2.2\Razor\Views\Account\Logout.g.cshtml.cs¢
+ùC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\obj\Debug\netcoreapp2.2\Razor\Views\Consent\Index.g.cshtml.cs´
+¶C:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\obj\Debug\netcoreapp2.2\Razor\Views\Consent\_ScopeListItem.g.cshtml.cs¶
+°C:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\obj\Debug\netcoreapp2.2\Razor\Views\Diagnostics\Index.g.cshtml.cs°
+úC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\obj\Debug\netcoreapp2.2\Razor\Views\Grants\Index.g.cshtml.csü
+öC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs°
+úC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs£
+ûC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.csÆ
+©C:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationSummary.g.cshtml.cs°
+úC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.csü
+öC:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.csº
+∑C:\DEV\MAGVA\TransacoesFinanceiras\src\Middle\Security\src\MAGVA.Middle.Security.AspNetIdentity\obj\Debug\netcoreapp2.2\MAGVA.Middle.Security.AspNetIdentity.RazorTargetAssemblyInfo.cs

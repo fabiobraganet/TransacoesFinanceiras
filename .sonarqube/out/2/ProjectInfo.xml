@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>MAGVA.Front.TransacoesFinanceiras</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Product</ProjectType>
+  <ProjectGuid>5a36880b-7c6c-4c6f-8739-d7b2a62a67a7</ProjectGuid>
+  <FullPath>C:\DEV\MAGVA\TransacoesFinanceiras\src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResults>
+    <AnalysisResult Id="FilesToAnalyze" Location="C:\DEV\MAGVA\TransacoesFinanceiras\.sonarqube\out\2\FilesToAnalyze.txt" />
+  </AnalysisResults>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePath">C:\DEV\MAGVA\TransacoesFinanceiras\src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\bin\Debug\netcoreapp2.2\MAGVA.Front.TransacoesFinanceiras.dll.RoslynCA.json|C:\DEV\MAGVA\TransacoesFinanceiras\src\Front\TransacoesFinanceiras\MAGVA.Front.TransacoesFinanceiras\bin\Debug\netcoreapp2.2\MAGVA.Front.TransacoesFinanceiras.Views.dll.RoslynCA.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPath">C:\DEV\MAGVA\TransacoesFinanceiras\.sonarqube\out\2</Property>
+  </AnalysisSettings>
+  <Configuration>Debug</Configuration>
+  <Platform>AnyCPU</Platform>
+  <TargetFramework>netcoreapp2.2</TargetFramework>
+</ProjectInfo>

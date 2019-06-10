@@ -1,0 +1,9 @@
+‡
+„C:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.EventBus\Abstractions\IDynamicIntegrationEventHandler.csp
+nC:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.EventBus\Abstractions\IEventBus.cs
+}C:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.EventBus\Abstractions\IIntegrationEventHandler.csq
+oC:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.EventBus\Events\IntegrationEvent.csz
+xC:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.EventBus\Extensions\GenericTypeExtensions.csw
+uC:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.EventBus\IEventBusSubscriptionsManager.cs~
+|C:\DEV\MAGVA\TransacoesFinanceiras\src\GlobalBase\EventBus\MAGVA.GlobalBase.EventBus\InMemoryEventBusSubscriptionsManager.csU
+QC:\Users\fabio\AppData\Local\Temp\.NETStandard,Version=v2.0.AssemblyAttributes.cs

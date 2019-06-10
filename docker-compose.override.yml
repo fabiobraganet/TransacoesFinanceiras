@@ -2,6 +2,28 @@ version: '3.4'
 
 services:
 
+  sonarqube:
+    ports:
+      - "10010:9000"
+    networks:
+      - magva-network
+    environment:
+      - sonar.jdbc.url=jdbc:postgresql://sonarqube.db:5432/sonar
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+
+  sonarqube.db:
+    networks:
+      - magva-network
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
+    volumes:
+      - postgresql:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
+
   sql.data:
     environment:
       - SA_PASSWORD=1Pass@word
@@ -151,6 +173,16 @@ networks:
     driver: bridge
 
 volumes:
+  sonarqube_conf:
+    driver: local
+  sonarqube_data:
+    driver: local
+  sonarqube_extensions:
+    driver: local
+  postgresql:
+    driver: local
+  postgresql_data:
+    driver: local
   sql.data:
     driver: local
   magva.back.transacoesfinanceiras:

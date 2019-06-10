@@ -1,0 +1,6 @@
+projectKey=MAGVA.Back.TransacoesFinanceiras
+serverUrl=http://localhost:10010
+serverVersion=7.7.0.23042
+dashboardUrl=http://localhost:10010/dashboard?id=MAGVA.Back.TransacoesFinanceiras
+ceTaskId=AWtA3nAVvH5qWvQRJ8m7
+ceTaskUrl=http://localhost:10010/api/ce/task?id=AWtA3nAVvH5qWvQRJ8m7

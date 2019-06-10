@@ -179,6 +179,7 @@ namespace MAGVA.GlobalBase.EventBusRabbitMQ
             }
 
             _subsManager.Clear();
+            GC.SuppressFinalize(this);
         }
 
         private void StartBasicConsume()

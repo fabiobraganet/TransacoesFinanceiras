@@ -14,7 +14,7 @@ namespace MAGVA.Back.TransacoesFinanceiras
     using System;
     using System.IO;
 
-    public class Program
+    public static class Program
     {
         public static readonly string Namespace = typeof(Program).Namespace;
         public static readonly string AppName = Namespace.Substring(Namespace.LastIndexOf('.', Namespace.LastIndexOf('.') - 1) + 1);
@@ -74,15 +74,13 @@ namespace MAGVA.Back.TransacoesFinanceiras
 
         private static Serilog.ILogger CreateSerilogLogger(IConfiguration configuration)
         {
-            //var seqServerUrl = configuration["Serilog:SeqServerUrl"];
             var logstashUrl = configuration["Serilog:LogstashgUrl"];
             return new LoggerConfiguration()
                 .MinimumLevel.Debug()
                 .Enrich.WithProperty("ApplicationContext", AppName)
                 .Enrich.FromLogContext()
                 .WriteTo.Console()
-                //.WriteTo.Seq(string.IsNullOrWhiteSpace(seqServerUrl) ? "http://seq" : seqServerUrl)
-                .WriteTo.Http(string.IsNullOrWhiteSpace(logstashUrl) ? "http://magvalogstash:5044" : logstashUrl)
+                .WriteTo.Http(string.IsNullOrWhiteSpace(logstashUrl) ? string.Empty : logstashUrl)
                 .ReadFrom.Configuration(configuration)
                 .CreateLogger();
         }
