@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
+﻿using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
+using System.Collections.Generic;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Constants
 {

@@ -1,12 +1,10 @@
-﻿using System;
+﻿using MAGVA.Middle.Security.Admin.Constants;
+using MAGVA.Middle.Security.Admin.ExceptionHandling;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MAGVA.Middle.Security.Admin.Constants;
-using MAGVA.Middle.Security.Admin.ExceptionHandling;
-using MAGVA.Middle.Security.Admin.Helpers;
-using System.Threading.Tasks;
+using System;
 
 namespace MAGVA.Middle.Security.Admin.Controllers
 {
@@ -25,7 +23,7 @@ namespace MAGVA.Middle.Security.Admin.Controllers
         {
             return View();
         }
-        
+
         public IActionResult Error()
         {
             // Get the details of the exception that occurred

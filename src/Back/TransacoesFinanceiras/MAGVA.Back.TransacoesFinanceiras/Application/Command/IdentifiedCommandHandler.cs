@@ -1,8 +1,8 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
 {
-    using Infrastructure.Idempotency;
     using GlobalBase.EventBus.Extensions;
+    using Infrastructure.Idempotency;
     using MediatR;
     using Microsoft.Extensions.Logging;
     using System.Threading;
@@ -66,7 +66,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
                         idProperty,
                         commandId,
                         command);
-                    
+
                     var result = await _mediator.Send(command, cancellationToken);
 
                     _logger.LogInformation(

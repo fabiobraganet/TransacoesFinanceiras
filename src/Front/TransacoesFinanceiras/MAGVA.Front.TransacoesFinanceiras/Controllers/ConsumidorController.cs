@@ -3,10 +3,10 @@ namespace MAGVA.Front.TransacoesFinanceiras.Controllers
 {
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using Services;
-    using ViewModels;
     using Polly.CircuitBreaker;
+    using Services;
     using System.Threading.Tasks;
+    using ViewModels;
 
     [Authorize]
     public class ConsumidorController : Controller
@@ -33,7 +33,7 @@ namespace MAGVA.Front.TransacoesFinanceiras.Controllers
                 return View(vm);
             }
             catch (BrokenCircuitException)
-            {             
+            {
                 HandleBrokenCircuitException();
             }
 

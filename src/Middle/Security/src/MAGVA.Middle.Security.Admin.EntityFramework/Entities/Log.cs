@@ -1,8 +1,8 @@
-﻿using System;
+﻿using MAGVA.Middle.Security.Admin.EntityFramework.Constants;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Linq;
-using MAGVA.Middle.Security.Admin.EntityFramework.Constants;
 
 namespace MAGVA.Middle.Security.Admin.EntityFramework.Entities
 {

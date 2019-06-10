@@ -8,6 +8,6 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Identity
 
         public string LoginProvider { get; set; }
 
-        public string ProviderDisplayName { get; set; }        
+        public string ProviderDisplayName { get; set; }
     }
 }

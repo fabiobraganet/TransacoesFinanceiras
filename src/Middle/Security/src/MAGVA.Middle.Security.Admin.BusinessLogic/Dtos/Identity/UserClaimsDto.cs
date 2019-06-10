@@ -8,7 +8,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Identity
         {
             Claims = new List<UserClaimDto>();
         }
-        
+
         public List<UserClaimDto> Claims { get; set; }
 
         public int TotalCount { get; set; }

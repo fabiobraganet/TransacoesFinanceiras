@@ -8,7 +8,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.AutofacModules
     using FluentValidation;
     using MediatR;
     using System.Reflection;
-    
+
     public class MediatorModule : Autofac.Module
     {
         protected override void Load(ContainerBuilder builder)

@@ -2,23 +2,23 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using IdentityModel;
+using IdentityServer4.Events;
+using IdentityServer4.Extensions;
+using IdentityServer4.Models;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
+using MAGVA.Middle.Security.Admin.EntityFramework.Entities.Identity;
 using Microsoft.AspNetCore.Authentication;
-using IdentityServer4.Events;
-using IdentityServer4.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using IdentityServer4.Extensions;
-using System.Security.Principal;
-using System.Security.Claims;
-using IdentityModel;
-using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using MAGVA.Middle.Security.Admin.EntityFramework.Entities.Identity;
+using System.Linq;
+using System.Security.Claims;
+using System.Security.Principal;
+using System.Threading.Tasks;
 
 namespace IdentityServer4.Quickstart.UI
 {
@@ -83,7 +83,7 @@ namespace IdentityServer4.Quickstart.UI
                     // denied the consent (even if this client does not require consent).
                     // this will send back an access denied OIDC error response to the client.
                     await _interaction.GrantConsentAsync(context, ConsentResponse.Denied);
-                    
+
                     // we can trust model.ReturnUrl since GetAuthorizationContextAsync returned non-null
                     return Redirect(model.ReturnUrl);
                 }
@@ -428,7 +428,7 @@ namespace IdentityServer4.Quickstart.UI
             }
         }
 
-        private async Task<(UserIdentity user, string provider, string providerUserId, IEnumerable<Claim> claims)> 
+        private async Task<(UserIdentity user, string provider, string providerUserId, IEnumerable<Claim> claims)>
             FindUserFromExternalProviderAsync(AuthenticateResult result)
         {
             var externalUser = result.Principal;

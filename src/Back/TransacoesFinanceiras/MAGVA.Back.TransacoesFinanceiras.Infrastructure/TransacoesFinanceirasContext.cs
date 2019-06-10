@@ -1,10 +1,10 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure
 {
-    using MediatR;
     using Domain.AggregatesModel.ConsumidorAggregate;
     using Domain.Seedwork;
     using EntityConfigurations;
+    using MediatR;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Design;
     using Microsoft.EntityFrameworkCore.Storage;
@@ -12,14 +12,13 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure
     using System.Data;
     using System.Threading;
     using System.Threading.Tasks;
-    using Idempotency;
 
     public class TransacoesFinanceirasContext : DbContext, IUnitOfWork
     {
         public const string DEFAULT_SCHEMA = "TransacoesFinanceiras";
-        
+
         public DbSet<Consumidor> Consumidores { get; set; }
-        
+
         private readonly IMediator _mediator;
         private IDbContextTransaction _currentTransaction;
 

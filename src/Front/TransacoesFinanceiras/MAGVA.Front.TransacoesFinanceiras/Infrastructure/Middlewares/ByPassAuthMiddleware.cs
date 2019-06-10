@@ -4,7 +4,6 @@ namespace MAGVA.Front.TransacoesFinanceiras.Infrastructure.Middlewares
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Primitives;
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Security.Claims;
     using System.Threading.Tasks;
@@ -55,7 +54,7 @@ namespace MAGVA.Front.TransacoesFinanceiras.Infrastructure.Middlewares
                         currentUserId = header.Substring("Email ".Length);
                     }
                 }
-                
+
                 if (!string.IsNullOrEmpty(currentUserId))
                 {
                     var user = new ClaimsIdentity(new[] {

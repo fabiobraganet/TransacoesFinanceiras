@@ -22,7 +22,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Mappers
 
             CreateMap<PagedList<PersistedGrant>, PersistedGrantsDto>(MemberList.Destination)
                 .ForMember(x => x.PersistedGrants,
-                    opt => opt.MapFrom(src => src.Data));            
+                    opt => opt.MapFrom(src => src.Data));
         }
     }
 }

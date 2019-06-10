@@ -1,15 +1,15 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
 {
-    using MediatR;
     using Domain.AggregatesModel.ConsumidorAggregate;
     using Infrastructure.Idempotency;
+    using Infrastructure.Services;
+    using IntegrationEvents;
+    using IntegrationEvents.Events;
+    using MediatR;
     using Microsoft.Extensions.Logging;
     using System.Threading;
     using System.Threading.Tasks;
-    using IntegrationEvents;
-    using IntegrationEvents.Events;
-    using Infrastructure.Services;
 
     public class ExcluirConsumidorCommandHandler : IRequestHandler<ExcluirConsumidorCommand, bool>
     {

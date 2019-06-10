@@ -1,15 +1,15 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using IdentityServer4.EntityFramework.Mappers;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+﻿using IdentityServer4.EntityFramework.Mappers;
 using MAGVA.Middle.Security.Admin.Configuration;
 using MAGVA.Middle.Security.Admin.Constants;
 using MAGVA.Middle.Security.Admin.EntityFramework.DbContexts;
 using MAGVA.Middle.Security.Admin.EntityFramework.Entities.Identity;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MAGVA.Middle.Security.Admin.Helpers
 {
@@ -87,7 +87,7 @@ namespace MAGVA.Middle.Security.Admin.Helpers
 
             for (int i = 0; i < 10; i++)
             {
-                string consumidor = $"consumidor{i+1}";
+                string consumidor = $"consumidor{i + 1}";
                 string email = $"{consumidor}@email.com";
 
                 if (await userManager.FindByNameAsync(consumidor) == null)

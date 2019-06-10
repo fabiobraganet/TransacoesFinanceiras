@@ -2,8 +2,8 @@
 
 namespace MAGVA.Middle.Security.Admin.EntityFramework.Entities.Identity
 {
-	public class UserIdentityRole : IdentityRole<int>
-	{
-		
-	}
+    public class UserIdentityRole : IdentityRole<int>
+    {
+
+    }
 }

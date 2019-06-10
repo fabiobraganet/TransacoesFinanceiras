@@ -1,5 +1,3 @@
-using System;
-
 namespace MAGVA.Front.TransacoesFinanceiras.Models
 {
     public class ErrorViewModel

@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Configuration;
+﻿using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Configuration;
+using System.Threading.Tasks;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Services
 {

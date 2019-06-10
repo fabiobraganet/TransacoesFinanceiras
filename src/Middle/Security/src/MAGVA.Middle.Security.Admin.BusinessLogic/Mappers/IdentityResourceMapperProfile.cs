@@ -3,11 +3,11 @@
 
 // Modified by Jan Škoruba
 
-using System.Linq;
 using AutoMapper;
 using IdentityServer4.EntityFramework.Entities;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Configuration;
+using System.Linq;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Mappers
 {

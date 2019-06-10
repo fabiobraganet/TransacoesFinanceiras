@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Identity.Base;
+﻿using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Identity.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Identity
 {
     public class UserChangePasswordDto : BaseUserChangePasswordDto<int>
-    {        
+    {
         public string UserName { get; set; }
 
         [Required]

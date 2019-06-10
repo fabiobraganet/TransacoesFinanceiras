@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using IdentityServer4.Models;
+﻿using IdentityServer4.Models;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Configuration;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Enums;
@@ -10,6 +7,9 @@ using MAGVA.Middle.Security.Admin.BusinessLogic.Helpers;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Mappers;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Repositories;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Resources;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Services
 {

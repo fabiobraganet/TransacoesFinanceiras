@@ -2,7 +2,6 @@
 namespace CredNet.Payments.Tests
 {
     using CredNet.Payments.Models;
-    using System;
     using Xunit;
 
     public class TransactionTest
@@ -13,9 +12,9 @@ namespace CredNet.Payments.Tests
         public void Criar_Transaction_InformacoesMinimas_ComSucesso()
         {
             var transaction = new Transaction(
-                type: "", 
-                amount: 0, 
-                number: 0, 
+                type: "",
+                amount: 0,
+                number: 0,
                 card: new Card(
                     cardholdername: "",
                     number: "",

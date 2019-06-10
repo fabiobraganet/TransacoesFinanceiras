@@ -1,15 +1,15 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
 {
-    using MediatR;
     using Domain.AggregatesModel.ConsumidorAggregate;
     using Infrastructure.Idempotency;
+    using Infrastructure.Services;
+    using IntegrationEvents;
+    using IntegrationEvents.Events;
+    using MediatR;
     using Microsoft.Extensions.Logging;
     using System.Threading;
     using System.Threading.Tasks;
-    using IntegrationEvents;
-    using IntegrationEvents.Events;
-    using Infrastructure.Services;
 
     public class EditarConsumidorCommandHandler : IRequestHandler<EditarConsumidorCommand, bool>
     {
@@ -22,7 +22,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
         public EditarConsumidorCommandHandler(
             IMediator mediator,
             IIdentityService identityService,
-            IConsumidorRepository consumidorRepository, 
+            IConsumidorRepository consumidorRepository,
             ITransacoesFinanceirasIntegrationEventService transacoesFinanceirasIntegrationEventService,
             ILogger<EditarConsumidorCommandHandler> logger)
         {
@@ -39,7 +39,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
         /// <param name="command"></param>
         /// <returns></returns>
         public async Task<bool> Handle(EditarConsumidorCommand command, CancellationToken cancellationToken)
-        {            
+        {
             var consumidorToUpdate = await _consumidorRepository.FindByIdAsync(command.Id);
             if (consumidorToUpdate == null)
             {
@@ -54,7 +54,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
 
             var consumidorEditado = _consumidorRepository.Update(new Consumidor(
                 id: command.Id,
-                nome: command.Nome, 
+                nome: command.Nome,
                 email: command.Email,
                 loginid: command.LoginId));
 

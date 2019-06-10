@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Log;
+﻿using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Log;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Mappers;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Repositories;
+using System.Threading.Tasks;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Services
 {

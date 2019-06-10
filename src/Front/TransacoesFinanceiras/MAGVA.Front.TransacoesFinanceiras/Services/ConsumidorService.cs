@@ -2,17 +2,17 @@
 namespace MAGVA.Front.TransacoesFinanceiras.Services
 {
     using Infrastructure;
-    using ViewModels;
-    using Microsoft.Extensions.Options;
-    using System.Net.Http;
-    using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using System.Text;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-    using Microsoft.AspNetCore.Authentication.Cookies;
-    using System.Collections.Generic;
     using Microsoft.AspNetCore.Authentication;
+    using Microsoft.AspNetCore.Authentication.Cookies;
+    using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Options;
+    using Newtonsoft.Json;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Text;
+    using System.Threading.Tasks;
+    using ViewModels;
 
     public class ConsumidorService : IConsumidorService
     {

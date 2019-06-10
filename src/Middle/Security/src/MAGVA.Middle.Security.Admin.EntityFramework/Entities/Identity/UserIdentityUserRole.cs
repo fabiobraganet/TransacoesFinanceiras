@@ -4,6 +4,6 @@ namespace MAGVA.Middle.Security.Admin.EntityFramework.Entities.Identity
 {
     public class UserIdentityUserRole : IdentityUserRole<int>
     {
-        
+
     }
 }

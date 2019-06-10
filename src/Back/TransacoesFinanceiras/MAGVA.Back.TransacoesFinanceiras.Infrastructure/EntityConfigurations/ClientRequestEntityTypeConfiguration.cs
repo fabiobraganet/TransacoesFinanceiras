@@ -1,10 +1,10 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.EntityConfigurations
 {
+    using Infrastructure.Idempotency;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Infrastructure.Idempotency;
-    
+
     class ClientRequestEntityTypeConfiguration
         : IEntityTypeConfiguration<ClientRequest>
     {

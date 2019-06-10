@@ -1,9 +1,9 @@
 ﻿
 namespace MAGVA.Middle.Security.Admin.Configuration
 {
-    using System.Collections.Generic;
     using IdentityModel;
     using IdentityServer4.Models;
+    using System.Collections.Generic;
 
     public class ClientResources
     {

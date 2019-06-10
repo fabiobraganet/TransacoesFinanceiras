@@ -1,8 +1,8 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Domain.Seedwork
 {
-    using System;
     using MediatR;
+    using System;
     using System.Collections.Generic;
 
     public abstract class Entity

@@ -1,8 +1,8 @@
 ﻿
 namespace MAGVA.GlobalBase.EventBus.Events
 {
-    using System;
     using Newtonsoft.Json;
+    using System;
 
     public class IntegrationEvent
     {

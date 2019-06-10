@@ -39,7 +39,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Base
                 options.Filters.Add(typeof(HttpGlobalExceptionFilter));
             })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddControllersAsServices();  
+                .AddControllersAsServices();
 
             services.AddCors(options =>
             {
@@ -160,7 +160,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Base
                     TokenUrl = $"{configuration.GetValue<string>("IdentityUrlExternal")}/connect/token",
                     Scopes = new Dictionary<string, string>()
                     {
-                        
+
                         { "transacoesfinanceiras", "Transações Financeiras" },
                         { "consumidores", "Operações com dados de Consumidores" }
                     }
@@ -228,7 +228,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Base
 
             return services;
         }
-        
+
         public static IServiceCollection AddCustomConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddOptions();

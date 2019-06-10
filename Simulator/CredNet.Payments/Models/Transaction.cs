@@ -1,7 +1,6 @@
 ﻿
 namespace CredNet.Payments.Models
 {
-    using System;
     public class Transaction
     {
         /// <summary>
@@ -21,8 +20,8 @@ namespace CredNet.Payments.Models
         /// <summary>
         /// Número de parcelas, **se for uma transação de crédito parcelado**
         /// </summary>
-        public int Number { get; set; } 
-        
+        public int Number { get; set; }
+
         public Transaction(string type, decimal amount, int number, Card card)
         {
             Type = type;

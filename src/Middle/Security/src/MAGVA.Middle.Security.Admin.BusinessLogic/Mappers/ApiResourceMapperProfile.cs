@@ -3,11 +3,11 @@
 
 // Modified by Jan Škoruba
 
-using System.Linq;
 using AutoMapper;
 using IdentityServer4.EntityFramework.Entities;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Configuration;
+using System.Linq;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Mappers
 {
@@ -50,8 +50,8 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Mappers
                 .ForMember(x => x.UserClaims, opts => opts.MapFrom(src => src.UserClaims.Select(x => new ApiResourceClaim { Type = x })));
 
             CreateMap<ApiSecretsDto, ApiSecret>(MemberList.Source)
-                .ForMember(x => x.ApiResource, opts => opts.MapFrom(src => new ApiResource() {Id = src.ApiResourceId}))
-                .ForMember(x=> x.Id, opt => opt.MapFrom(src => src.ApiSecretId));
+                .ForMember(x => x.ApiResource, opts => opts.MapFrom(src => new ApiResource() { Id = src.ApiResourceId }))
+                .ForMember(x => x.Id, opt => opt.MapFrom(src => src.ApiSecretId));
 
             CreateMap<ApiScopesDto, ApiScope>(MemberList.Source)
                 .ForMember(x => x.UserClaims, opts => opts.MapFrom(src => src.UserClaims.Select(x => new ApiScopeClaim { Type = x })))

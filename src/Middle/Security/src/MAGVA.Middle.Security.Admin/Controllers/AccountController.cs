@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using MAGVA.Middle.Security.Admin.Constants;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MAGVA.Middle.Security.Admin.Constants;
+using System.Collections.Generic;
 
 namespace MAGVA.Middle.Security.Admin.Controllers
 {

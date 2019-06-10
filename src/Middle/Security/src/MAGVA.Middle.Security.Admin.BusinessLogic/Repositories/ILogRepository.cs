@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
+﻿using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
 using MAGVA.Middle.Security.Admin.EntityFramework.Entities;
+using System.Threading.Tasks;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
 {

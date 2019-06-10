@@ -3,12 +3,12 @@ namespace MAGVA.Front.TransacoesFinanceiras.Controllers
 {
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using Services;
-    using ViewModels;
-    using Polly.CircuitBreaker;
-    using System.Threading.Tasks;
     using Models;
+    using Polly.CircuitBreaker;
+    using Services;
     using System.Diagnostics;
+    using System.Threading.Tasks;
+    using ViewModels;
 
     [Authorize()]
     public class HomeController : Controller

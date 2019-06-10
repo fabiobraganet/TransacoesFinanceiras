@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using AutoMapper;
+﻿using AutoMapper;
 using IdentityServer4.EntityFramework.Entities;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Configuration;
+using System.Collections.Generic;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Mappers
 {
@@ -17,10 +17,10 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Mappers
         internal static IMapper Mapper { get; }
 
 
-		public static IdentityResourceDto ToModel(this IdentityResource resource)
-		{
-			return resource == null ? null : Mapper.Map<IdentityResourceDto>(resource);
-		}
+        public static IdentityResourceDto ToModel(this IdentityResource resource)
+        {
+            return resource == null ? null : Mapper.Map<IdentityResourceDto>(resource);
+        }
 
         public static IdentityResourcesDto ToModel(this PagedList<IdentityResource> resource)
         {
@@ -28,18 +28,18 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Mappers
         }
 
         public static List<IdentityResourceDto> ToModel(this List<IdentityResource> resource)
-		{
-			return resource == null ? null : Mapper.Map<List<IdentityResourceDto>>(resource);
-		}
+        {
+            return resource == null ? null : Mapper.Map<List<IdentityResourceDto>>(resource);
+        }
 
-		public static IdentityResource ToEntity(this IdentityResourceDto resource)
-		{
-			return resource == null ? null : Mapper.Map<IdentityResource>(resource);
-		}
+        public static IdentityResource ToEntity(this IdentityResourceDto resource)
+        {
+            return resource == null ? null : Mapper.Map<IdentityResource>(resource);
+        }
 
-		public static List<IdentityResource> ToEntity(this List<IdentityResourceDto> resource)
-		{
-			return resource == null ? null : Mapper.Map< List<IdentityResource>>(resource);
-		}
-	}
+        public static List<IdentityResource> ToEntity(this List<IdentityResourceDto> resource)
+        {
+            return resource == null ? null : Mapper.Map<List<IdentityResource>>(resource);
+        }
+    }
 }

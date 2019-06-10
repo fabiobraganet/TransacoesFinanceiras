@@ -46,7 +46,7 @@ namespace MAGVA.Back.TransacoesFinanceiras
 
             return new AutofacServiceProvider(container.Build());
         }
-        
+
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
             //loggerFactory.AddApplicationInsights(app.ApplicationServices, LogLevel.Trace);
@@ -85,7 +85,7 @@ namespace MAGVA.Back.TransacoesFinanceiras
 
             ConfigureEventBus(app);
         }
-        
+
         private void ConfigureEventBus(IApplicationBuilder app)
         {
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();

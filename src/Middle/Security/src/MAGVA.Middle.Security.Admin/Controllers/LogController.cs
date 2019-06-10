@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using MAGVA.Middle.Security.Admin.BusinessLogic.Services;
+using MAGVA.Middle.Security.Admin.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MAGVA.Middle.Security.Admin.Constants;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Services;
+using System.Threading.Tasks;
 
 namespace MAGVA.Middle.Security.Admin.Controllers
 {

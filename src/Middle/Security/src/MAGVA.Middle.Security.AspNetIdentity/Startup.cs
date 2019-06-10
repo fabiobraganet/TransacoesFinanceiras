@@ -3,20 +3,20 @@
 namespace MAGVA.Middle.Security.AspNetIdentity
 {
     using Base;
-    using System;
-    using System.Reflection;
+    using HealthChecks.UI.Client;
+    using MAGVA.Middle.Security.Admin.EntityFramework.DbContexts;
+    using MAGVA.Middle.Security.Admin.EntityFramework.Entities.Identity;
     using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Diagnostics.HealthChecks;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.HttpOverrides;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using MAGVA.Middle.Security.Admin.EntityFramework.DbContexts;
-    using MAGVA.Middle.Security.Admin.EntityFramework.Entities.Identity;
-    using Microsoft.AspNetCore.HttpOverrides;
     using Microsoft.Extensions.Logging;
-    using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-    using HealthChecks.UI.Client;
+    using System;
+    using System.Reflection;
 
     public class Startup
     {

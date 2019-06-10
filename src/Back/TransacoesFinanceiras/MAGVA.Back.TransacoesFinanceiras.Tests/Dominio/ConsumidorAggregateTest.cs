@@ -25,7 +25,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Tests.Dominio
         [Fact]
         public void Criar_Consumidor_SemNome_SemSucesso()
         {
-            Assert.Throws<ArgumentNullException>(() => new  Consumidor(string.Empty, "email@email.com", 1));
+            Assert.Throws<ArgumentNullException>(() => new Consumidor(string.Empty, "email@email.com", 1));
         }
 
         [Fact]

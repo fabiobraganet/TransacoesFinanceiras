@@ -2,7 +2,7 @@
 namespace MAGVA.Front.TransacoesFinanceiras.Constants
 {
     using System.Collections.Generic;
-    
+
     public class AuthorizationConsts
     {
         public const string TransacoesFinanceirasPolicy = "TransacoesFinanceirasRole";
@@ -11,7 +11,7 @@ namespace MAGVA.Front.TransacoesFinanceiras.Constants
 
         public const string ApiTansacoesFinanceirashttpuri = "http://magvabacktransacoesfinanceiras:15001";
         public const string ApiTansacoesFinanceirasResource = "magvabacktransacoesfinanceiras";
-        
+
         public const string IdentityCookieName = "IdentityServerAdmin";
         public const string IdentityRedirectUri = "http://magvafronttransacoesfinanceiras:15000/signin-oidc";
         public const string IdentityServerBaseUrl = "http://magvamiddlesecurityaspnetidentity:14000";

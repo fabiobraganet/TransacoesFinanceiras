@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
-using IdentityServer4.EntityFramework.Entities;
+﻿using IdentityServer4.EntityFramework.Entities;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
+using System.Threading.Tasks;
 using ApiResource = IdentityServer4.EntityFramework.Entities.ApiResource;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories

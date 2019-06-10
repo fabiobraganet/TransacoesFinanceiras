@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using IdentityServer4.Models;
+﻿using IdentityServer4.Models;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Configuration;
 using MAGVA.Middle.Security.Admin.BusinessLogic.ExceptionHandling;
@@ -7,6 +6,7 @@ using MAGVA.Middle.Security.Admin.BusinessLogic.Helpers;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Mappers;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Repositories;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Resources;
+using System.Threading.Tasks;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Services
 {
@@ -204,7 +204,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Services
             HashApiSharedSecret(apiSecret);
 
             var secret = apiSecret.ToEntity();
-            
+
             return await _apiResourceRepository.AddApiSecretAsync(apiSecret.ApiResourceId, secret);
         }
 

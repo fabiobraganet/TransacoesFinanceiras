@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CredNet.Payments.Models
+﻿namespace CredNet.Payments.Models
 {
     using System.Collections.Generic;
 

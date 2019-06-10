@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Grant;
+﻿using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Grant;
 using MAGVA.Middle.Security.Admin.BusinessLogic.ExceptionHandling;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Mappers;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Repositories;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Resources;
+using System.Threading.Tasks;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Services
 {
@@ -11,7 +11,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Services
     {
         private readonly IPersistedGrantRepository _persistedGrantRepository;
         private readonly IPersistedGrantServiceResources _persistedGrantServiceResources;
-        
+
         public PersistedGrantService(IPersistedGrantRepository persistedGrantRepository,
             IPersistedGrantServiceResources persistedGrantServiceResources)
         {
@@ -30,7 +30,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Services
         public async Task<PersistedGrantsDto> GetPersitedGrantsByUser(string subjectId, int page = 1, int pageSize = 10)
         {
             var exists = await _persistedGrantRepository.ExistsPersistedGrantsAsync(subjectId);
-            if(!exists) throw new UserFriendlyErrorPageException(string.Format(_persistedGrantServiceResources.PersistedGrantWithSubjectIdDoesNotExist().Description, subjectId), _persistedGrantServiceResources.PersistedGrantWithSubjectIdDoesNotExist().Description);
+            if (!exists) throw new UserFriendlyErrorPageException(string.Format(_persistedGrantServiceResources.PersistedGrantWithSubjectIdDoesNotExist().Description, subjectId), _persistedGrantServiceResources.PersistedGrantWithSubjectIdDoesNotExist().Description);
 
             var pagedList = await _persistedGrantRepository.GetPersitedGrantsByUser(subjectId, page, pageSize);
             var persistedGrantsDto = pagedList.ToModel();
@@ -41,7 +41,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Services
         public async Task<PersistedGrantDto> GetPersitedGrantAsync(string key)
         {
             var persistedGrant = await _persistedGrantRepository.GetPersitedGrantAsync(key);
-            if(persistedGrant == null) throw new UserFriendlyErrorPageException(string.Format(_persistedGrantServiceResources.PersistedGrantDoesNotExist().Description, key), _persistedGrantServiceResources.PersistedGrantDoesNotExist().Description);
+            if (persistedGrant == null) throw new UserFriendlyErrorPageException(string.Format(_persistedGrantServiceResources.PersistedGrantDoesNotExist().Description, key), _persistedGrantServiceResources.PersistedGrantDoesNotExist().Description);
             var persistedGrantDto = persistedGrant.ToModel();
 
             return persistedGrantDto;

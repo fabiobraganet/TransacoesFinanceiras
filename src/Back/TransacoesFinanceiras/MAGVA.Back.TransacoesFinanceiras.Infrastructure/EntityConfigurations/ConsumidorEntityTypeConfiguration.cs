@@ -4,7 +4,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.EntityConfigurations
     using Domain.AggregatesModel.ConsumidorAggregate;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    
+
     class ConsumidorEntityTypeConfiguration
         : IEntityTypeConfiguration<Consumidor>
     {

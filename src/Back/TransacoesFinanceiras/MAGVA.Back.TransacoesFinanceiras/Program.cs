@@ -1,19 +1,18 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras
 {
-    using Infrastructure.Middlewares;
+    using GlobalBase.IntegrationEventLogEF;
     using Infrastructure;
+    using Infrastructure.Middlewares;
     using Microsoft.AspNetCore;
     using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.Server.Kestrel.Core;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Options;
     using Serilog;
     using System;
     using System.IO;
-    using GlobalBase.IntegrationEventLogEF;
-    using Microsoft.Extensions.Options;
-    using Microsoft.Extensions.Logging;
 
     public class Program
     {
@@ -61,7 +60,7 @@ namespace MAGVA.Back.TransacoesFinanceiras
                 Log.CloseAndFlush();
             }
         }
-        
+
         private static IWebHost BuildWebHost(IConfiguration configuration, Serilog.ILogger logger, string[] args) =>
                     WebHost.CreateDefaultBuilder(args)
                         .CaptureStartupErrors(false)

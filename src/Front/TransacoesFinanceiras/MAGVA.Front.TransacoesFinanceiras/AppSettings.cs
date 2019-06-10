@@ -8,7 +8,7 @@ namespace MAGVA.Front.TransacoesFinanceiras
         public Logging Logging { get; set; }
         public bool UseCustomizationData { get; set; }
 
-        public string TransacoesFinanceirasUrl {get; set;}
+        public string TransacoesFinanceirasUrl { get; set; }
     }
 
     public class Connectionstrings

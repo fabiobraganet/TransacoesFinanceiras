@@ -5,14 +5,14 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
     using Infrastructure.Idempotency;
     using Infrastructure.Services;
     using IntegrationEvents;
-    using MAGVA.Back.TransacoesFinanceiras.Application.IntegrationEvents.Events;
+    using IntegrationEvents.Events;
     using MediatR;
     using Microsoft.Extensions.Logging;
     using System;
     using System.Threading;
     using System.Threading.Tasks;
 
-    public class CriarConsumidorCommandHandler 
+    public class CriarConsumidorCommandHandler
          : IRequestHandler<CriarConsumidorCommand, bool>
     {
         private readonly IConsumidorRepository _consumidorRepository;
@@ -35,7 +35,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
         }
 
         public async Task<bool> Handle(CriarConsumidorCommand message, CancellationToken cancellationToken)
-        {            
+        {
             var consumidor = new Consumidor(message.Nome, message.Email, message.LoginId);
 
             var user = _identityService.GetUserIdentityServer();

@@ -1,11 +1,13 @@
 ﻿
 namespace MAGVA.Middle.Security.Admin.Helpers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Reflection;
-    using System.Threading.Tasks;
+    using BusinessLogic.Repositories;
+    using BusinessLogic.Resources;
+    using BusinessLogic.Services;
+    using Constants;
+    using EntityFramework.DbContexts;
+    using EntityFramework.Entities.Identity;
+    using ExceptionHandling;
     using IdentityModel;
     using IdentityServer4.EntityFramework.Options;
     using Microsoft.AspNetCore.Authentication.Cookies;
@@ -24,18 +26,12 @@ namespace MAGVA.Middle.Security.Admin.Helpers
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
     using Microsoft.IdentityModel.Tokens;
-    using Serilog;
-    using Serilog.Events;
-    using Serilog.Sinks.MSSqlServer;
-    using BusinessLogic.Repositories;
-    using BusinessLogic.Resources;
-    using Constants;
-    using EntityFramework.Constants;
-    using EntityFramework.DbContexts;
-    using EntityFramework.Entities.Identity;
-    using ExceptionHandling;
     using Middlewares;
-    using BusinessLogic.Services;
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Reflection;
+    using System.Threading.Tasks;
 
     public static class StartupHelpers
     {
@@ -125,27 +121,27 @@ namespace MAGVA.Middle.Security.Admin.Helpers
 
         public static void AddLogging(this IApplicationBuilder app, ILoggerFactory loggerFactory, IConfiguration configuration)
         {
-//#pragma warning disable CS0618 // O tipo ou membro é obsoleto
-//            loggerFactory.AddConsole(configuration.GetSection(ConfigurationConsts.LoggingSectionKey));
-//#pragma warning restore CS0618 // O tipo ou membro é obsoleto
-//#pragma warning disable CS0618 // O tipo ou membro é obsoleto
-//            loggerFactory.AddDebug();
-//#pragma warning restore CS0618 // O tipo ou membro é obsoleto
+            //#pragma warning disable CS0618 // O tipo ou membro é obsoleto
+            //            loggerFactory.AddConsole(configuration.GetSection(ConfigurationConsts.LoggingSectionKey));
+            //#pragma warning restore CS0618 // O tipo ou membro é obsoleto
+            //#pragma warning disable CS0618 // O tipo ou membro é obsoleto
+            //            loggerFactory.AddDebug();
+            //#pragma warning restore CS0618 // O tipo ou membro é obsoleto
 
-//            var columnOptions = new ColumnOptions();
+            //            var columnOptions = new ColumnOptions();
 
-//            // Don't include the Properties XML column.
-//            columnOptions.Store.Remove(StandardColumn.Properties);
+            //            // Don't include the Properties XML column.
+            //            columnOptions.Store.Remove(StandardColumn.Properties);
 
-//            // Do include the log event data as JSON.
-//            columnOptions.Store.Add(StandardColumn.LogEvent);
+            //            // Do include the log event data as JSON.
+            //            columnOptions.Store.Add(StandardColumn.LogEvent);
 
-//            Log.Logger = new LoggerConfiguration()
-//                .WriteTo.MSSqlServer(configuration.GetConnectionString(ConfigurationConsts.AdminConnectionStringKey),
-//                    TableConsts.Logging,
-//                    columnOptions: columnOptions,
-//                    restrictedToMinimumLevel: LogEventLevel.Error)
-//                .CreateLogger();
+            //            Log.Logger = new LoggerConfiguration()
+            //                .WriteTo.MSSqlServer(configuration.GetConnectionString(ConfigurationConsts.AdminConnectionStringKey),
+            //                    TableConsts.Logging,
+            //                    columnOptions: columnOptions,
+            //                    restrictedToMinimumLevel: LogEventLevel.Error)
+            //                .CreateLogger();
         }
 
         public static void AddDbContexts(this IServiceCollection services, IHostingEnvironment hostingEnvironment, IConfigurationRoot configuration)

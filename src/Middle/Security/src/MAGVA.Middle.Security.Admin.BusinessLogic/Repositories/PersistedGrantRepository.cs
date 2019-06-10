@@ -1,14 +1,14 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using IdentityServer4.EntityFramework.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using IdentityServer4.EntityFramework.Entities;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Enums;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Helpers;
 using MAGVA.Middle.Security.Admin.EntityFramework.DbContexts;
 using MAGVA.Middle.Security.Admin.EntityFramework.Entities;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
 {

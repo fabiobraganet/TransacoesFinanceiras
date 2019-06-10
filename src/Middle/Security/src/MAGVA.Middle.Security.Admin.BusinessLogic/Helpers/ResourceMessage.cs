@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MAGVA.Middle.Security.Admin.BusinessLogic.Helpers
+﻿namespace MAGVA.Middle.Security.Admin.BusinessLogic.Helpers
 {
     public class ResourceMessage
     {

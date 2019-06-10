@@ -1,17 +1,16 @@
 ﻿
 namespace MAGVA.Middle.Security.Admin
 {
-    using Helpers;
     using Base;
-    using System.IdentityModel.Tokens.Jwt;
+    using HealthChecks.UI.Client;
+    using Helpers;
     using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Diagnostics.HealthChecks;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
-
-    using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-    using HealthChecks.UI.Client;
+    using System.IdentityModel.Tokens.Jwt;
 
     public class Startup
     {
@@ -78,6 +77,6 @@ namespace MAGVA.Middle.Security.Admin
             {
                 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
-        }       
+        }
     }
 }

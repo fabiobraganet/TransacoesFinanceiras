@@ -1,11 +1,11 @@
-﻿using System;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
+﻿using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Helpers;
 using MAGVA.Middle.Security.Admin.EntityFramework.DbContexts;
 using MAGVA.Middle.Security.Admin.EntityFramework.Entities;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
 {
@@ -23,7 +23,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
             var pagedList = new PagedList<Log>();
             Expression<Func<Log, bool>> searchCondition = x => x.LogEvent.Contains(search) || x.Message.Contains(search) || x.Exception.Contains(search);
             var logs = await _dbContext.Logs
-                .WhereIf(!string.IsNullOrEmpty(search), searchCondition)                
+                .WhereIf(!string.IsNullOrEmpty(search), searchCondition)
                 .PageBy(x => x.Id, page, pageSize)
                 .ToListAsync();
 

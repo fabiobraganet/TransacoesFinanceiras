@@ -3,18 +3,18 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Configuration
 {
-	public class ApiSecretDto
-	{
-	    [Required]
+    public class ApiSecretDto
+    {
+        [Required]
         public string Type { get; set; } = "SharedSecret";
 
-		public int Id { get; set; }
+        public int Id { get; set; }
 
-		public string Description { get; set; }
+        public string Description { get; set; }
 
-	    [Required]
+        [Required]
         public string Value { get; set; }
 
-		public DateTime? Expiration { get; set; }
-	}
+        public DateTime? Expiration { get; set; }
+    }
 }

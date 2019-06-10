@@ -2,7 +2,7 @@
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common
 {
-    public class PagedList<T> where T : class 
+    public class PagedList<T> where T : class
     {
         public PagedList()
         {

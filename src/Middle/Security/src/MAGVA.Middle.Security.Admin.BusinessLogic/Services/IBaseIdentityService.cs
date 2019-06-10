@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Identity;
 using Microsoft.AspNetCore.Identity;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Identity;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Services
 {

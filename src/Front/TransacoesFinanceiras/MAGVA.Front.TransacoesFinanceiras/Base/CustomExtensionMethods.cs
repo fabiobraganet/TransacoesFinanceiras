@@ -141,7 +141,7 @@ namespace MAGVA.Front.TransacoesFinanceiras.Base
         {
             services.AddLogging(b =>
             {
-                b.AddFilter((category, level) => true); 
+                b.AddFilter((category, level) => true);
                 b.AddConsole(c => c.IncludeScopes = true);
                 b.AddDebug();
             });
@@ -166,7 +166,7 @@ namespace MAGVA.Front.TransacoesFinanceiras.Base
                 options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultSignOutScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             })
-            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, setup => 
+            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, setup =>
             {
                 setup.ExpireTimeSpan = TimeSpan.FromMinutes(sessionCookieLifetime);
                 setup.Cookie.Name = AuthorizationConsts.IdentityCookieName;
@@ -206,7 +206,7 @@ namespace MAGVA.Front.TransacoesFinanceiras.Base
 
             return services;
         }
-        
+
         public static void AddAuthorizationPolicies(this IServiceCollection services)
         {
             services.AddAuthorization(options =>

@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using MAGVA.Middle.Security.Admin.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using MAGVA.Middle.Security.Admin.Helpers;
+using System.Collections.Generic;
 
 namespace MAGVA.Middle.Security.Admin.Controllers
 {
@@ -56,7 +56,7 @@ namespace MAGVA.Middle.Security.Admin.Controllers
             ViewBag.Notifications = TempData[NotificationHelpers.NotificationKey];
             TempData.Remove(NotificationHelpers.NotificationKey);
         }
-        
+
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             GenerateNotifications();

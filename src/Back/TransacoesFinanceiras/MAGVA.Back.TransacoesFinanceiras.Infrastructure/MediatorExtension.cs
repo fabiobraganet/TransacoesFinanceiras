@@ -1,9 +1,8 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure
 {
-    using MediatR;
     using Domain.Seedwork;
-    using Infrastructure;
+    using MediatR;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -23,7 +22,8 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure
                 .ForEach(entity => entity.Entity.ClearDomainEvents());
 
             var tasks = domainEvents
-                .Select(async (domainEvent) => {
+                .Select(async (domainEvent) =>
+                {
                     await mediator.Publish(domainEvent);
                 });
 

@@ -1,13 +1,13 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Logging;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Configuration;
+﻿using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Configuration;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Helpers;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Services;
 using MAGVA.Middle.Security.Admin.Constants;
 using MAGVA.Middle.Security.Admin.ExceptionHandling;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
 
 namespace MAGVA.Middle.Security.Admin.Controllers
 {

@@ -55,7 +55,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.Middlewares
                         currentUserId = header.Substring("Email ".Length);
                     }
                 }
-                
+
                 if (!string.IsNullOrEmpty(currentUserId))
                 {
                     var user = new ClaimsIdentity(new[] {

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Application.IntegrationEvents.Events
 {
     using GlobalBase.EventBus.Events;

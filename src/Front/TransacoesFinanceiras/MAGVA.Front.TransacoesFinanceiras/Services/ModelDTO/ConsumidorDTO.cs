@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MAGVA.Front.TransacoesFinanceiras.Services.ModelDTO
+﻿namespace MAGVA.Front.TransacoesFinanceiras.Services.ModelDTO
 {
-    using System;
     using System.ComponentModel.DataAnnotations;
 
     public class ConsumidorDTO

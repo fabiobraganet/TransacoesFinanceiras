@@ -2,10 +2,10 @@
 namespace MAGVA.GlobalBase.EventBus.EventBusServiceBus
 {
     using Autofac;
-    using Microsoft.Azure.ServiceBus;
     using GlobalBase.EventBus;
     using GlobalBase.EventBus.Abstractions;
     using GlobalBase.EventBus.Events;
+    using Microsoft.Azure.ServiceBus;
     using Microsoft.Extensions.Logging;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;

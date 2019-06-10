@@ -1,11 +1,11 @@
 ﻿
 namespace MAGVA.GlobalBase.EventBus
 {
+    using Abstractions;
+    using Events;
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Abstractions;
-    using Events;
 
     public partial class InMemoryEventBusSubscriptionsManager : IEventBusSubscriptionsManager
     {
@@ -72,7 +72,7 @@ namespace MAGVA.GlobalBase.EventBus
             var handlerToRemove = FindDynamicSubscriptionToRemove<TH>(eventName);
             DoRemoveHandler(eventName, handlerToRemove);
         }
-        
+
         public void RemoveSubscription<T, TH>()
             where TH : IIntegrationEventHandler<T>
             where T : IntegrationEvent
@@ -81,7 +81,7 @@ namespace MAGVA.GlobalBase.EventBus
             var eventName = GetEventKey<T>();
             DoRemoveHandler(eventName, handlerToRemove);
         }
-        
+
         private void DoRemoveHandler(string eventName, SubscriptionInfo subsToRemove)
         {
             if (subsToRemove != null)

@@ -2,7 +2,6 @@
 namespace CredNet.Payments.Models
 {
     using System;
-    using System.Collections.Generic;
 
     public class Card
     {
@@ -64,7 +63,7 @@ namespace CredNet.Payments.Models
 
             if (arr.Length == 2)
                 if (arr[0].Length == 2 && arr[1].Length == 2 && int.TryParse(arr[0], out int mes) && int.TryParse(arr[1], out int ano))
-                    return new DateTime(2000+ano, mes, DateTime.DaysInMonth(2000+ano, mes));
+                    return new DateTime(2000 + ano, mes, DateTime.DaysInMonth(2000 + ano, mes));
 
             Notification.Messages.Add("InvalidExpirationDate", $"A exipração do cartão informada '{ExpirationDate}' é inválida.");
 

@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
+﻿using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Enums;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Helpers;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Mappers;
 using MAGVA.Middle.Security.Admin.EntityFramework.DbContexts;
 using MAGVA.Middle.Security.Admin.EntityFramework.Entities.Identity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
 {
@@ -47,15 +47,15 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
             var pagedList = new PagedList<UserIdentity>();
             Expression<Func<UserIdentity, bool>> searchCondition = x => x.UserName.Contains(search) || x.Email.Contains(search);
 
-            var users = await _dbContext.Users.WhereIf(!string.IsNullOrEmpty(search), searchCondition).PageBy(x=> x.Id, page, pageSize).ToListAsync();
+            var users = await _dbContext.Users.WhereIf(!string.IsNullOrEmpty(search), searchCondition).PageBy(x => x.Id, page, pageSize).ToListAsync();
 
             pagedList.Data.AddRange(users);
             pagedList.TotalCount = await _dbContext.Users.WhereIf(!string.IsNullOrEmpty(search), searchCondition).CountAsync();
             pagedList.PageSize = pageSize;
-            
+
             return pagedList;
         }
-        
+
         public Task<List<UserIdentityRole>> GetRolesAsync()
         {
             return _roleManager.Roles.ToListAsync();
@@ -65,19 +65,19 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
         {
             var pagedList = new PagedList<UserIdentityRole>();
 
-            Expression<Func<UserIdentityRole, bool>> searchCondition = x=> x.Name.Contains(search);
-            var roles = await _roleManager.Roles.WhereIf(!string.IsNullOrEmpty(search), searchCondition).PageBy(x=> x.Id, page, pageSize).ToListAsync();
+            Expression<Func<UserIdentityRole, bool>> searchCondition = x => x.Name.Contains(search);
+            var roles = await _roleManager.Roles.WhereIf(!string.IsNullOrEmpty(search), searchCondition).PageBy(x => x.Id, page, pageSize).ToListAsync();
 
             pagedList.Data.AddRange(roles);
             pagedList.TotalCount = await _roleManager.Roles.WhereIf(!string.IsNullOrEmpty(search), searchCondition).CountAsync();
             pagedList.PageSize = pageSize;
-            
+
             return pagedList;
         }
 
         public Task<UserIdentityRole> GetRoleAsync(UserIdentityRole role)
         {
-            return _roleManager.Roles.Where(x => x.Id == role.Id).SingleOrDefaultAsync();            
+            return _roleManager.Roles.Where(x => x.Id == role.Id).SingleOrDefaultAsync();
         }
 
         public Task<IdentityResult> CreateRoleAsync(UserIdentityRole role)
@@ -90,7 +90,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
             var thisRole = await _roleManager.FindByIdAsync(role.Id.ToString());
             thisRole.Name = role.Name;
 
-            return await _roleManager.UpdateAsync(thisRole);            
+            return await _roleManager.UpdateAsync(thisRole);
         }
 
         public async Task<IdentityResult> DeleteRoleAsync(UserIdentityRole role)
@@ -107,7 +107,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
 
         public Task<IdentityResult> CreateUserAsync(UserIdentity user)
         {
-            return _userManager.CreateAsync(user);            
+            return _userManager.CreateAsync(user);
         }
 
         public async Task<IdentityResult> UpdateUserAsync(UserIdentity user)
@@ -117,7 +117,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
 
             userIdentity.MapTo(user);
 
-            return await _userManager.UpdateAsync(userIdentity);            
+            return await _userManager.UpdateAsync(userIdentity);
         }
 
         public async Task<IdentityResult> CreateUserRoleAsync(int userId, int roleId)
@@ -125,19 +125,19 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
             var user = await _userManager.FindByIdAsync(userId.ToString());
             var selectRole = await _roleManager.FindByIdAsync(roleId.ToString());
 
-            return await _userManager.AddToRoleAsync(user, selectRole.Name);            
+            return await _userManager.AddToRoleAsync(user, selectRole.Name);
         }
 
         public async Task<PagedList<UserIdentityRole>> GetUserRolesAsync(int userId, int page = 1, int pageSize = 10)
         {
             var pagedList = new PagedList<UserIdentityRole>();
             var roles = from r in _dbContext.Roles
-                               join ur in _dbContext.UserRoles on r.Id equals ur.RoleId
-                               where ur.UserId == userId
-                              
-                               select new UserIdentityRole { Id = r.Id, Name = r.Name };
+                        join ur in _dbContext.UserRoles on r.Id equals ur.RoleId
+                        where ur.UserId == userId
 
-            var userIdentityRoles = await roles.PageBy(x=> x.Id, page, pageSize)
+                        select new UserIdentityRole { Id = r.Id, Name = r.Name };
+
+            var userIdentityRoles = await roles.PageBy(x => x.Id, page, pageSize)
                 .ToListAsync();
 
             pagedList.Data.AddRange(userIdentityRoles);
@@ -159,7 +159,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
         {
             var pagedList = new PagedList<UserIdentityUserClaim>();
             var claims = await _dbContext.UserClaims.Where(x => x.UserId == userId)
-                .PageBy(x=> x.Id, page, pageSize)
+                .PageBy(x => x.Id, page, pageSize)
                 .ToListAsync();
 
             pagedList.Data.AddRange(claims);
@@ -185,13 +185,13 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
 
         public Task<UserIdentityUserClaim> GetUserClaimAsync(int userId, int claimId)
         {
-            return _dbContext.UserClaims.Where(x => x.UserId == userId && x.Id == claimId)                
+            return _dbContext.UserClaims.Where(x => x.UserId == userId && x.Id == claimId)
                 .SingleOrDefaultAsync();
         }
 
         public Task<UserIdentityRoleClaim> GetRoleClaimAsync(int roleId, int claimId)
         {
-            return _dbContext.RoleClaims.Where(x => x.RoleId == roleId && x.Id == claimId)                
+            return _dbContext.RoleClaims.Where(x => x.RoleId == roleId && x.Id == claimId)
                 .SingleOrDefaultAsync();
         }
 
@@ -243,7 +243,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
             var login = await _dbContext.UserLogins.Where(x => x.UserId == userId && x.ProviderKey == providerKey && x.LoginProvider == loginProvider).SingleOrDefaultAsync();
-            return await _userManager.RemoveLoginAsync(user, login.LoginProvider, login.ProviderKey);            
+            return await _userManager.RemoveLoginAsync(user, login.LoginProvider, login.ProviderKey);
         }
 
         public async Task<IdentityResult> UserChangePasswordAsync(int userId, string password)

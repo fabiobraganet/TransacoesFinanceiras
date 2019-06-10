@@ -30,7 +30,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Resources
                 Description = IdentityServiceResource.UserRoleCreateFailed
             };
         }
-    
+
         public virtual ResourceMessage UserProviderDoesNotExist()
         {
             return new ResourceMessage()

@@ -71,7 +71,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Controllers
                 return NotFound();
             }
         }
-        
+
         [HttpPost]
         public async Task<ActionResult<bool>> CriarConsumidorAsync([FromBody] CriarConsumidorCommand criarConsumidorCommand)
         {
@@ -84,7 +84,7 @@ namespace MAGVA.Back.TransacoesFinanceiras.Controllers
 
             return await _mediator.Send(criarConsumidorCommand);
         }
-        
+
         [HttpPut]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]

@@ -1,10 +1,10 @@
 ﻿
 namespace MAGVA.Middle.Security.Admin.Configuration
 {
-    using System.Collections.Generic;
     using IdentityServer4;
     using IdentityServer4.Models;
     using MAGVA.Middle.Security.Admin.Constants;
+    using System.Collections.Generic;
 
     public class Clients
     {
@@ -98,8 +98,8 @@ namespace MAGVA.Middle.Security.Admin.Configuration
 
                     },
                     // 2 horas
-                    AccessTokenLifetime = 60*60*2, 
-                    IdentityTokenLifetime= 60*60*2 
+                    AccessTokenLifetime = 60*60*2,
+                    IdentityTokenLifetime= 60*60*2
                 },
 
             };

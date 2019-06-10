@@ -2,7 +2,7 @@
 namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.Exceptions
 {
     using System;
-    
+
     public class DomainException : Exception
     {
         public DomainException()

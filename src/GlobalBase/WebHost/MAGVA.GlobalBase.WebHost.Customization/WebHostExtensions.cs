@@ -59,7 +59,7 @@ namespace Microsoft.AspNetCore.Hosting
                     logger.LogError(ex, "An error occurred while migrating the database used on context {DbContextName}", typeof(TContext).Name);
                     if (underK8s)
                     {
-                        throw; 
+                        throw;
                     }
                 }
             }

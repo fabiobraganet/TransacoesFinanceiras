@@ -5,7 +5,6 @@ namespace MAGVA.GlobalBase.IntegrationEventLogEF
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Design;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Microsoft.EntityFrameworkCore.Storage;
     using System;
     using System.Threading;
     using System.Threading.Tasks;
@@ -17,7 +16,7 @@ namespace MAGVA.GlobalBase.IntegrationEventLogEF
         private readonly IMediator _mediator;
         //private IDbContextTransaction _currentTransaction;
 
-        public IntegrationEventLogContext(DbContextOptions<IntegrationEventLogContext> options) : base(options) {}
+        public IntegrationEventLogContext(DbContextOptions<IntegrationEventLogContext> options) : base(options) { }
         public IntegrationEventLogContext(DbContextOptions<IntegrationEventLogContext> options, IMediator mediator) : base(options)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));

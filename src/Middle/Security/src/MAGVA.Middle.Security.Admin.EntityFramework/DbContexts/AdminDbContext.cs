@@ -2,22 +2,22 @@
 
 namespace MAGVA.Middle.Security.Admin.EntityFramework.DbContexts
 {
-    using System.Threading.Tasks;
+    using Constants;
+    using Entities;
+    using Entities.Identity;
     using IdentityServer4.EntityFramework.Entities;
     using IdentityServer4.EntityFramework.Extensions;
     using IdentityServer4.EntityFramework.Interfaces;
     using IdentityServer4.EntityFramework.Options;
+    using MediatR;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
-    using Constants;
-    using Entities;
-    using Entities.Identity;
-    using MediatR;
-    using System;
-    using Microsoft.EntityFrameworkCore.Storage;
-    using System.Threading;
-    using System.Data;
     using Microsoft.EntityFrameworkCore.Design;
+    using Microsoft.EntityFrameworkCore.Storage;
+    using System;
+    using System.Data;
+    using System.Threading;
+    using System.Threading.Tasks;
 
     public class AdminDbContext : IdentityDbContext<UserIdentity, UserIdentityRole, int, UserIdentityUserClaim, UserIdentityUserRole, UserIdentityUserLogin, UserIdentityRoleClaim, UserIdentityUserToken>,
         IConfigurationDbContext, IPersistedGrantDbContext
@@ -30,7 +30,7 @@ namespace MAGVA.Middle.Security.Admin.EntityFramework.DbContexts
 
         public AdminDbContext(DbContextOptions<AdminDbContext> options) : base(options) { }
 
-        public AdminDbContext(DbContextOptions<AdminDbContext> options, 
+        public AdminDbContext(DbContextOptions<AdminDbContext> options,
             ConfigurationStoreOptions storeOptions,
                 OperationalStoreOptions operationalOptions)
             : base(options)
@@ -100,7 +100,7 @@ namespace MAGVA.Middle.Security.Admin.EntityFramework.DbContexts
 
             builder.ConfigureClientContext(storeOptions);
             builder.ConfigureResourcesContext(storeOptions);
-            builder.ConfigurePersistedGrantContext(operationalStoreOptions);   
+            builder.ConfigurePersistedGrantContext(operationalStoreOptions);
         }
 
         private void ConfigureIdentityContext(ModelBuilder builder)

@@ -1,11 +1,11 @@
-﻿using System;
+﻿using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Identity.Base;
+using System;
 using System.ComponentModel.DataAnnotations;
-using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Identity.Base;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Identity
 {
     public class UserDto : BaseUserDto<int>
-    {        
+    {
         [Required]
         public string UserName { get; set; }
 

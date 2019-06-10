@@ -1,13 +1,13 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using IdentityServer4.EntityFramework.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using IdentityServer4.EntityFramework.Entities;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Enums;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Helpers;
 using MAGVA.Middle.Security.Admin.EntityFramework.DbContexts;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
 {
@@ -28,7 +28,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Repositories
 
             Expression<Func<IdentityResource, bool>> searchCondition = x => x.Name.Contains(search);
 
-            var identityResources = await _dbContext.IdentityResources.WhereIf(!string.IsNullOrEmpty(search), searchCondition).PageBy(x=> x.Name, page, pageSize).ToListAsync();
+            var identityResources = await _dbContext.IdentityResources.WhereIf(!string.IsNullOrEmpty(search), searchCondition).PageBy(x => x.Name, page, pageSize).ToListAsync();
 
             pagedList.Data.AddRange(identityResources);
             pagedList.TotalCount = await _dbContext.IdentityResources.WhereIf(!string.IsNullOrEmpty(search), searchCondition).CountAsync();

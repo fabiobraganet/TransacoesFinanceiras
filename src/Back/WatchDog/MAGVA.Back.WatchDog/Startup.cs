@@ -1,9 +1,7 @@
 ﻿
 namespace MAGVA.Back.WatchDog
 {
-    using HealthChecks.UI.Client;
     using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Diagnostics.HealthChecks;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Configuration;

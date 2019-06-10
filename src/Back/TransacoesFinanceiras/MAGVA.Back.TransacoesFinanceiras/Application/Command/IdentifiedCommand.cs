@@ -1,8 +1,8 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Application.Command
 {
-    using System;
     using MediatR;
+    using System;
 
     public class IdentifiedCommand<T, R> : IRequest<R>
         where T : IRequest<R>

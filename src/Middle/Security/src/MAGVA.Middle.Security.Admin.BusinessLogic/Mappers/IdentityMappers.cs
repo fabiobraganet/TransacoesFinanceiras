@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using AutoMapper;
-using Microsoft.AspNetCore.Identity;
+﻿using AutoMapper;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Common;
 using MAGVA.Middle.Security.Admin.BusinessLogic.Dtos.Identity;
 using MAGVA.Middle.Security.Admin.BusinessLogic.ExceptionHandling;
 using MAGVA.Middle.Security.Admin.EntityFramework.Entities.Identity;
+using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
 
 namespace MAGVA.Middle.Security.Admin.BusinessLogic.Mappers
 {
@@ -82,7 +82,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Mappers
         {
             return Mapper.Map<RoleClaimsDto>(roleClaim);
         }
-        
+
         public static UserIdentityUserClaim ToEntity(this UserClaimsDto claim)
         {
             return Mapper.Map<UserIdentityUserClaim>(claim);

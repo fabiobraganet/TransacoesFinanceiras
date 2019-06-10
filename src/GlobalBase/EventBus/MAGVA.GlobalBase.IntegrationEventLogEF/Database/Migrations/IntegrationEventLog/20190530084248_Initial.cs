@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 namespace MAGVA.GlobalBase.IntegrationEventLogEF.DataBase.Migrations.IntegrationEventLog
 {

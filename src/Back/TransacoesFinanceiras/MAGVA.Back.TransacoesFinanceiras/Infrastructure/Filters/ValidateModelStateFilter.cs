@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.Filters
+﻿namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.Filters
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Filters;

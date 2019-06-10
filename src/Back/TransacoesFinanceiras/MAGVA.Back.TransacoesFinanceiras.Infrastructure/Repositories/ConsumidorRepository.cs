@@ -1,9 +1,9 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Infrastructure.Repositories
 {
-    using Microsoft.EntityFrameworkCore;
     using Domain.AggregatesModel.ConsumidorAggregate;
     using Domain.Seedwork;
+    using Microsoft.EntityFrameworkCore;
     using System;
     using System.Linq;
     using System.Threading.Tasks;

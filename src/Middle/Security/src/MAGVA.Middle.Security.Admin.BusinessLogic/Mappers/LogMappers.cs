@@ -24,7 +24,7 @@ namespace MAGVA.Middle.Security.Admin.BusinessLogic.Mappers
         {
             return Mapper.Map<LogsDto>(logs);
         }
-        
+
         public static Log ToEntity(this LogDto log)
         {
             return Mapper.Map<Log>(log);

@@ -1,14 +1,14 @@
 ﻿
 namespace MAGVA.Back.TransacoesFinanceiras.Application.Behaviors
 {
+    using Domain.Exceptions;
     using FluentValidation;
+    using GlobalBase.EventBus.Extensions;
     using MediatR;
     using Microsoft.Extensions.Logging;
-    using Domain.Exceptions;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
-    using GlobalBase.EventBus.Extensions;
 
     public class ValidatorBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
