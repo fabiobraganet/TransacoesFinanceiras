@@ -9,34 +9,34 @@ namespace CredNet.Payments.Models
         /// <summary>
         /// Nome do portador do cartão
         /// </summary>
-        public string CardholderName { get; set; }
+        public string CardholderName { get; private set; }
 
         /// <summary>
         /// Os números que são impressos no cartão, podendo variar entre 12 à 19 dígitos
         /// </summary>
-        public string Number { get; set; }
+        public string Number { get; private set; }
 
         /// <summary>
         /// Data de expiração do cartão - Formato MM/AA
         /// </summary>
-        public string ExpirationDate { get; set; }
+        public string ExpirationDate { get; private set; }
         private DateTime _ExpirationDate => FormatExpirationDate();
 
         /// <summary>
         /// Bandeira do Cartão - Visa, Mastercard, American Express, Diners Club e Elo
         /// </summary>
-        public string CardBrand { get; set; }
+        public string CardBrand { get; private set; }
 
         /// <summary>
         /// Senha do cartão
         /// </summary>
-        public string Password { get; set; }
+        public string Password { get; private set; }
 
         /// <summary>
         /// Chip ou tarja magnética
         /// </summary>
-        public string Type { get; set; }
-        protected Enum _Type => GetTypeEnum();
+        public string Type { get; private set; }
+        private _TypeEnum _Type => GetTypeEnum();
         private enum _TypeEnum { Chip = 0, MagneticStripe = 1, InvalidType = 2 };
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace CredNet.Payments.Models
 
             if (arr.Length == 2)
                 if (arr[0].Length == 2 && arr[1].Length == 2 && int.TryParse(arr[0], out int mes) && int.TryParse(arr[1], out int ano))
-                    return new DateTime(ano, mes, DateTime.DaysInMonth(ano, mes));
+                    return new DateTime(2000+ano, mes, DateTime.DaysInMonth(2000+ano, mes));
 
             Notification.Messages.Add("InvalidExpirationDate", $"A exipração do cartão informada '{ExpirationDate}' é inválida.");
 
@@ -77,12 +77,18 @@ namespace CredNet.Payments.Models
             const string CHIP = "CHIP";
 
             _TypeEnum typeEnum = _TypeEnum.InvalidType;
-            
+
             if (string.IsNullOrEmpty(Type))
-                Notification.Messages.Add("InvalidCardType", $"Nenhum valor foi informado para o tipo de cartão.");
+            {
+                Notification.Messages.Add("InvalidCardType_001", $"Nenhum valor foi informado para o tipo de cartão.");
+                return typeEnum;
+            }
 
             if (!Type.ToUpper().Equals(CHIP) && !Type.ToUpper().Equals(MAGNETICSTRIPE))
-                Notification.Messages.Add("InvalidCardType", $"A informação do Tipo do cartão como '{Type}' é inválido.");
+            {
+                Notification.Messages.Add("InvalidCardType_002", $"A informação do Tipo do cartão como '{Type}' é inválido.");
+                return typeEnum;
+            }
 
             if (Type.ToUpper().Equals(CHIP))
                 typeEnum = _TypeEnum.Chip;
