@@ -10,7 +10,7 @@
 		"jquery-validation": "1.14.0",
 		"jquery-validation-unobtrusive": "3.2.6",
 		"bootstrap": "4.0.0",
-		"knockout": "3.4.2",
+		"knockout": "3.5.0",
 		"toastr": "2.1.4",
 		"tempusdominus-bootstrap-4": "5.0.0-alpha18",
 		"popper.js": "1.12.9",
